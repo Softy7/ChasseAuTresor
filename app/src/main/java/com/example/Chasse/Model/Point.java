@@ -1,4 +1,4 @@
-package com.example.lunettetp1.Model;
+package com.example.Chasse.Model;
 
 public class Point {
     private double x;
