@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.lunettetp1'
+    namespace 'com.example.Chasse'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.lunettetp1"
+        applicationId "com.example.Chasse"
         minSdk 27
         targetSdk 34
         versionCode 1

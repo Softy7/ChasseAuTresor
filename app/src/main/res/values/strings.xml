@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">LunetteTP1</string>
+    <string name="app_name">Chasse du Cirque de Maubeuge</string>
+    <string name="jouer">Jouer</string>
 </resources>
