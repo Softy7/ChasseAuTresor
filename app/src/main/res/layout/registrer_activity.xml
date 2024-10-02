@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.135" />
 
     <EditText
-        android:id="@+id/editTextSexe"
+        android:id="@+id/sexe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.514" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/passwordC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="92dp"
@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.818" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -64,7 +64,7 @@
         app:layout_constraintVertical_bias="0.413" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/fName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -79,7 +79,7 @@
         app:layout_constraintVertical_bias="0.332" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/lName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -93,7 +93,7 @@
         app:layout_constraintVertical_bias="0.223" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -107,7 +107,7 @@
         app:layout_constraintVertical_bias="0.607" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/send"
         android:layout_width="320dp"
         android:layout_height="43dp"
         android:text="Valider Inscription"

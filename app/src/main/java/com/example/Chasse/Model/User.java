@@ -15,14 +15,15 @@ public class User {
 
     public User() {}
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -30,7 +31,7 @@ public class User {
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     public void setLastName(String lastName) {
@@ -38,7 +39,7 @@ public class User {
     }
 
     public String getUserName() {
-        return userName;
+        return this.userName;
     }
 
     public void setUserName(String userName) {
@@ -46,7 +47,7 @@ public class User {
     }
 
     public String getSexe() {
-        return sexe;
+        return this.sexe;
     }
 
     public void setSexe(String sexe) {
@@ -54,7 +55,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -62,7 +63,7 @@ public class User {
     }
 
     public ArrayList<User> getFriends() {
-        return friends;
+        return this.friends;
     }
     public boolean newFriend(User user) {
         if(this.friends.contains(user)) return false;
