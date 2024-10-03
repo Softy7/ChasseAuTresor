@@ -90,14 +90,14 @@ public class Registractivity extends AppCompatActivity {
                         "', \"sexe\":'" + user.getSexe() +
                         "', \"password\":'" + user.getPassword() + "'}";
                 this.saveFile(Registractivity.this, connexion);
-
+                finish();
             }
         });
 
     }
 
     private void saveFile(Context context, String conn) {
-        String filename = "connect.json";
+        String filename = "connect";
 
         // Enregistrer le fichier
         try {
