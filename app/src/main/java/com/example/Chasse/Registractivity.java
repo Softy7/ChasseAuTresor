@@ -1,6 +1,8 @@
 package com.example.Chasse;
 
+import android.content.Context;
 import android.content.Intent;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +11,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.Chasse.Model.User;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
 public class Registractivity extends AppCompatActivity {
 
@@ -59,9 +73,42 @@ public class Registractivity extends AppCompatActivity {
                 Toast.makeText(this, "Mot de passe trop court", Toast.LENGTH_LONG).show();
             } else if (!this.password.getText().toString().equals(this.passwordC.getText().toString())) {
                 Toast.makeText(this, "Veuillez confirmer votre mot de passe", Toast.LENGTH_LONG).show();
+            } else {
+
+                User user = new User();
+                user.setUserName(this.username.getText().toString());
+                user.setLastName(this.name.getText().toString());
+                user.setFirstName(this.fName.getText().toString());
+                user.setEmail(this.email.getText().toString());
+                user.setSexe(this.sexe.getText().toString());
+                user.setPassword(this.password.getText().toString());
+
+                String connexion = "{\"username\":'" + user.getUserName() +
+                        "', \"name\":'" + user.getLastName() +
+                        "', \"fname\":'" + user.getFirstName() +
+                        "', \"mail\":'" + user.getEmail() +
+                        "', \"sexe\":'" + user.getSexe() +
+                        "', \"password\":'" + user.getPassword() + "'}";
+                this.saveFile(Registractivity.this, connexion);
+
             }
         });
 
+    }
+
+    private void saveFile(Context context, String conn) {
+        String filename = "connect.json";
+
+        // Enregistrer le fichier
+        try {
+            FileOutputStream fos = openFileOutput(filename, Context.MODE_PRIVATE);
+            fos.write(conn.getBytes());
+            fos.close();
+
+            Toast.makeText(this, "Informations de connexion Enregistrées", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            Toast.makeText(this, "Erreur lors de l'enregistrement des informations : " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
 }
