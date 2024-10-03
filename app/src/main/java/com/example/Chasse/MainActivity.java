@@ -28,14 +28,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if(readConn() == null) {
             Intent intent = new Intent(this, Registractivity.class);
-
+            startActivity(intent);
         }
 
     }
 
     protected User readConn() {
-
-        String filename = "connect.json";
+        String filename = "connect";
 
         try {
             InputStream inputStream = openFileInput(filename);
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             String username = jsonObject.getString("username");
             String name = jsonObject.getString("name");
             String fname = jsonObject.getString("fname");
-            String mail = jsonObject.getString("email");
+            String mail = jsonObject.getString("mail");
             String sexe = jsonObject.getString("sexe");
             String password = jsonObject.getString("password");
 
@@ -70,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
 
             return user;
         }
+        catch (IOException | JSONException ignored) {
+            return null;
+        }
 
-        catch (IOException | JSONException ignored) {}
-
-        return null;
     }
 
 }
