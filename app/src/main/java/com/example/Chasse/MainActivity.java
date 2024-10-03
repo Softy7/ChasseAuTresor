@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<String> call, Throwable throwable) {
                         throwable.printStackTrace();
+                        System.out.println("Request failed onFailure: " + throwable.getMessage());
+                        throwable.getCause();
+                        System.out.println(throwable.getLocalizedMessage());
+                        System.out.println("Message : " + throwable.getMessage());
                     }
                 });
             }

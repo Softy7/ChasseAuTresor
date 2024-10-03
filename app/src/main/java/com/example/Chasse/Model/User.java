@@ -8,12 +8,24 @@ public class User {
     private String email;
     private String firstName;
     private String lastName;
-    private String userName;
+    private String pseudo;
     private String sexe;
     private String password;
     private ArrayList<User> friends;
 
     public User() {}
+
+
+    public User(String email, String firstName, String lastName, String pseudo, String password){
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.pseudo = pseudo;
+        this.password = password;
+        this.friends = new ArrayList<User>();
+    }
+
+
     public String getEmail() {
         return this.email;
     }
@@ -38,12 +50,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return this.userName;
+    public String getPseudo() {
+        return this.pseudo;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public String getSexe() {
