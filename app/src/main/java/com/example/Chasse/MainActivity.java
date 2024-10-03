@@ -5,74 +5,75 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+
+import com.example.Chasse.Model.User;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
-    protected Button buttonRegistration;
-    protected Button buttonLogin;
+    protected Button button_start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.buttonRegistration = findViewById(R.id.inscription);
-        this.buttonRegistration.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Registractivity.class);
-            startActivity(intent);
-        });
-        this.buttonLogin = findViewById(R.id.login);
-        this.buttonLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-        });
+        if(readConn() == null) {
+            Intent intent = new Intent(this, Registractivity.class);
 
-        // Pour tester les requêtes asynchrones
-        ConstraintLayout constraintLayout = findViewById(R.id.layout);
-        Button button = new Button(this);
-        button.setText("Test requete api");
-        constraintLayout.addView(button);
-        button.setOnClickListener(new OnClickListener() {
+        }
 
-            @Override
-            public void onClick(View view) {
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("https://reqres.in/api/")
-                        .addConverterFactory(ScalarsConverterFactory.create())
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-
-                ApiService apiService = retrofit.create(ApiService.class);
-
-                Call<String> call = apiService.getData();
-                call.enqueue(new Callback<String>() {
-                    @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        if (response.isSuccessful()) {
-                            String myResponse = response.body();
-                            System.out.println(myResponse);
-                        } else {
-                            System.out.println("Request failed: " + response.code() + " " + response.message() + " " + response.body());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<String> call, Throwable throwable) {
-                        throwable.printStackTrace();
-                        System.out.println("Request failed onFailure: " + throwable.getMessage());
-                        throwable.getCause();
-                        System.out.println(throwable.getLocalizedMessage());
-                        System.out.println("Message : " + throwable.getMessage());
-                    }
-                });
-            }
-        });
     }
+
+    protected User readConn() {
+
+        String filename = "connect.json";
+
+        try {
+            InputStream inputStream = openFileInput(filename);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder jsonBuilder = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                jsonBuilder.append(line);
+            }
+
+            reader.close();
+            inputStream.close();
+
+            String jsonString = jsonBuilder.toString();
+            JSONObject jsonObject = new JSONObject(jsonString);
+
+            String username = jsonObject.getString("username");
+            String name = jsonObject.getString("name");
+            String fname = jsonObject.getString("fname");
+            String mail = jsonObject.getString("email");
+            String sexe = jsonObject.getString("sexe");
+            String password = jsonObject.getString("password");
+
+            User user = new User();
+            user.setUserName(username);
+            user.setLastName(name);
+            user.setFirstName(fname);
+            user.setEmail(mail);
+            user.setSexe(sexe);
+            user.setPassword(password);
+
+            return user;
+        }
+
+        catch (IOException | JSONException ignored) {}
+
+        return null;
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.example.Chasse;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,13 +17,25 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import com.example.Chasse.Model.User;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
 public class Registractivity extends AppCompatActivity {
 
     protected Button back;
     protected Button send;
     protected EditText username;
-    protected EditText firstName;
     protected EditText lastName;
+    protected EditText firstName;
     protected EditText sexe;
     protected EditText email;
     protected EditText password;
@@ -38,21 +50,21 @@ public class Registractivity extends AppCompatActivity {
         this.send = findViewById(R.id.send);
 
         this.username = findViewById(R.id.username);
-        this.firstName = findViewById(R.id.lName);
-        this.lastName = findViewById(R.id.fName);
+        this.lastName = findViewById(R.id.lName);
+        this.firstName = findViewById(R.id.fName);
         this.sexe = findViewById(R.id.sexe);
         this.email = findViewById(R.id.email);
         this.password = findViewById(R.id.password);
         this.passwordC = findViewById(R.id.passwordC);
 
-        this.back.setOnClickListener(view -> finish());
+        this.back.setOnClickListener(v -> finish());
 
-        this.send.setOnClickListener(view -> {
+        this.send.setOnClickListener(v -> {
             if(this.username.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Pseudo non renseigné", Toast.LENGTH_LONG).show();
-            } else if (this.firstName.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Nom de Famille non renseigné", Toast.LENGTH_LONG).show();
             } else if (this.lastName.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Nom de Famille non renseigné", Toast.LENGTH_LONG).show();
+            } else if (this.firstName.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Prénom non renseigné", Toast.LENGTH_LONG).show();
             }  else if (this.email.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Email non renseigné", Toast.LENGTH_LONG).show();
@@ -118,6 +130,21 @@ public class Registractivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void saveFile(Context context, String conn) {
+        String filename = "connect.json";
+
+        // Enregistrer le fichier
+        try {
+            FileOutputStream fos = openFileOutput(filename, Context.MODE_PRIVATE);
+            fos.write(conn.getBytes());
+            fos.close();
+
+            Toast.makeText(this, "Informations de connexion Enregistrées", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            Toast.makeText(this, "Erreur lors de l'enregistrement des informations : " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
 }
