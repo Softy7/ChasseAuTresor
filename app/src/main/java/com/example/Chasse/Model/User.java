@@ -77,8 +77,4 @@ public class User {
     public ArrayList<User> getFriends() {
         return this.friends;
     }
-    public boolean newFriend(User user) {
-        if(this.friends.contains(user)) return false;
-        else this.friends.add(user); return true;
-    }
 }

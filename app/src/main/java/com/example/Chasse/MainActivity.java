@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if(readConn() == null) {
-            Intent intent = new Intent(this, Registractivity.class);
+            Intent intent = new Intent(this, ChoiceConnectActivity.class);
             startActivity(intent);
         }
 
     }
 
-    protected User readConn() {
+    private User readConn() {
         String filename = "connect";
 
         try {

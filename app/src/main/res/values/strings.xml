@@ -2,4 +2,8 @@
     <string name="app_name">Chasse du Cirque de Maubeuge</string>
     <string name="createGame">Créer une partie</string>
     <string name="joinGame">Rejoindre une partie</string>
+    <string name="title_activity_choice_connect">ChoiceConnectActivity</string>
+    <string name="you_connect">Se Connecter</string>
+    <string name="s_inscrire">S\'inscrire</string>
+
 </resources>
