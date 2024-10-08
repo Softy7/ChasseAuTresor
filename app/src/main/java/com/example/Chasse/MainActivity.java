@@ -1,6 +1,5 @@
 package com.example.Chasse;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,24 +14,23 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.lang.ref.Cleaner;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URL;
-
 public class MainActivity extends AppCompatActivity {
 
-    protected Button button_start;
+    protected Button buttonRegistration;
+    protected Button buttonLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.button_start = findViewById(R.id.play);
-        this.button_start.setOnClickListener(v -> {
+        this.buttonRegistration = findViewById(R.id.inscription);
+        this.buttonRegistration.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, Registractivity.class);
+            startActivity(intent);
+        });
+        this.buttonLogin = findViewById(R.id.login);
+        this.buttonLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         });
 
