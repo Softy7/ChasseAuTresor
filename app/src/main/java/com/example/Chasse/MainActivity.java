@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 public class MainActivity extends AppCompatActivity {
 
     protected Button button_start;
@@ -24,6 +26,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        this.button_start.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View view1 = getLayoutInflater().inflate(R.layout.activity_main, null);
+                BottomSheetDialog dialog = new BottomSheetDialog(null);
+                dialog.setContentView(view1);
+                dialog.show();
+            }
+
+        });
     }
+
+
 
 }
