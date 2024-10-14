@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             String password = jsonObject.getString("password");
 
             User user = new User();
-            user.setUserName(username);
+            user.setPseudo(username);
             user.setLastName(name);
             user.setFirstName(fname);
             user.setEmail(mail);

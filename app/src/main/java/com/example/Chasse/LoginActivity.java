@@ -30,9 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connect_activity);
 
-        this.authentification = findViewById(R.id.email_login);
-        this.password = findViewById(R.id.password_login);
-        this.confirm = findViewById(R.id.button_login);
+        this.authentification = findViewById(R.id.authentification);
+        this.password = findViewById(R.id.password);
+        this.confirm = findViewById(R.id.send);
         this.back = findViewById(R.id.back);
         this.back.setOnClickListener(v -> finish());
 
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<UserRequest> call, Throwable throwable) {
                         System.out.println(throwable.getMessage());
-                        Toast.makeText(LoginActivity.this, "Erreur de connexion", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
                 finish();
