@@ -1,0 +1,87 @@
+Méthode 1 : Utiliser Retrofit (méthode + moderne)
+
+ApiService:
+import retrofit2.Call;
+import retrofit2.http.GET;
+
+public interface ApiService {
+    @GET("users")
+    Call<String> getData();
+}
+
+MainActivity:
+Button button = new Button(this);
+        button.setText("Test");
+        constraintLayout.addView(button);
+        button.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("https://reqres.in/api/")
+                        .addConverterFactory(ScalarsConverterFactory.create())
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                ApiService apiService = retrofit.create(ApiService.class);
+
+                Call<String> call = apiService.getData();
+                call.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        if (response.isSuccessful()) {
+                            String myResponse = response.body();
+                            System.out.println(myResponse);
+                        } else {
+                            System.out.println("Request failed: " + response.code() + " " + response.message() + " " + response.body());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable throwable) {
+                        throwable.printStackTrace();
+                    }
+                });
+            }
+        });
+
+
+Méthode 2 : Utiliser HttpURLConnection
+
+MainActivity:
+Button button2 = new Button(this);
+        button2.setText("TEST 2");
+        constraintLayout.addView(button2);
+        button2.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                new Thread(() -> {
+                    try {
+                        String url = "https://reqres.in/api/users/";
+                        URL obj = new URL(url);
+                        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                        con.setRequestMethod("GET");
+
+                        con.setRequestProperty("User-Agent", "Mozilla/5.0");
+
+                        int responseCode = con.getResponseCode();
+                        System.out.println("Response Code : " + responseCode);
+
+                        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                        String inputLine;
+                        StringBuffer response = new StringBuffer();
+
+                        while ((inputLine = in.readLine()) != null) {
+                            response.append(inputLine);
+                        }
+                        in.close();
+
+                        System.out.println(response.toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+            }
+        });
