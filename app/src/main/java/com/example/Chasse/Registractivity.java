@@ -43,9 +43,8 @@ public class Registractivity extends AppCompatActivity {
         this.send = findViewById(R.id.send);
 
         this.username = findViewById(R.id.username);
-        this.lastName = findViewById(R.id.lName);
-        this.firstName = findViewById(R.id.fName);
-        this.sexe = findViewById(R.id.sexe);
+        this.firstName = findViewById(R.id.lName);
+        this.lastName = findViewById(R.id.fName);
         this.email = findViewById(R.id.email);
         this.password = findViewById(R.id.password);
         this.passwordC = findViewById(R.id.passwordC);
