@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.menu_main);
         this.button_start = findViewById(R.id.play);
         this.button_start.setOnClickListener(new OnClickListener() {
             @Override
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         this.button_start.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                View view1 = getLayoutInflater().inflate(R.layout.activity_main, null);
+                View view1 = getLayoutInflater().inflate(R.layout.menu_main, null);
                 BottomSheetDialog dialog = new BottomSheetDialog(null);
                 dialog.setContentView(view1);
                 dialog.show();
