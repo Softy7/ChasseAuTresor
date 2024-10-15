@@ -1,5 +1,4 @@
 package com.example.Chasse;
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -14,7 +13,7 @@ public class ParamActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_all);
+        setContentView(R.layout.popup_setting_all);
 
         viewPager = (ViewPager) findViewById(R.id.actionbar);
         setupViewPager(viewPager);
