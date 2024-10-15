@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/greenB"
+    android:background="@color/Belge"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="310dp"
-        android:background="@color/green">
+        android:background="@color/BelgeF">
 
 
         <ImageButton
@@ -69,6 +69,7 @@
         android:layout_height="wrap_content"
         android:text="@string/compte"
         android:layout_marginStart="100dp"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
         />

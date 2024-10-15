@@ -7,4 +7,12 @@
     <string name="cr_er_une_partie">Créer une partie</string>
     <string name="cum_tr_sors">CUM Trésors</string>
     <string name="compte">Compte</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="confirmer_mot_de_passe">Confirmer Mot de passe</string>
+    <string name="adresse_mail">Adresse Mail</string>
+    <string name="pr_nom">Prénom</string>
+    <string name="nom">Nom</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="valider_inscription">Valider Inscription</string>
+    <string name="button">Button</string>
 </resources>

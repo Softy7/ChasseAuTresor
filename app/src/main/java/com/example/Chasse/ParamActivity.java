@@ -14,16 +14,6 @@ public class ParamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_setting_all);
-
-        viewPager = (ViewPager) findViewById(R.id.actionbar);
-        setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.infos);
-        tabLayout.setupWithViewPager(viewPager);
     }
-
-    private void setupViewPager(ViewPager viewPager) {
-
-    }
-
 }
+
