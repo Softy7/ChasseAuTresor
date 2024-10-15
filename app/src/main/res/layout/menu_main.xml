@@ -8,39 +8,66 @@
     android:background="@drawable/background_main"
     >
 
-
-    <Button
-        android:id="@+id/play"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:text="@string/rejoindre_une_partie"
-        android:textSize="22sp"
-        android:textStyle="bold"
+    <!-- Bouton rejoindre une partie -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.853" />
+        app:layout_constraintVertical_bias="0.853">
 
-    <Button
-        android:id="@+id/create"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:text="@string/cr_er_une_partie"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@drawable/btn"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="@string/rejoindre_une_partie"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+    </FrameLayout>
+
+    <!-- Bouton créer une partie -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942" />
+        app:layout_constraintVertical_bias="0.942">
 
+        <ImageButton
+            android:id="@+id/create"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@drawable/btn"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/cr_er_une_partie"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/textView"
         android:textSize="35sp"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cum_tr_sors"
@@ -55,30 +82,39 @@
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="null"
-        app:srcCompat="@drawable/btnparam"
-        tools:layout_editor_absoluteX="340dp"
-        tools:layout_editor_absoluteY="100dp"
-        tools:ignore="MissingConstraints" />
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.140"
+        app:srcCompat="@drawable/btnparam" />
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="null"
-        app:srcCompat="@drawable/btnscore"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="100dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.040"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.140"
+        app:srcCompat="@drawable/btnscore" />
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="46dp"
+        android:layout_width="48dp"
         android:layout_height="48dp"
-        android:background="null"
-        app:srcCompat="@drawable/btnfriend"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="520dp" />
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.764"
+        app:srcCompat="@drawable/btnfriend" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
