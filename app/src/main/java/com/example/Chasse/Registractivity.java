@@ -1,19 +1,13 @@
 package com.example.Chasse;
 
-import android.content.Context;
-import android.content.Intent;
-import android.icu.text.IDNA;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.Chasse.Model.UserRequest;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
+import com.example.Chasse.Model.System.MainSystem;
 import com.google.gson.JsonObject;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,8 +15,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class Registractivity extends AppCompatActivity {
 
@@ -98,7 +90,8 @@ public class Registractivity extends AppCompatActivity {
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
                             System.out.println("Nouveau utilisateur créé avec succès!");
-                            Toast.makeText(Registractivity.this, "Nouveau utilisateur créé avec succès!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Registractivity.this, "Compte créé avec succès !", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Registractivity.this, "Vous pouvez vous connecter !", Toast.LENGTH_LONG).show();
                             finish();
                         } else if (response.code() == 409){
                             System.out.println("ERREUR 409 !!!!!");
@@ -127,19 +120,5 @@ public class Registractivity extends AppCompatActivity {
 
     }
 
-    private void saveFile(Context context, String conn) {
-        String filename = "connect.json";
-
-        // Enregistrer le fichier
-        try {
-            FileOutputStream fos = openFileOutput(filename, Context.MODE_PRIVATE);
-            fos.write(conn.getBytes());
-            fos.close();
-
-            Toast.makeText(this, "Informations de connexion Enregistrées", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            Toast.makeText(this, "Erreur lors de l'enregistrement des informations : " + e.getMessage(), Toast.LENGTH_LONG).show();
-        }
-    }
 
 }

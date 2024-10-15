@@ -1,22 +1,23 @@
 package com.example.Chasse;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.Chasse.Model.User;
+
+import com.example.Chasse.Model.System.MainSystem;
 import com.example.Chasse.Model.UserRequest;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     protected EditText password;
     protected Button confirm;
     protected Button back;
+    protected MainSystem mainSystem = new MainSystem();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,9 @@ public class LoginActivity extends AppCompatActivity {
 
         confirm.setOnClickListener(view -> {
             if (!this.authentification.getText().toString().contains("@")) {
-                Toast.makeText(this, "Authentification renseignée invalide", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Authentification invalide", Toast.LENGTH_LONG).show();
             } else if (this.password.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Mot de passe non renseigné", Toast.LENGTH_LONG).show();
-            } else if (this.password.getText().toString().length() < 8) {
-                Toast.makeText(this, "Mot de passe trop court", Toast.LENGTH_LONG).show();
             } else {
 
                 String email = this.authentification.getText().toString();
@@ -61,11 +61,26 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             UserRequest user = response.body();
                             if (user != null) {
-                                System.out.println(user);
-                                Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
+
+                                JsonObject jsonObject = new JsonObject();
+                                Log.d("email",user.email());
+                                jsonObject.addProperty("email", user.email());
+                                Log.d("firstName", user.firstName());
+                                jsonObject.addProperty("firstName", user.firstName());
+                                Log.d("lastName", user.lastName());
+                                jsonObject.addProperty("lastName", user.lastName());
+                                Log.d("pseudo", user.pseudo());
+                                jsonObject.addProperty("pseudo", user.pseudo());
+                                Log.d("id", ""+user.userId());
+                                jsonObject.addProperty("id", user.userId());
+
+                                if(mainSystem.saveUser(LoginActivity.this, jsonObject.toString())) {
+                                    Toast.makeText(LoginActivity.this, "Vous êtes connectés", Toast.LENGTH_LONG).show();
+                                    finish();
+                                }
+
                             } else {
-                                System.out.println("mot de passe ou email pas bon");
-                                Toast.makeText(LoginActivity.this, "mot de passe ou email pas bon", Toast.LENGTH_LONG).show();
+                                Toast.makeText(LoginActivity.this, "Email ou Mot de passe Incorrect", Toast.LENGTH_LONG).show();
                             }
 
                         } else {
@@ -81,23 +96,9 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-                finish();
+
             }
         });
     }
 
-    private void saveFile(Context context, String conn) {
-        String filename = "connect";
-
-        // Enregistrer le fichier
-        try {
-            FileOutputStream fos = openFileOutput(filename, Context.MODE_PRIVATE);
-            fos.write(conn.getBytes());
-            fos.close();
-
-            Toast.makeText(this, "Informations de connexion Enregistrées", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            Toast.makeText(this, "Erreur lors de l'enregistrement des informations : " + e.getMessage(), Toast.LENGTH_LONG).show();
-        }
-    }
 }
