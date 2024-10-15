@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected ImageButton createGame;
     protected ImageButton loadGame;
+    protected ImageButton params;
 
     protected MainSystem mainSystem = new MainSystem();
 
@@ -37,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
         loadGame = findViewById(R.id.LoadGame);
         loadGame.setOnClickListener(v -> {});
+
+        params = findViewById(R.id.params);
+        params.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ParamActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
