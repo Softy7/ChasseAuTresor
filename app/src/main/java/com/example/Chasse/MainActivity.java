@@ -30,4 +30,13 @@ public class MainActivity extends AppCompatActivity {
         loadGame = findViewById(R.id.LoadGame);
         loadGame.setOnClickListener(v -> {});
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (mainSystem.readUser(MainActivity.this) == null) {
+            Intent intent = new Intent(this, ChoiceConnectActivity.class);
+            startActivity(intent);
+        }
+    }
 }

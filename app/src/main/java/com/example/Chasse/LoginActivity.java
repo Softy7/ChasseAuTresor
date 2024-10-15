@@ -1,5 +1,6 @@
 package com.example.Chasse;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -11,7 +12,6 @@ import com.example.Chasse.Model.System.MainSystem;
 import com.example.Chasse.Model.UserRequest;
 import com.google.gson.JsonObject;
 
-import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +31,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connect_activity);
+
+        if (mainSystem.readUser(LoginActivity.this) != null) {
+            finish();
+        }
 
         this.authentification = findViewById(R.id.authentification);
         this.password = findViewById(R.id.password);

@@ -1,5 +1,6 @@
 package com.example.Chasse;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Registractivity extends AppCompatActivity {
 
+    protected MainSystem mainSystem = new MainSystem();
     protected Button back;
     protected Button send;
     protected EditText username;
@@ -32,6 +34,10 @@ public class Registractivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registrer_activity);
+
+        if (mainSystem.readUser(Registractivity.this) != null) {
+            finish();
+        }
 
         this.back = findViewById(R.id.back);
         this.send = findViewById(R.id.send);

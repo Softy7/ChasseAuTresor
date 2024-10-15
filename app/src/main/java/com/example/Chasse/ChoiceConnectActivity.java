@@ -17,9 +17,8 @@ public class ChoiceConnectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choice_connect_activity);
-        if (mainSystem.readUser(ChoiceConnectActivity.this) == null) {
-            Intent intent = new Intent(this, ChoiceConnectActivity.class);
-            startActivity(intent);
+        if (mainSystem.readUser(ChoiceConnectActivity.this) != null) {
+            finish();
         }
 
         this.connect = findViewById(R.id.connect);
