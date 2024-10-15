@@ -2,7 +2,9 @@ package com.example.Chasse;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.Chasse.Model.System.MainSystem;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,8 +14,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class MainActivity extends AppCompatActivity {
 
-    protected Button createGame;
-    protected Button loadGame;
+    protected ImageButton createGame;
+    protected ImageButton loadGame;
 
     protected MainSystem mainSystem = new MainSystem();
 
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ChoiceConnectActivity.class);
             startActivity(intent);
         }
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         createGame = findViewById(R.id.CreateGame);
         createGame.setOnClickListener(v -> {});
