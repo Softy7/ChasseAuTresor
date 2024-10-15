@@ -23,7 +23,8 @@
             android:id="@+id/LoadGame"
             android:layout_width="300dp"
             android:layout_height="48dp"
-            android:background="@drawable/btn"/>
+            android:background="@drawable/btn"
+            android:contentDescription="@string/rejoindre_une_partie"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +52,8 @@
             android:id="@+id/CreateGame"
             android:layout_width="300dp"
             android:layout_height="48dp"
-            android:background="@drawable/btn"/>
+            android:background="@drawable/btn"
+            android:contentDescription="@string/cr_er_une_partie"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -79,9 +81,9 @@
         app:layout_constraintVertical_bias="0.269" />
 
     <ImageButton
-        android:id="@+id/params"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:background="@color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +91,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.140"
-        app:srcCompat="@drawable/btnparam" />
+        app:srcCompat="@drawable/btnparam"
+        android:contentDescription="@string/param_tres"/>
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -102,7 +105,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.140"
-        app:srcCompat="@drawable/btnscore" />
+        app:srcCompat="@drawable/btnscore"
+        android:contentDescription="@string/classement"/>
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -115,6 +119,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.764"
-        app:srcCompat="@drawable/btnfriend" />
+        app:srcCompat="@drawable/btnfriend"
+        android:contentDescription="@string/amis"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
