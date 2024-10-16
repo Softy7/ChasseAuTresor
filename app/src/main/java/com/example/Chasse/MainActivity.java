@@ -3,38 +3,50 @@ package com.example.Chasse;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
+
+import com.example.Chasse.Model.System.MainSystem;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class MainActivity extends AppCompatActivity {
 
-    protected Button buttonRegistration;
-    protected Button buttonLogin;
+    protected ImageButton createGame;
+    protected ImageButton loadGame;
+    protected ImageButton params;
+
+    protected MainSystem mainSystem = new MainSystem();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.buttonRegistration = findViewById(R.id.inscription);
-        this.buttonRegistration.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Registractivity.class);
+        if (mainSystem.readUser(MainActivity.this) == null) {
+            Intent intent = new Intent(this, ChoiceConnectActivity.class);
             startActivity(intent);
-        });
-        this.buttonLogin = findViewById(R.id.login);
-        this.buttonLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        }
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        createGame = findViewById(R.id.CreateGame);
+        createGame.setOnClickListener(v -> {});
+
+        loadGame = findViewById(R.id.LoadGame);
+        loadGame.setOnClickListener(v -> {});
+
+        params = findViewById(R.id.params);
+        params.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ParamActivity.class);
             startActivity(intent);
         });
 
-        // Pour tester les requêtes asynchrones
+        // Pour le test de la connexion wifi
+        // Sera effacé à temps
         ConstraintLayout constraintLayout = findViewById(R.id.layout);
         Button button = new Button(this);
         button.setText("Jeu");
@@ -48,5 +60,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (mainSystem.readUser(MainActivity.this) == null) {
+            Intent intent = new Intent(this, ChoiceConnectActivity.class);
+            startActivity(intent);
+        }
     }
 }

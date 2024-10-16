@@ -9,19 +9,18 @@ public class User {
     private String firstName;
     private String lastName;
     private String pseudo;
-    private String sexe;
-    private String password;
+    private int id;
     private ArrayList<User> friends;
 
     public User() {}
 
 
-    public User(String email, String firstName, String lastName, String pseudo, String password){
+    public User(String email, String firstName, String lastName, String pseudo, int id){
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.pseudo = pseudo;
-        this.password = password;
+        this.id = id;
         this.friends = new ArrayList<User>();
     }
 
@@ -58,27 +57,16 @@ public class User {
         this.pseudo = pseudo;
     }
 
-    public String getSexe() {
-        return this.sexe;
+    public int getId() {
+        return id;
     }
 
-    public void setSexe(String sexe) {
-        this.sexe = sexe;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public ArrayList<User> getFriends() {
         return this.friends;
     }
-    public boolean newFriend(User user) {
-        if(this.friends.contains(user)) return false;
-        else this.friends.add(user); return true;
-    }
+
 }
