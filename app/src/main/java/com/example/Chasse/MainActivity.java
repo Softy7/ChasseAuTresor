@@ -37,41 +37,15 @@ public class MainActivity extends AppCompatActivity {
         // Pour tester les requêtes asynchrones
         ConstraintLayout constraintLayout = findViewById(R.id.layout);
         Button button = new Button(this);
-        button.setText("Test requete api");
+        button.setText("Jeu");
         constraintLayout.addView(button);
         button.setOnClickListener(new OnClickListener() {
 
+
             @Override
             public void onClick(View view) {
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("https://reqres.in/api/")
-                        .addConverterFactory(ScalarsConverterFactory.create())
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-
-                ApiService apiService = retrofit.create(ApiService.class);
-
-                Call<String> call = apiService.getData();
-                call.enqueue(new Callback<String>() {
-                    @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        if (response.isSuccessful()) {
-                            String myResponse = response.body();
-                            System.out.println(myResponse);
-                        } else {
-                            System.out.println("Request failed: " + response.code() + " " + response.message() + " " + response.body());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<String> call, Throwable throwable) {
-                        throwable.printStackTrace();
-                        System.out.println("Request failed onFailure: " + throwable.getMessage());
-                        throwable.getCause();
-                        System.out.println(throwable.getLocalizedMessage());
-                        System.out.println("Message : " + throwable.getMessage());
-                    }
-                });
+                Intent intent = new Intent(MainActivity.this, BeforeGameActivity.class);
+                startActivity(intent);
             }
         });
     }
