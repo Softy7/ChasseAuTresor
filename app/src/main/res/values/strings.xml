@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Chasse du Cirque de Maubeuge</string>
-    <string name="jouer">Jouer</string>
+    <string name="title_activity_choice_connect">ChoiceConnectActivity</string>
+    <string name="you_connect">Se Connecter</string>
     <string name="s_inscrire">S\'inscrire</string>
-    <string name="se_connecter">Se connecter</string>
+
     <string name="rejoindre_une_partie">Rejoindre une partie</string>
     <string name="cr_er_une_partie">Créer une partie</string>
     <string name="cum_tr_sors">CUM Trésors</string>
@@ -15,4 +16,7 @@
     <string name="mot_de_passe">Mot de passe</string>
     <string name="valider_inscription">Valider Inscription</string>
     <string name="button">Button</string>
+    <string name="param_tres">Paramétres</string>
+    <string name="classement">Classement</string>
+    <string name="amis">amis</string>
 </resources>

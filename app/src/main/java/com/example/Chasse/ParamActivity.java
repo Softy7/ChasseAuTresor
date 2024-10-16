@@ -7,13 +7,13 @@ import com.google.android.material.tabs.TabLayout;
 
 public class ParamActivity extends AppCompatActivity {
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.popup_setting_all);
     }
-}
 
+    private void setupViewPager(ViewPager viewPager) {
+
+    }
+
+}

@@ -1,15 +1,14 @@
 package com.example.Chasse;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.Chasse.Model.UserRequest;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
+import com.example.Chasse.Model.System.MainSystem;
 import com.google.gson.JsonObject;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,13 +16,15 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
 public class Registractivity extends AppCompatActivity {
 
+    protected MainSystem mainSystem = new MainSystem();
     protected Button back;
     protected Button send;
     protected EditText username;
-    protected EditText firstName;
     protected EditText lastName;
+    protected EditText firstName;
     protected EditText sexe;
     protected EditText email;
     protected EditText password;
@@ -33,6 +34,10 @@ public class Registractivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registrer_activity);
+
+        if (mainSystem.readUser(Registractivity.this) != null) {
+            finish();
+        }
 
         this.back = findViewById(R.id.back);
         this.send = findViewById(R.id.send);
@@ -44,14 +49,14 @@ public class Registractivity extends AppCompatActivity {
         this.password = findViewById(R.id.password);
         this.passwordC = findViewById(R.id.passwordC);
 
-        this.back.setOnClickListener(view -> finish());
+        this.back.setOnClickListener(v -> finish());
 
-        this.send.setOnClickListener(view -> {
+        this.send.setOnClickListener(v -> {
             if(this.username.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Pseudo non renseigné", Toast.LENGTH_LONG).show();
-            } else if (this.firstName.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Nom de Famille non renseigné", Toast.LENGTH_LONG).show();
             } else if (this.lastName.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Nom de Famille non renseigné", Toast.LENGTH_LONG).show();
+            } else if (this.firstName.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Prénom non renseigné", Toast.LENGTH_LONG).show();
             }  else if (this.email.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Email non renseigné", Toast.LENGTH_LONG).show();
@@ -68,7 +73,7 @@ public class Registractivity extends AppCompatActivity {
             } else {
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://10.0.2.2:55556/sae_tresor/api/")
+                        .baseUrl("http://92.140.29.192:55556/sae_tresor/api/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
 
@@ -90,7 +95,8 @@ public class Registractivity extends AppCompatActivity {
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
                             System.out.println("Nouveau utilisateur créé avec succès!");
-                            Toast.makeText(Registractivity.this, "Nouveau utilisateur créé avec succès!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Registractivity.this, "Compte créé avec succès !", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Registractivity.this, "Vous pouvez vous connecter !", Toast.LENGTH_LONG).show();
                             finish();
                         } else if (response.code() == 409){
                             System.out.println("ERREUR 409 !!!!!");
@@ -118,5 +124,6 @@ public class Registractivity extends AppCompatActivity {
         });
 
     }
+
 
 }
