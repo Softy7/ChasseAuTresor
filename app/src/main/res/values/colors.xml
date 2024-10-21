@@ -3,6 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent" />
-    <color name="BelgeF">#C8A177</color>
-    <color name="Belge">#FFE3C6</color>
+    <color name="BeigeF">#C8A177</color>
+    <color name="Beige">#FFE3C6</color>
 </resources>
