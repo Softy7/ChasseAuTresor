@@ -11,4 +11,8 @@
     <string name="param_tres">Paramétres</string>
     <string name="classement">Classement</string>
     <string name="amis">amis</string>
+    <string name="connecter">connecter</string>
+    <string name="retour">Retour</string>
+    <string name="email_pseudo">Email/Pseudo</string>
+    <string name="mot_de_passe">Mot de passe</string>
 </resources>

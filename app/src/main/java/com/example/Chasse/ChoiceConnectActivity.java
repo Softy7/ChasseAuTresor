@@ -2,7 +2,9 @@ package com.example.Chasse;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,13 +12,19 @@ import com.example.Chasse.Model.System.MainSystem;
 
 public class ChoiceConnectActivity extends AppCompatActivity {
 
-    protected Button connect;
-    protected Button registrer;
+    protected ImageButton connect;
+    protected ImageButton registrer;
     protected MainSystem mainSystem = new MainSystem();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choice_connect_activity);
+
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
         if (mainSystem.readUser(ChoiceConnectActivity.this) != null) {
             finish();
         }
