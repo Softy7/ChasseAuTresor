@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.StandardOpenOption;
 
 
 public class MainSystem {
@@ -75,5 +76,18 @@ public class MainSystem {
             return null;
         }
 
+    }
+
+    public boolean unloadUser(Context context) {
+        String filename = "connect";
+        try {
+            FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            fos.write(StandardOpenOption.TRUNCATE_EXISTING.ordinal());
+            fos.close();
+
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
     }
 }
