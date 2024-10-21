@@ -15,4 +15,9 @@
     <string name="retour">Retour</string>
     <string name="email_pseudo">Email/Pseudo</string>
     <string name="mot_de_passe">Mot de passe</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="adresse_mail">Adresse Mail</string>
+    <string name="confirmer_mot_de_passe">Confirmer Mot de passe</string>
 </resources>
