@@ -97,7 +97,7 @@
         android:fontFamily="@font/madimi_one_regular"/>
 
     <ImageButton
-        android:id="@+id/params"
+        android:id="@+id/parametres"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@color/transparent"
