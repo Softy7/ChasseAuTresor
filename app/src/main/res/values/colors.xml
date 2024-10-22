@@ -5,4 +5,7 @@
     <color name="transparent" />
     <color name="BeigeF">#C8A177</color>
     <color name="Beige">#FFE3C6</color>
+    <color name="BleuF">#3F5CFF</color>
+    <color name="BleuC">#85E0D6</color>
+
 </resources>
