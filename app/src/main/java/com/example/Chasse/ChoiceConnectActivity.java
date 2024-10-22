@@ -3,8 +3,11 @@ package com.example.Chasse;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +18,7 @@ public class ChoiceConnectActivity extends AppCompatActivity {
     protected ImageButton connect;
     protected ImageButton registrer;
     protected MainSystem mainSystem = new MainSystem();
+    protected ImageView bateau;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,11 @@ public class ChoiceConnectActivity extends AppCompatActivity {
                 View.SYSTEM_UI_FLAG_FULLSCREEN |
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        bateau = findViewById(R.id.bateau);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.bateau);
+        bateau.startAnimation(animation);
+
 
         if (mainSystem.readUser(ChoiceConnectActivity.this) != null) {
             finish();

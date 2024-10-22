@@ -8,6 +8,18 @@
     android:background="@drawable/background_main"
     >
 
+    <ImageView
+        android:id="@+id/bateau"
+        android:layout_width="280dp"
+        android:layout_height="248dp"
+        android:background="@drawable/bateau"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7"/>
+
     <!-- Bouton rejoindre une partie -->
     <FrameLayout
         android:layout_width="wrap_content"

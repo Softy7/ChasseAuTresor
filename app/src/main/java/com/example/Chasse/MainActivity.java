@@ -3,8 +3,11 @@ package com.example.Chasse;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.Chasse.Model.System.MainSystem;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected ImageButton createGame;
     protected ImageButton loadGame;
     protected ImageButton params;
+    protected ImageView bateau;
 
     protected MainSystem mainSystem = new MainSystem();
 
@@ -28,10 +32,16 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ChoiceConnectActivity.class);
             startActivity(intent);
         }
+
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_FULLSCREEN |
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        bateau = findViewById(R.id.bateau);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.bateau);
+        bateau.startAnimation(animation);
+
 
         createGame = findViewById(R.id.CreateGame);
         createGame.setOnClickListener(v -> {});
