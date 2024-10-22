@@ -34,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         createGame = findViewById(R.id.CreateGame);
-        createGame.setOnClickListener(v -> {});
+        createGame.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CreateGameActivity.class);
+            startActivity(intent);
+        });
 
         loadGame = findViewById(R.id.LoadGame);
         loadGame.setOnClickListener(v -> {});

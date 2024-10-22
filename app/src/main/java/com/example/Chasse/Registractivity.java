@@ -25,7 +25,6 @@ public class Registractivity extends AppCompatActivity {
     protected EditText username;
     protected EditText lastName;
     protected EditText firstName;
-    protected EditText sexe;
     protected EditText email;
     protected EditText password;
     protected EditText passwordC;
@@ -62,8 +61,6 @@ public class Registractivity extends AppCompatActivity {
                 Toast.makeText(this, "Email non renseigné", Toast.LENGTH_LONG).show();
             } else if (!this.email.getText().toString().contains("@")) {
                 Toast.makeText(this, "Email renseigné invalide", Toast.LENGTH_LONG).show();
-            } else if (this.sexe.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Sexe non renseigné", Toast.LENGTH_LONG).show();
             }  else if (this.password.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Mot de passe non renseigné", Toast.LENGTH_LONG).show();
             } else if (this.password.getText().toString().length() < 8) {

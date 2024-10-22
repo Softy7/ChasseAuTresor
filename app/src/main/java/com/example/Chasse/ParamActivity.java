@@ -10,6 +10,7 @@ public class ParamActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.popup_setting_all);
     }
 
     private void setupViewPager(ViewPager viewPager) {

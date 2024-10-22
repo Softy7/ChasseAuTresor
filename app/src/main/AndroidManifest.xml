@@ -39,6 +39,14 @@
             android:name=".ParamActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name="com.example.Chasse.CreateGameActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name="com.example.Chasse.InviteFriendActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
