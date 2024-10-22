@@ -24,15 +24,12 @@ public class ParamActivity extends AppCompatActivity {
         setContentView(R.layout.setting_main);
 
         this.modifprofil = findViewById(R.id.modifprofilbtn);
-        this.modifprofil.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ChangeProfilActivity.class);
-            startActivity(intent);
+        this.modifprofil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ParamActivity.this, ChangeProfilActivity.class);
+                startActivity(intent);
+            }
         });
-
-
-
     }
-
-
-
 }

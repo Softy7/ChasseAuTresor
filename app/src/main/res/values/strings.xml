@@ -37,4 +37,5 @@
     <string name="avatar">Avatar</string>
     <string name="deconnexion">Deconnexion</string>
     <string name="validermodif">Valider Modification</string>
+    <string name="photoprofile">photoprofile</string>
 </resources>

@@ -10,10 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <ImageView
+            android:contentDescription="@string/photoprofile"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             >
             <ImageView
+                android:contentDescription="@string/pseudo"
                 android:id="@+id/modifpseudo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -54,13 +55,16 @@
                 android:layout_centerVertical="true"/>
 
             <EditText
+                android:autofillHints="name"
+                tools:ignore="LabelFor"
+                android:inputType="text"
                 android:layout_marginStart="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="@string/pseudo"
+                android:hint="@string/pseudo"
                 android:textSize="30sp"
-                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textStyle="bold"
                 android:layout_toEndOf="@id/modifpseudo"
                 />
@@ -70,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
+                android:contentDescription="@string/nom"
                 android:id="@+id/modifnom"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -78,13 +83,16 @@
                 android:layout_centerVertical="true"/>
 
             <EditText
+                android:autofillHints="name"
+                tools:ignore="LabelFor"
+                android:inputType="text"
                 android:layout_marginStart="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:textSize="30sp"
-                android:text="@string/nom"
-                android:textColor="@color/black"
+                android:hint="@string/nom"
+                android:textColorHint="@color/black"
                 android:textStyle="bold"
                 android:layout_toEndOf="@id/modifnom"
                 />
@@ -95,6 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
+                android:contentDescription="@string/prenom"
                 android:id="@+id/modifname"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -103,13 +112,16 @@
                 android:layout_centerVertical="true"/>
 
             <EditText
+                android:autofillHints="name"
+                tools:ignore="LabelFor"
+                android:inputType="text"
                 android:layout_marginStart="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="@string/pr_nom"
+                android:hint="@string/prenom"
                 android:textSize="30sp"
-                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textStyle="bold"
                 android:layout_toEndOf="@id/modifname"
                 />
@@ -121,11 +133,13 @@
 
 
             <FrameLayout
+                android:clipToPadding="false"
+                android:padding="0dp"
                 android:id="@+id/modifavatar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
                 <ImageView
+                    android:contentDescription="@string/photoprofile"
                     android:id="@+id/imagemodifavatar"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -133,6 +147,7 @@
                     android:padding="5sp"/>
 
                 <TextView
+                    android:inputType="none"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -142,6 +157,7 @@
                     android:textSize="30sp"
                     android:textStyle="bold"/>
                 <ImageView
+                    android:contentDescription="@string/photoprofile"
                     android:id="@+id/arrowmodifavatar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -150,27 +166,19 @@
                     />
 
 
-            </FrameLayout>
-        </RelativeLayout>
-    </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="40dp"
-            android:orientation="vertical"
-            android:padding="15dp"
-            android:background="@drawable/rond_layout_setting">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/validermodif"
-                android:textSize="30sp"
-                android:background="@color/transparent"
-                android:textColor="@color/black"/>
+                </FrameLayout>
+            </RelativeLayout>
         </LinearLayout>
-
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/validermodif"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:background="@color/transparent"
+        android:textColor="@color/black"
+        />
+
 </LinearLayout>

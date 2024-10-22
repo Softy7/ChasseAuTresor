@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ChangeProfilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("coucou","je paseee");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.change_profil);
     }
