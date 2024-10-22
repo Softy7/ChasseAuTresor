@@ -9,22 +9,23 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 
 
 public class ParamActivity extends AppCompatActivity {
 
-    Button modifprofil;
+    protected AppCompatButton modifprofil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_main);
-        modifprofil = (Button) findViewById(R.id.modifprofilbtn);
 
+        this.modifprofil = findViewById(R.id.modifprofilbtn);
         this.modifprofil.setOnClickListener(v -> {
-            Intent intent = new Intent(ParamActivity.this, ChangeProfilActivity.class);
+            Intent intent = new Intent(this, ChangeProfilActivity.class);
             startActivity(intent);
         });
 
