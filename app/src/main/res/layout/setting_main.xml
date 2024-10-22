@@ -201,7 +201,7 @@
                     android:id="@+id/btnweb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background=""
+                    android:background="@color/transparent"
                     />
 
                 <ImageView
@@ -233,7 +233,7 @@
                     android:id="@+id/btninsta"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background=""
+                    android:background="@color/transparent"
                     />
 
                 <ImageView
@@ -266,7 +266,7 @@
                     android:id="@+id/btnfacebook"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background=""
+                    android:background="@color/transparent"
                     />
 
                 <ImageView
@@ -310,7 +310,7 @@
                     android:id="@+id/btnrules"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background=""
+                    android:background="@color/transparent"
                     />
 
                 <ImageView
@@ -342,7 +342,7 @@
                     android:id="@+id/btnthanks"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background=""
+                    android:background="@color/transparent"
                     />
 
                 <ImageView
@@ -374,7 +374,7 @@
                     android:id="@+id/btndisconnect"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background=""
+                    android:background="@color/transparent"
                     />
 
                 <ImageView
@@ -390,7 +390,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="@drawable/deconnexion"
+                    android:text="@string/deconnexion"
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"

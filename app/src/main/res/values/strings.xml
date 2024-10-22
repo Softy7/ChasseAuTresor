@@ -31,4 +31,5 @@
     <string name="rules">Règle du jeu</string>
     <string name="thanks">Remerciements</string>
     <string name="avatar">Avatar</string>
+    <string name="deconnexion">Deconnexion</string>
 </resources>
