@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Beige">
+    android:background="@drawable/background_param">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,9 +14,9 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/btnback"
-            android:padding="14dp"
-            android:contentDescription="@string/parametres"/>
+            android:src="@drawable/retour"
+            android:padding="9dp"
+            android:contentDescription="@string/retour"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,7 +24,8 @@
             android:text="@string/parametres"
             android:layout_centerInParent="true"
             android:textColor="@color/black"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/madimi_one_regular"/>
 
     </RelativeLayout>
 
@@ -52,7 +53,8 @@
             android:text="@string/vide"
             android:textSize="22sp"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="@font/madimi_one_regular"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/modifprofilbtn"
@@ -65,7 +67,9 @@
             android:textSize="20sp"
             android:text="@string/modifier_profile"
             android:background="@drawable/rond_change_setting"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:fontFamily="@font/madimi_one_regular"
+            android:textColor="@color/black"/>
         
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,7 +79,8 @@
             android:layout_marginTop="40dp"
             android:orientation="vertical"
             android:padding="15dp"
-            android:background="@drawable/rond_layout_setting">
+            android:background="@drawable/rond_layout_setting"
+            android:elevation="20dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -98,6 +103,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_toEndOf="@id/modesombre"
+                    android:fontFamily="@font/madimi_one_regular"
                     />
 
                 <Switch
@@ -133,6 +139,7 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_toEndOf="@id/modesourd"
+                android:fontFamily="@font/madimi_one_regular"
                 />
 
                 <Switch
@@ -168,6 +175,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_toEndOf="@id/modeaveugle"
+                    android:fontFamily="@font/madimi_one_regular"
                     />
 
                 <Switch
@@ -191,7 +199,8 @@
             android:layout_marginTop="40dp"
             android:orientation="vertical"
             android:padding="15dp"
-            android:background="@drawable/rond_layout_setting">
+            android:background="@drawable/rond_layout_setting"
+            android:elevation="20dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -201,8 +210,7 @@
                     android:id="@+id/btnweb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    />
+                    android:background="@color/transparent"/>
 
                 <ImageView
                     android:id="@+id/web"
@@ -221,7 +229,8 @@
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_toEndOf="@id/web"/>
+                    android:layout_toEndOf="@id/web"
+                    android:fontFamily="@font/madimi_one_regular"/>
 
             </RelativeLayout>
 
@@ -253,7 +262,8 @@
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_toEndOf="@id/insta"/>
+                    android:layout_toEndOf="@id/insta"
+                    android:fontFamily="@font/madimi_one_regular"/>
 
             </RelativeLayout>
 
@@ -286,7 +296,8 @@
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_toEndOf="@id/Facebook"/>
+                    android:layout_toEndOf="@id/Facebook"
+                    android:fontFamily="@font/madimi_one_regular"/>
 
             </RelativeLayout>
 
@@ -297,10 +308,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_marginTop="40dp"
             android:orientation="vertical"
             android:padding="15dp"
-            android:background="@drawable/rond_layout_setting">
+            android:background="@drawable/rond_layout_setting"
+            android:elevation="20dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -317,7 +330,7 @@
                     android:id="@+id/Rules"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/clapper_board"
+                    android:src="@drawable/rules"
                     android:padding="5sp"
                     android:layout_centerVertical="true"/>
 
@@ -330,7 +343,8 @@
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_toEndOf="@id/Rules"/>
+                    android:layout_toEndOf="@id/Rules"
+                    android:fontFamily="@font/madimi_one_regular"/>
 
             </RelativeLayout>
 
@@ -349,7 +363,7 @@
                     android:id="@+id/thanks"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/compte_param"
+                    android:src="@drawable/clapper_board"
                     android:padding="5sp"
                     android:layout_centerVertical="true"/>
 
@@ -362,7 +376,8 @@
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_toEndOf="@id/thanks"/>
+                    android:layout_toEndOf="@id/thanks"
+                    android:fontFamily="@font/madimi_one_regular"/>
 
             </RelativeLayout>
 
@@ -394,7 +409,8 @@
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_toEndOf="@id/disconnect"/>
+                    android:layout_toEndOf="@id/disconnect"
+                    android:fontFamily="@font/madimi_one_regular"/>
 
             </RelativeLayout>
         </LinearLayout>
