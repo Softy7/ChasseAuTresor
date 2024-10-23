@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,10 +8,13 @@
     android:background="@color/Beige"
     android:gravity="center">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
+
 
         <ImageView
             android:contentDescription="@string/photoprofile"
@@ -150,9 +154,8 @@
                     android:inputType="none"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
                     android:text="@string/avatar"
-                    android:gravity="center"
+                    android:paddingLeft="60dp"
                     android:textColor="@color/black"
                     android:textSize="30sp"
                     android:textStyle="bold"/>
@@ -189,7 +192,9 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         />
-
     </LinearLayout>
-
 </LinearLayout>
+
+
+
+
