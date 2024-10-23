@@ -56,7 +56,7 @@ public class ChoiceConnectActivity extends AppCompatActivity {
 
         // Pour le test de la connexion wifi
         // Sera effacé à temps
-        ConstraintLayout constraintLayout = findViewById(R.id.layoutChoiceConnect);
+        ConstraintLayout constraintLayout = findViewById(R.id.constraint_choice_connect_activity);
         Button button = new Button(this);
         button.setText("Jeu");
         constraintLayout.addView(button);
