@@ -21,6 +21,14 @@ public class ParamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_main);
 
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        /*
+        modifprofil = (Button) findViewById(R.id.modifprofilbtn);
+
         this.modifprofil = findViewById(R.id.modifprofilbtn);
         this.modifprofil.setOnClickListener(new View.OnClickListener() {
             @Override
