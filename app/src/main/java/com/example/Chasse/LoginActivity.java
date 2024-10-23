@@ -3,8 +3,10 @@ package com.example.Chasse;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,14 +25,19 @@ public class LoginActivity extends AppCompatActivity {
 
     protected EditText authentification;
     protected EditText password;
-    protected Button confirm;
-    protected Button back;
+    protected ImageButton confirm;
+    protected ImageButton back;
     protected MainSystem mainSystem = new MainSystem();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connect_activity);
+
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         if (mainSystem.readUser(LoginActivity.this) != null) {
             finish();

@@ -2,8 +2,10 @@ package com.example.Chasse;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,12 +22,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Registractivity extends AppCompatActivity {
 
     protected MainSystem mainSystem = new MainSystem();
-    protected Button back;
-    protected Button send;
+    protected ImageButton back;
+    protected ImageButton send;
     protected EditText username;
     protected EditText lastName;
     protected EditText firstName;
-    protected EditText sexe;
     protected EditText email;
     protected EditText password;
     protected EditText passwordC;
@@ -34,6 +35,11 @@ public class Registractivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registrer_activity);
+
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         if (mainSystem.readUser(Registractivity.this) != null) {
             finish();
@@ -62,8 +68,6 @@ public class Registractivity extends AppCompatActivity {
                 Toast.makeText(this, "Email non renseigné", Toast.LENGTH_LONG).show();
             } else if (!this.email.getText().toString().contains("@")) {
                 Toast.makeText(this, "Email renseigné invalide", Toast.LENGTH_LONG).show();
-            } else if (this.sexe.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Sexe non renseigné", Toast.LENGTH_LONG).show();
             }  else if (this.password.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Mot de passe non renseigné", Toast.LENGTH_LONG).show();
             } else if (this.password.getText().toString().length() < 8) {

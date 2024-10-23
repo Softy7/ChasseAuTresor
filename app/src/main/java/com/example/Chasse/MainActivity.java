@@ -2,9 +2,13 @@ package com.example.Chasse;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.Chasse.Model.System.MainSystem;
@@ -17,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     protected ImageButton createGame;
     protected ImageButton loadGame;
-    protected ImageButton params;
+    protected ImageView bateau;
+    protected ImageButton tparams;
 
     protected MainSystem mainSystem = new MainSystem();
 
@@ -29,20 +34,25 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ChoiceConnectActivity.class);
             startActivity(intent);
         }
+
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_FULLSCREEN |
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        createGame = findViewById(R.id.CreateGame);
-        createGame.setOnClickListener(v -> {});
+        bateau = findViewById(R.id.bateau);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.bateau);
+        bateau.startAnimation(animation);
 
-        loadGame = findViewById(R.id.LoadGame);
-        loadGame.setOnClickListener(v -> {});
+        this.createGame = findViewById(R.id.CreateGame);
+        this.createGame.setOnClickListener(v -> {});
 
-        params = findViewById(R.id.params);
-        params.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ParamActivity.class);
+        this.loadGame = findViewById(R.id.LoadGame);
+        this.loadGame.setOnClickListener(v -> {});
+
+        this.tparams = findViewById(R.id.parametres);
+        this.tparams.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ParamActivity.class);
             startActivity(intent);
         });
     }
@@ -55,4 +65,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+
 }

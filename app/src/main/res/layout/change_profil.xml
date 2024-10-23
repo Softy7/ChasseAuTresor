@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/Beige"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+        <ImageView
+            android:contentDescription="@string/photoprofile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/vide"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:background="@drawable/rond_layout_setting">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:contentDescription="@string/pseudo"
+                android:id="@+id/modifpseudo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/sun"
+                android:padding="5sp"
+                android:layout_centerVertical="true"/>
+
+            <EditText
+                android:autofillHints="name"
+                tools:ignore="LabelFor"
+                android:inputType="text"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:hint="@string/pseudo"
+                android:textSize="30sp"
+                android:textColorHint="@color/black"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/modifpseudo"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:contentDescription="@string/nom"
+                android:id="@+id/modifnom"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/help_param"
+                android:padding="5sp"
+                android:layout_centerVertical="true"/>
+
+            <EditText
+                android:autofillHints="name"
+                tools:ignore="LabelFor"
+                android:inputType="text"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="30sp"
+                android:hint="@string/nom"
+                android:textColorHint="@color/black"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/modifnom"
+                />
+
+             </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:contentDescription="@string/prenom"
+                android:id="@+id/modifname"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/audio_param"
+                android:padding="5sp"
+                android:layout_centerVertical="true"/>
+
+            <EditText
+                android:autofillHints="name"
+                tools:ignore="LabelFor"
+                android:inputType="text"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:hint="@string/prenom"
+                android:textSize="30sp"
+                android:textColorHint="@color/black"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/modifname"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <FrameLayout
+                android:clipToPadding="false"
+                android:padding="0dp"
+                android:id="@+id/modifavatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:contentDescription="@string/photoprofile"
+                    android:id="@+id/imagemodifavatar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/compte_param"
+                    android:padding="5sp"/>
+
+                <TextView
+                    android:inputType="none"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/avatar"
+                    android:paddingLeft="60dp"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:contentDescription="@string/photoprofile"
+                    android:id="@+id/arrowmodifavatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow"
+                    android:layout_gravity="end|center"
+                    />
+
+
+                </FrameLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:background="@drawable/rond_change_setting">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/validermodif"
+        android:textSize="30sp"
+        android:background="@color/transparent"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
+    </LinearLayout>
+</LinearLayout>
+
+
+
+

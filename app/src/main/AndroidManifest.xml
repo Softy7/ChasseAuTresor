@@ -46,20 +46,14 @@
         <activity
                 android:name="com.example.Chasse.BeforeGameActivity"
                 android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
                 android:name="com.example.Chasse.GameActivity"
                 android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.Chasse.ChangeProfilActivity"
+            android:exported="true">
         </activity>
     </application>
 
