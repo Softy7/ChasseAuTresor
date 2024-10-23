@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.Chasse.Model.System.MainSystem;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,22 +44,6 @@ public class MainActivity extends AppCompatActivity {
         params.setOnClickListener(v -> {
             Intent intent = new Intent(this, ParamActivity.class);
             startActivity(intent);
-        });
-
-        // Pour le test de la connexion wifi
-        // Sera effacé à temps
-        ConstraintLayout constraintLayout = findViewById(R.id.layout);
-        Button button = new Button(this);
-        button.setText("Jeu");
-        constraintLayout.addView(button);
-        button.setOnClickListener(new OnClickListener() {
-
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, BeforeGameActivity.class);
-                startActivity(intent);
-            }
         });
     }
 

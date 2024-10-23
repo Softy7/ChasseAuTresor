@@ -1,11 +1,13 @@
 package com.example.Chasse;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.Chasse.Model.System.MainSystem;
 
 public class ChoiceConnectActivity extends AppCompatActivity {
@@ -33,6 +35,17 @@ public class ChoiceConnectActivity extends AppCompatActivity {
             Intent intent = new Intent(ChoiceConnectActivity.this, Registractivity.class);
             startActivity(intent);
             finish();
+        });
+
+        // Pour le test de la connexion wifi
+        // Sera effacé à temps
+        ConstraintLayout constraintLayout = findViewById(R.id.layoutChoiceConnect);
+        Button button = new Button(this);
+        button.setText("Jeu");
+        constraintLayout.addView(button);
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(ChoiceConnectActivity.this, BeforeGameActivity.class);
+            startActivity(intent);
         });
 
     }
