@@ -11,10 +11,12 @@
         android:layout_height="wrap_content"
         android:background="@color/BeigeF">
         
-        <ImageView
+        <ImageButton
+            android:id="@+id/backsetting"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/retour"
+            android:background="@color/BeigeF"
             android:padding="9dp"
             android:contentDescription="@string/retour"/>
 
@@ -47,11 +49,12 @@
             android:src="@drawable/pirate"/>
 
         <TextView
+            android:id="@+id/nameaffiche"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="@string/vide"
+            android:text="@string/infobdd"
             android:textSize="22sp"
             android:textColor="@color/black"
             android:textStyle="bold"
