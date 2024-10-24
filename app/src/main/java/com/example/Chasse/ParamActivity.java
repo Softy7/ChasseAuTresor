@@ -43,6 +43,8 @@ public class ParamActivity extends AppCompatActivity {
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
+
+        //Boutton modification d'info
         this.modifprofil = findViewById(R.id.modifprofilbtn);
         this.modifprofil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +54,7 @@ public class ParamActivity extends AppCompatActivity {
             }
         });
 
-
+        //boutton retour Main menu
         this.backsetting = findViewById(R.id.backsetting);
         this.backsetting.setOnClickListener(new View.OnClickListener() {
             @Override

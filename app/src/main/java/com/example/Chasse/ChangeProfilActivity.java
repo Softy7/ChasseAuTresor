@@ -24,13 +24,17 @@ public class ChangeProfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.change_profil);
 
-        //Affichage nom prenom à la place de "info bdd"
+        //Récuperation des informations
         User user = new MainSystem().readUser(this);
         String nom = user.getFirstName();
         String prenom = user.getLastName();
         String pseudo = user.getPseudo();
+
+        //Affichage nom prenom à la place de "info bdd"
         TextView nomprenom=findViewById(R.id.nameaffiche);
         nomprenom.setText(nom + " " + prenom);
+
+        //Affichage nom prenom pseudo dans la modification d'information
         TextView pseudoaffiche=findViewById(R.id.pseudo);
         pseudoaffiche.setText(pseudo);
         TextView nomaffiche=findViewById(R.id.nom);
@@ -39,7 +43,7 @@ public class ChangeProfilActivity extends AppCompatActivity {
         prenomaffiche.setText(prenom);
 
 
-
+        //boutton retour
         this.backsetting = findViewById(R.id.backsetting);
         this.backsetting.setOnClickListener(new View.OnClickListener() {
             @Override
