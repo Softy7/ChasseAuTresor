@@ -2,7 +2,6 @@ package com.example.Chasse;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -45,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
         bateau.startAnimation(animation);
 
         this.createGame = findViewById(R.id.CreateGame);
-        this.createGame.setOnClickListener(v -> {});
+        this.createGame.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CreateGameActivity.class);
+            startActivity(intent);
+        });
 
         this.loadGame = findViewById(R.id.LoadGame);
         this.loadGame.setOnClickListener(v -> {});
@@ -65,6 +67,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-
 }
