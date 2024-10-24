@@ -1,6 +1,5 @@
 package com.example.Chasse;
 
-import com.example.Chasse.Model.User;
 import com.example.Chasse.Model.UserRequest;
 import com.google.gson.JsonObject;
 import retrofit2.Call;
@@ -20,4 +19,7 @@ public interface ApiService {
 
     @GET("user/login")
     Call<UserRequest> login(@Query("email") String email, @Query("password") String password);
+
+    @GET("user/find")
+    Call<UserRequest> getUserById(@Query("id") long id);
 }

@@ -9,13 +9,13 @@ public class User {
     private String firstName;
     private String lastName;
     private String pseudo;
-    private int id;
+    private long id;
     private ArrayList<User> friends;
 
     public User() {}
 
 
-    public User(String email, String firstName, String lastName, String pseudo, int id){
+    public User(String email, String firstName, String lastName, String pseudo, long id){
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -57,11 +57,11 @@ public class User {
         this.pseudo = pseudo;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -69,4 +69,15 @@ public class User {
         return this.friends;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", pseudo='" + pseudo + '\'' +
+                ", id=" + id +
+                ", friends=" + friends +
+                '}';
+    }
 }
