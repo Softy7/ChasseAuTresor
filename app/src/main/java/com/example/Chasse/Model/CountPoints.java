@@ -1,9 +1,11 @@
 package com.example.Chasse.Model;
 
 public class CountPoints {
+
     private int points;
     private Game game;
     private User user;
+
     public CountPoints() {}
 
     public int getPoints() {
