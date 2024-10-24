@@ -45,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
         bateau.startAnimation(animation);
 
         this.createGame = findViewById(R.id.CreateGame);
-        this.createGame.setOnClickListener(v -> {});
+        this.createGame.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CreateGameActivity.class);
+            startActivity(intent);
+        });
 
         this.loadGame = findViewById(R.id.LoadGame);
         this.loadGame.setOnClickListener(v -> {});
