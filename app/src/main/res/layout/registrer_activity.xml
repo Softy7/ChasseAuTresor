@@ -3,120 +3,144 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_ocean">
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:ems="10"
-        android:hint="Pseudo"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.135" />
-
-    <EditText
-        android:id="@+id/passwordC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
-        android:ems="10"
-        android:hint="Confirmer Mot de passe"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Adresse Mail"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.413" />
-
-    <EditText
-        android:id="@+id/fName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:ems="10"
-        android:hint="Prénom"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.332" />
-
-    <EditText
-        android:id="@+id/lName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nom"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Mot de passe"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.534" />
-
-    <Button
-        android:id="@+id/send"
-        android:layout_width="320dp"
-        android:layout_height="43dp"
-        android:text="Valider Inscription"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.856" />
-
-    <Button
+    <ImageButton
         android:id="@+id/back"
-        android:layout_width="45dp"
-        android:layout_height="53dp"
-        android:text="Button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/btnback"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.023"
+        android:contentDescription="@string/retour"/>
 
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/background_gray75"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pseudo"
+            android:inputType="text"
+            android:ems="10"
+            android:textColor="@color/black50"
+            android:textColorHint="@color/black50"
+            android:fontFamily="@font/madimi_one_regular"
+            android:layout_marginBottom="16dp"
+            android:padding="7dp"
+            android:background="@drawable/background_white60" />
+
+        <EditText
+            android:id="@+id/lName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nom"
+            android:inputType="text"
+            android:ems="10"
+            android:textColor="@color/black50"
+            android:textColorHint="@color/black50"
+            android:fontFamily="@font/madimi_one_regular"
+            android:layout_marginBottom="16dp"
+            android:padding="7dp"
+            android:background="@drawable/background_white60" />
+
+        <EditText
+            android:id="@+id/fName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prenom"
+            android:inputType="text"
+            android:ems="10"
+            android:textColor="@color/black50"
+            android:textColorHint="@color/black50"
+            android:fontFamily="@font/madimi_one_regular"
+            android:layout_marginBottom="16dp"
+            android:padding="7dp"
+            android:background="@drawable/background_white60" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/adresse_mail"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:textColor="@color/black50"
+            android:textColorHint="@color/black50"
+            android:fontFamily="@font/madimi_one_regular"
+            android:layout_marginBottom="16dp"
+            android:padding="7dp"
+            android:background="@drawable/background_white60" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/mot_de_passe"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:textColor="@color/black50"
+            android:textColorHint="@color/black50"
+            android:fontFamily="@font/madimi_one_regular"
+            android:layout_marginBottom="16dp"
+            android:padding="7dp"
+            android:background="@drawable/background_white60" />
+
+        <EditText
+            android:id="@+id/passwordC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/confirmer_mot_de_passe"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:textColor="@color/black50"
+            android:textColorHint="@color/black50"
+            android:fontFamily="@font/madimi_one_regular"
+            android:padding="7dp"
+            android:background="@drawable/background_white60" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.942">
+
+        <ImageButton
+            android:id="@+id/send"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@drawable/btn"
+            android:contentDescription="@string/s_inscrire"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="@string/s_inscrire"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="@font/madimi_one_regular"/>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
