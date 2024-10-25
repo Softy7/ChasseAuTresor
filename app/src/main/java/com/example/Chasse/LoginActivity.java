@@ -50,9 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         this.back.setOnClickListener(v -> finish());
 
         confirm.setOnClickListener(view -> {
-            if (!this.authentification.getText().toString().contains("@")) {
-                Toast.makeText(this, "Authentification invalide", Toast.LENGTH_LONG).show();
-            } else if (this.password.getText().toString().isEmpty()) {
+            if (this.password.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Mot de passe non renseigné", Toast.LENGTH_LONG).show();
             } else {
 

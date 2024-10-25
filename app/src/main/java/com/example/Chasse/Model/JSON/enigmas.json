@@ -1,0 +1,2235 @@
+[
+  {
+    "idTheme": 0,
+    "enigma":  "Comment s'appelle le pirate principal dans Pirate des Caraïbes ? (Ce n'est pas la réponse C)",
+    "options": {
+      "A": "Laré Poncé",
+      "B": "La réponse C",
+      "C": "Jack Sparrow",
+      "D": "Raiponce"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate légendaire est connu pour sa barbe noire et son pavillon de la mort ?",
+    "options": {
+      "A": "Barbe Noire",
+      "B": "Calico Jack",
+      "C": "Long John Silver",
+      "D": "Captain Hook"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate a caché son trésor sur une île mystérieuse, jamais retrouvée ?",
+    "options": {
+      "A": "Capitaine Kidd",
+      "B": "Barbe Noire",
+      "C": "Sir Francis Drake",
+      "D": "William Kidd"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel navire est souvent associé aux aventures de pirates et à la chasse au trésor ?",
+    "options": {
+      "A": "L'Interceptor",
+      "B": "Le Black Pearl",
+      "C": "Le Jolly Roger",
+      "D": "Le Revenge"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le nom du célèbre code de conduite des pirates ?",
+    "options": {
+      "A": "Le Code de la Mer",
+      "B": "Le Code des Pirates",
+      "C": "Le Code des Corsaires",
+      "D": "Le Code d'Honneur"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate est célèbre pour avoir fait trembler les mers des Caraïbes au XVIIIe siècle ?",
+    "options": {
+      "A": "Henry Morgan",
+      "B": "Barbe Noire",
+      "C": "Long John Silver",
+      "D": "Edward Teach"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le terme utilisé pour désigner la carte au trésor marquée d'un X ?",
+    "options": {
+      "A": "Carte de l'Aventurier",
+      "B": "Carte au trésor",
+      "C": "Carte des Pirates",
+      "D": "Plan de l'île"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate a inspiré un roman d'aventure célèbre écrit par Robert Louis Stevenson ?",
+    "options": {
+      "A": "Capitaine Flint",
+      "B": "Long John Silver",
+      "C": "Barbe Noire",
+      "D": "Calico Jack"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel symbole figure sur le drapeau pirate traditionnel ?",
+    "options": {
+      "A": "Un crâne et une épée",
+      "B": "Une tête de mort et des os croisés",
+      "C": "Un navire et un crâne",
+      "D": "Une boussole et une épée"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le nom du trésor légendaire que tous les pirates recherchent ?",
+    "options": {
+      "A": "Le trésor perdu",
+      "B": "Le trésor de l'île au trésor",
+      "C": "Le butin",
+      "D": "Le trésor de Barbe Noire"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le nom du bateau pirate commandé par Jack Sparrow ?",
+    "options": {
+      "A": "Le Dauntless",
+      "B": "Le Black Pearl",
+      "C": "Le Queen Anne's Revenge",
+      "D": "Le Flying Dutchman"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate est devenu gouverneur de la Jamaïque après une carrière de corsaire ?",
+    "options": {
+      "A": "Barbe Noire",
+      "B": "Henry Morgan",
+      "C": "Calico Jack",
+      "D": "William Kidd"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Comment appelle-t-on un pirate qui avait l'autorisation d'un gouvernement pour attaquer des navires ennemis ?",
+    "options": {
+      "A": "Un pirate",
+      "B": "Un corsaire",
+      "C": "Un flibustier",
+      "D": "Un brigand"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate célèbre a été à la tête d'une flotte massive connue sous le nom de 'La Fraternité des Pirates' ?",
+    "options": {
+      "A": "Bartholomew Roberts",
+      "B": "Calico Jack",
+      "C": "Black Bart",
+      "D": "Stede Bonnet"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel terme est utilisé pour désigner le trésor amassé par un pirate ?",
+    "options": {
+      "A": "Butin",
+      "B": "Trésor",
+      "C": "Richesses",
+      "D": "Fortune"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate est célèbre pour avoir navigué sur les côtes du Nouveau Monde en pillant des colonies espagnoles ?",
+    "options": {
+      "A": "Henry Morgan",
+      "B": "Francis Drake",
+      "C": "Barbe Noire",
+      "D": "William Kidd"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate légendaire est connu pour avoir commandé un équipage entièrement féminin ?",
+    "options": {
+      "A": "Ching Shih",
+      "B": "Anne Bonny",
+      "C": "Mary Read",
+      "D": "Fanny Campbell"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate anglais a été pendu à la fin du XVIIIe siècle après avoir capturé de nombreux navires marchands ?",
+    "options": {
+      "A": "William Kidd",
+      "B": "Henry Morgan",
+      "C": "Calico Jack",
+      "D": "Edward Teach"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate est connu pour avoir eu une jambe de bois après avoir perdu la sienne au combat ?",
+    "options": {
+      "A": "Long John Silver",
+      "B": "Captain Ahab",
+      "C": "Barbe Noire",
+      "D": "Calico Jack"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate a été capturé et exécuté en 1718 après avoir semé la terreur dans les Caraïbes ?",
+    "options": {
+      "A": "Barbe Noire",
+      "B": "William Kidd",
+      "C": "Calico Jack",
+      "D": "Henry Morgan"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate est souvent associé à une jambe de bois, un perroquet et un cache-œil dans la culture populaire ?",
+    "options": {
+      "A": "Long John Silver",
+      "B": "Calico Jack",
+      "C": "Barbe Noire",
+      "D": "Black Bart"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le nom du lieu où les pirates allaient souvent dépenser leur butin et se reposer ?",
+    "options": {
+      "A": "Port Royal",
+      "B": "Tortuga",
+      "C": "Nassau",
+      "D": "L'île de la Tortue"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate a commandé la plus grande flotte de l'histoire des pirates avec des centaines de navires ?",
+    "options": {
+      "A": "Ching Shih",
+      "B": "Bartholomew Roberts",
+      "C": "Henry Morgan",
+      "D": "Black Bart"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le terme pour les pirates qui opéraient dans les eaux proches des Antilles et des Caraïbes ? (C'est la réponse A)",
+    "options": {
+      "A": "Flibustiers",
+      "B": "Corsaires",
+      "C": "Boucanier",
+      "D": "Pirates"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate espagnol a terrorisé les mers en attaquant les galions espagnols au nom de la Couronne britannique ?",
+    "options": {
+      "A": "Francis Drake",
+      "B": "Bartholomew Roberts",
+      "C": "Henry Morgan",
+      "D": "Calico Jack"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel célèbre capitaine pirate a pris le contrôle de Nassau et en a fait un refuge pour les pirates ?",
+    "options": {
+      "A": "Barbe Noire",
+      "B": "Henry Morgan",
+      "C": "Calico Jack",
+      "D": "William Kidd"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quelle femme pirate britannique a combattu déguisée en homme aux côtés de son compagnon pirate ?",
+    "options": {
+      "A": "Mary Read",
+      "B": "Anne Bonny",
+      "C": "Fanny Campbell",
+      "D": "Ching Shih"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le nom du pirate connu pour avoir capturé un navire de commerce français très lucratif, le 'Concorde' ? (C'est la réponse B)",
+    "options": {
+      "A": "Barbe Noire",
+      "B": "William Kidd",
+      "C": "Henry Morgan",
+      "D": "Calico Jack"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le nom de la technique utilisée par les pirates pour s'emparer d'un navire en grimpant à bord par la force ?",
+    "options": {
+      "A": "La piraterie",
+      "B": "L'abordage",
+      "C": "Le vol",
+      "D": "L'attaque"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate célèbre est connu pour avoir formé une alliance avec les boucaniers des Antilles ?",
+    "options": {
+      "A": "Henry Morgan",
+      "B": "Calico Jack",
+      "C": "Bartholomew Roberts",
+      "D": "William Kidd"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate est connu pour avoir incendié son propre navire plutôt que de le laisser tomber aux mains de l'ennemi ?",
+    "options": {
+      "A": "Bartholomew Roberts",
+      "B": "Calico Jack",
+      "C": "Barbe Noire",
+      "D": "Henry Morgan"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le nom du tribunal spécial mis en place pour juger les pirates capturés ?",
+    "options": {
+      "A": "Le tribunal des pirates",
+      "B": "L'Amirauté",
+      "C": "La cour des pirates",
+      "D": "Le tribunal maritime"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate est connu pour avoir défié les autorités britanniques en pillant des villes sur la côte est de l'Amérique du Nord ?",
+    "options": {
+      "A": "Stede Bonnet",
+      "B": "William Kidd",
+      "C": "Henry Morgan",
+      "D": "Barbe Noire"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel célèbre pirate était craint pour sa tactique d'utiliser des mèches enflammées dans sa barbe lors des combats ?",
+    "options": {
+      "A": "Calico Jack",
+      "B": "Barbe Noire",
+      "C": "Long John Silver",
+      "D": "Mickael Jackson"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate a inspiré un célèbre roman où l'on découvre une île cachée remplie d'or ?",
+    "options": {
+      "A": "Long John Silver",
+      "B": "Bartholomew Roberts",
+      "C": "Calico Jack",
+      "D": "Henry Morgan"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel est le nom de la mer connue pour être un repaire des pirates dans les récits d'aventure ?",
+    "options": {
+      "A": "La mer Méditerranée",
+      "B": "La mer des Caraïbes",
+      "C": "L'océan Atlantique",
+      "D": "La mer Rouge"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 0,
+    "enigma": "Quel pirate, ancien aristocrate, s'est associé avec Barbe Noire avant d'être capturé ?",
+    "options": {
+      "A": "Stede Bonnet",
+      "B": "Bonnet M",
+      "C": "William Kidd",
+      "D": "Drake"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le principal ingrédient utilisé pour brasser la bière ?",
+    "options": {
+      "A": "Riz",
+      "B": "Orge",
+      "C": "Maïs",
+      "D": "Blé"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel type de bière est généralement caractérisé par son goût amer et sa forte teneur en houblon ?",
+    "options": {
+      "A": "IPA (India Pale Ale)",
+      "B": "Stout",
+      "C": "Pilsner",
+      "D": "Blonde"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quelle boisson est souvent appelée 'nectar des dieux' en raison de sa douceur ?",
+    "options": {
+      "A": "Vin",
+      "B": "Bière",
+      "C": "Cidre",
+      "D": "Rhum"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quelle bière belge est célèbre pour sa fermentation en bouteille et son goût fruité ?",
+    "options": {
+      "A": "Lambic",
+      "B": "Abbaye",
+      "C": "Pale Ale",
+      "D": "Stout"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du cocktail à base de vodka, de triple sec, de jus de citron et de grenadine, souvent servi avec une tranche d'orange ?",
+    "options": {
+      "A": "Cosmopolitan",
+      "B": "Mojito",
+      "C": "Pina Colada",
+      "D": "Daiquiri"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel pays est célèbre pour sa bière à base de blé connue sous le nom de 'Hefeweizen' ?",
+    "options": {
+      "A": "Belgique",
+      "B": "République Tchèque",
+      "C": "Allemagne",
+      "D": "Irlande"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel type de bière est souvent associé à une mousse épaisse et crémeuse, avec des notes de chocolat et de café ?",
+    "options": {
+      "A": "Lager",
+      "B": "Stout",
+      "C": "Pilsner",
+      "D": "Blonde"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel célèbre cocktail est composé de rhum, de menthe, de sucre et de limonade ?",
+    "options": {
+      "A": "Mojito",
+      "B": "Daiquiri",
+      "C": "Piña Colada",
+      "D": "Caipirinha"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le terme utilisé pour désigner un expert en vins et spiritueux ?",
+    "options": {
+      "A": "Sommelier",
+      "B": "Barman",
+      "C": "Cépage",
+      "D": "Maître brasseur"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom de la bière faite à partir de malt, de houblon, d'eau et de levure, et qui est la plus populaire au monde ?",
+    "options": {
+      "A": "Lager",
+      "B": "Ale",
+      "C": "IPA",
+      "D": "Stout"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel pays est le berceau de la célèbre bière Guinness ?",
+    "options": {
+      "A": "Angleterre",
+      "B": "Écosse",
+      "C": "Irlande",
+      "D": "Pays de Galles"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du processus de fermentation où le sucre est transformé en alcool ?",
+    "options": {
+      "A": "Distillation",
+      "B": "Fermentation",
+      "C": "Filtration",
+      "D": "Clarification"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel type de bière est généralement plus légère et plus pétillante, souvent servie bien fraîche ?",
+    "options": {
+      "A": "Pilsner",
+      "B": "Porter",
+      "C": "Stout",
+      "D": "Bière blanche"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel type de vin est souvent associé à des arômes de cerise et de chocolat ?",
+    "options": {
+      "A": "Cabernet Sauvignon",
+      "B": "Pinot Noir",
+      "C": "Merlot",
+      "D": "Chardonnay"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel cocktail est préparé avec de la vodka, du café et une touche de crème ?",
+    "options": {
+      "A": "Espresso Martini",
+      "B": "White Russian",
+      "C": "Black Russian",
+      "D": "Martini"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du processus par lequel le vin est vieilli dans des fûts de chêne ?",
+    "options": {
+      "A": "Macération",
+      "B": "Fermentation",
+      "C": "Élevage",
+      "D": "Maturation"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du spiritueux typiquement japonais fabriqué à partir de riz fermenté ?",
+    "options": {
+      "A": "Shochu",
+      "B": "Saké",
+      "C": "Umeshu",
+      "D": "Whisky"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel type de bière est connue pour ses arômes fruités et épicés, souvent associée aux bières de blé ?",
+    "options": {
+      "A": "Stout",
+      "B": "Blonde",
+      "C": "Weissbier",
+      "D": "IPA"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du cocktail à base de gin, de vermouth et d'olive, connu pour être le préféré de James Bond ?",
+    "options": {
+      "A": "Martini",
+      "B": "Negroni",
+      "C": "Old Fashioned",
+      "D": "Mojito"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du célèbre whisky écossais souvent considéré comme le meilleur au monde ? (C'est la réponse D)",
+    "options": {
+      "A": "Single Malt",
+      "B": "Bourbon",
+      "C": "Blended",
+      "D": "Scotch"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du célèbre cocktail à base de rhum, de lait de coco et de crème, souvent servi avec de l'ananas ?",
+    "options": {
+      "A": "Piña Colada",
+      "B": "Mojito",
+      "C": "Daiquiri",
+      "D": "Mai Tai"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le terme utilisé pour désigner la bière à fermentation haute, généralement plus sucrée et fruitée ?",
+    "options": {
+      "A": "Ale",
+      "B": "Lager",
+      "C": "Stout",
+      "D": "Porter"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel pays est célèbre pour sa bière à la pomme connue sous le nom de 'cidre' ? (Ce n'est pas la B...) ",
+    "options": {
+      "A": "Allemagne",
+      "B": "France",
+      "C": "États-Unis",
+      "D": "Belgique..."
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel type de bière est souvent associé à une couleur sombre et à un goût riche et torréfié ?",
+    "options": {
+      "A": "Stout",
+      "B": "Pale Ale",
+      "C": "Lager",
+      "D": "Blonde"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le terme utilisé pour décrire une bière vieillie en fût, souvent avec des arômes de bois et de vanille ?",
+    "options": {
+      "A": "Barrel-aged",
+      "B": "Fresh-hopped",
+      "C": "Saison",
+      "D": "Lager"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du cocktail à base de tequila, de citron vert et de triple sec, souvent servi avec du sel sur le rebord du verre ?",
+    "options": {
+      "A": "Margarita",
+      "B": "Pina Colada",
+      "C": "Mai Tai",
+      "D": "Daiquiri"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du vin mousseux français réputé pour ses bulles et souvent associé aux célébrations ?",
+    "options": {
+      "A": "Cidre",
+      "B": "Champagne",
+      "C": "Prosecco",
+      "D": "Moscato"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom de la bière allemande souvent servie dans un grand verre, célèbre pour ses festivals de la bière ?",
+    "options": {
+      "A": "Weizenbier",
+      "B": "Dunkel",
+      "C": "Pilsner",
+      "D": "Bock"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du spiritueux distillé à partir de raisin, souvent associé à des arômes de fruits ?",
+    "options": {
+      "A": "Cognac",
+      "B": "Rhum",
+      "C": "Gin",
+      "D": "Whisky"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du cocktail à base de gin, de tonic et de rondelle de citron, souvent servi dans un verre long ?",
+    "options": {
+      "A": "Gin Tonic",
+      "B": "Whisky Sour",
+      "C": "Bloody Mary",
+      "D": "Mai Tai"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le terme utilisé pour désigner une bière dont le goût est accentué par l'ajout d'agrumes ou d'épices ?",
+    "options": {
+      "A": "Saison",
+      "B": "Fruit Beer",
+      "C": "Amber Ale",
+      "D": "Blonde"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel type de bière est souvent servi avec une faible teneur en alcool et un goût léger et rafraîchissant ?",
+    "options": {
+      "A": "Lager",
+      "B": "IPA",
+      "C": "Stout",
+      "D": "Porter"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 1,
+    "enigma": "Quel est le nom du cocktail à base de vodka, de jus de tomate et d'épices, souvent consommé au brunch ?",
+    "options": {
+      "A": "Bloody Mary",
+      "B": "Caipirinha",
+      "C": "Mojito",
+      "D": "Bellini"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Qui est le chef de département de l'IUT de Maubeuge en informatique ?",
+    "options": {
+      "A": "Bloody Mary",
+      "B": "Julien Vion",
+      "C": "Dorian Petit",
+      "D": "La réponse Z"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Qui est le professeur le plus musclé ?",
+    "options": {
+      "A": "Frank Ebel",
+      "B": "Dorian Petit",
+      "C": "Valentin Menu",
+      "D": "Ratio-Man"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Quel professeur nous fait grâce de ses bons enseignements avec ses documentations vidéos sur Moodle ?",
+    "options": {
+      "A": "Rafik Belloum",
+      "B": "Christelle Rozé",
+      "C": "Dorian Petit",
+      "D": "Frank Ebel"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Qui est le professeur sadique que tout le monde apprécie même s'il dérape totalement à chaque cours ?",
+    "options": {
+      "A": "Sophie Lepreux",
+      "B": "Philippe Polet",
+      "C": "Dorian Petit",
+      "D": "Fabrice Messager"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "En quelle salle la connexion internet est-elle moins bonne ?",
+    "options": {
+      "A": "Salle 105",
+      "B": "Salle 106",
+      "C": "Salle 104",
+      "D": "Salle 103"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Qui est le professeur d'Anglais ?",
+    "options": {
+      "A": "Sophie Lepreux",
+      "B": "Léa Rutali",
+      "C": "Philippe Polet",
+      "D": "Julien Vion"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Comment s'appelle le module R3.02 ?",
+    "options": {
+      "A": "Développement avancé",
+      "B": "Déploiement avancé",
+      "C": "Développement efficace",
+      "D": "Qualité algorithmique"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Que faire au stop à la sortie du parking de l'IUT ?",
+    "options": {
+      "A": "Rouler normalement à 30 km/h",
+      "B": "Ecraser un professeur du Lycée",
+      "C": "Crier Couscous",
+      "D": "Passer la quatrième"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Qui est professeur attitré pour les mathématiques dans le département informatique ?",
+    "options": {
+      "A": "Philippe Delattre",
+      "B": "Rikou",
+      "C": "Rikou",
+      "D": "Julien vion"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Quel professeur vient d'un autre pays à 5000 Kilomètres d'ici ?",
+    "options": {
+      "A": "Julien Vion (Japon)",
+      "B": "Katia Oliveira (Brésil)",
+      "C": "Fabrice Messager (PSG Qatar)",
+      "D": "Frank Ebel (Basic Fit)"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Quel professeur nous fait découvrir l'Android ?",
+    "options": {
+      "A": "Sophie Lepreux",
+      "B": "Philippe Polet",
+      "C": "Rafik Belloum",
+      "D": "Dorian Petit"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 2,
+    "enigma": "Que faire à la machine à café ?",
+    "options": {
+      "A": "Ouvrir le bureau",
+      "B": "Effacer Système 32",
+      "C": "S'offrir un café",
+      "D": "Changer les prix en 0.01 centime"
+    },
+    "answer": "D"
+  },
+  {
+  "idTheme": 3,
+  "enigma": "Quel est l'organisme vivant qui produit le plus d'oxygène sur Terre ?",
+  "options": {
+    "A": "Les arbres",
+    "B": "Les algues",
+    "C": "Les plantes à fleurs",
+    "D": "Les champignons"
+  },
+  "answer": "B"
+},
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le plus grand mammifère terrestre ?",
+    "options": {
+      "A": "Éléphant d'Afrique",
+      "B": "Giraffe",
+      "C": "Ours polaire",
+      "D": "Rhinocéros"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel phénomène naturel est causé par le mouvement des plaques tectoniques ?",
+    "options": {
+      "A": "Tsunami",
+      "B": "Tremblement de terre",
+      "C": "Éruption volcanique",
+      "D": "Avalanche"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quelle couche de l'atmosphère contient la plupart des gaz à effet de serre ?",
+    "options": {
+      "A": "Stratosphère",
+      "B": "Troposphère",
+      "C": "Mésosphère",
+      "D": "Thermosphère"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel type d'écosystème est caractérisé par une forte biodiversité et une humidité élevée ?",
+    "options": {
+      "A": "Désert",
+      "B": "Forêt tropicale",
+      "C": "Savane",
+      "D": "Toundra"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le plus long fleuve du monde ?",
+    "options": {
+      "A": "Amazonie",
+      "B": "Nile",
+      "C": "Yangzi",
+      "D": "Mississippi"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel animal est souvent appelé le 'roi de la jungle' ?",
+    "options": {
+      "A": "Tigre",
+      "B": "Lion",
+      "C": "Éléphant",
+      "D": "Gorille"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quelle est la plus grande forêt tropicale du monde ?",
+    "options": {
+      "A": "Forêt amazonienne",
+      "B": "Forêt du Congo",
+      "C": "Forêt boréale",
+      "D": "Forêt de la Taïga"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel phénomène naturel est causé par l'érosion des roches par le vent et l'eau ?",
+    "options": {
+      "A": "Sédimentation",
+      "B": "Érosion",
+      "C": "Volcanisme",
+      "D": "Fouissement"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quelle est la principale source d'énergie pour les plantes ?",
+    "options": {
+      "A": "L'eau",
+      "B": "Le soleil",
+      "C": "L'air",
+      "D": "Le sol"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel animal marin est connu pour sa capacité à changer de couleur ?",
+    "options": {
+      "A": "Poisson clown",
+      "B": "Pieuvre",
+      "C": "Requin",
+      "D": "Dauphin"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel type de roche est formé par la solidification du magma ?",
+    "options": {
+      "A": "Roches sédimentaires",
+      "B": "Roches métamorphiques",
+      "C": "Roches ignées",
+      "D": "Roches volcaniques"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le nom de la chaîne de montagnes qui sépare l'Europe de l'Asie ?",
+    "options": {
+      "A": "Les Andes",
+      "B": "Les Alpes",
+      "C": "Les Himalayas",
+      "D": "Les Oural"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel phénomène naturel est causé par le déplacement rapide de l'air chaud dans l'atmosphère ?",
+    "options": {
+      "A": "Cyclone",
+      "B": "Tornade",
+      "C": "Tempête",
+      "D": "Ouragan"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel type de champignon est souvent utilisé pour faire du pain ?",
+    "options": {
+      "A": "Champignon de Paris",
+      "B": "Levure",
+      "C": "Shiitake",
+      "D": "Portobello"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel type d'arbre est connu pour ses feuilles en forme d'aiguille ?",
+    "options": {
+      "A": "Chêne",
+      "B": "Érable",
+      "C": "Pin",
+      "D": "Hêtre"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le nom de la zone géographique où les températures sont très basses et les précipitations très faibles ?",
+    "options": {
+      "A": "Désert",
+      "B": "Toundra",
+      "C": "Taïga",
+      "D": "Savane"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le terme utilisé pour décrire les plantes qui vivent dans des environnements extrêmes ?",
+    "options": {
+      "A": "Plantes aquatiques",
+      "B": "Plantes halophiles",
+      "C": "Plantes carnivores",
+      "D": "Plantes succulentes"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est l'oiseau le plus rapide du monde ?",
+    "options": {
+      "A": "Aigle",
+      "B": "Faucon pèlerin",
+      "C": "Hirondelle",
+      "D": "Colibri"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le nom de la saison où les arbres perdent leurs feuilles ?",
+    "options": {
+      "A": "Printemps",
+      "B": "Été",
+      "C": "Automne",
+      "D": "Hiver"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le terme désignant les régions de la Terre qui reçoivent le plus de précipitations ?",
+    "options": {
+      "A": "Déserts",
+      "B": "Forêts tropicales",
+      "C": "Savanes",
+      "D": "Toundras"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel insecte est connu pour sa capacité à polliniser les fleurs ?",
+    "options": {
+      "A": "Mouche",
+      "B": "Fourmi",
+      "C": "Abeille",
+      "D": "Papillon"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le nom de la couche de la Terre où se trouvent les océans et les mers ?",
+    "options": {
+      "A": "Atmosphère",
+      "B": "Lithosphère",
+      "C": "Hydrosphère",
+      "D": "Biosphère"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel arbre est célèbre pour ses fruits, souvent utilisés pour faire des tartes ?",
+    "options": {
+      "A": "Ceriser",
+      "B": "Pommier",
+      "C": "Abricotier",
+      "D": "Prunier"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel phénomène naturel décrit le changement de l'état de l'eau entre solide, liquide et gazeux ?",
+    "options": {
+      "A": "Cycle de l'eau",
+      "B": "Évaporation",
+      "C": "Condensation",
+      "D": "Précipitation"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel animal est connu pour sa capacité à migrer sur de très longues distances ?",
+    "options": {
+      "A": "Oie",
+      "B": "Poisson",
+      "C": "Tortue",
+      "D": "Baleine"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le plus grand océan de la planète ?",
+    "options": {
+      "A": "Atlantique",
+      "B": "Indien",
+      "C": "Arctique",
+      "D": "Pacifique"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quelle fleur est souvent associée au printemps et au renouveau ?",
+    "options": {
+      "A": "Rose",
+      "B": "Tulipe",
+      "C": "Pavot",
+      "D": "Chrysanthème"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le nom du phénomène par lequel les plantes utilisent la lumière du soleil pour produire leur propre nourriture ?",
+    "options": {
+      "A": "Photosynthèse",
+      "B": "Respiration",
+      "C": "Fermentation",
+      "D": "Digestion"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel animal est célèbre pour son long cou et ses taches ?",
+    "options": {
+      "A": "Zèbre",
+      "B": "Girafe",
+      "C": "Élan",
+      "D": "Antilope"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel arbre est considéré comme le symbole de la paix et de la sagesse dans de nombreuses cultures ?",
+    "options": {
+      "A": "Chêne",
+      "B": "Sapin",
+      "C": "Olivier",
+      "D": "Erable"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le nom du processus par lequel les animaux s'adaptent à leur environnement ?",
+    "options": {
+      "A": "Migration",
+      "B": "Évolution",
+      "C": "Reproduction",
+      "D": "Extinction"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel insecte est connu pour sa capacité à se transformer en papillon ?",
+    "options": {
+      "A": "Chenille",
+      "B": "Mante religieuse",
+      "C": "Sauterelle",
+      "D": "Fourmi"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel phénomène naturel est causé par la rotation de la Terre sur son axe ?",
+    "options": {
+      "A": "Cycle jour/nuit",
+      "B": "Saisons",
+      "C": "Marées",
+      "D": "Érosion"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel type d'animaux est connu pour son instinct migratoire, notamment les oiseaux ?",
+    "options": {
+      "A": "Oiseaux",
+      "B": "Mammifères",
+      "C": "Reptiles",
+      "D": "Amphibiens"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel phénomène naturel est caractérisé par une chute d'eau d'une hauteur importante ?",
+    "options": {
+      "A": "Ruisseau",
+      "B": "Rivière",
+      "C": "Chute d'eau",
+      "D": "Lac"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 3,
+    "enigma": "Quel est le nom du plus grand récif corallien du monde ?",
+    "options": {
+      "A": "Récif de la Grande Barrière",
+      "B": "Récif de Belize",
+      "C": "Récif de la Mer Rouge",
+      "D": "Récif de l'Indo-Pacifique"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quelle marque automobile est connue pour son logo en forme de quatre anneaux ?",
+    "options": {
+      "A": "BMW",
+      "B": "Audi",
+      "C": "Volkswagen",
+      "D": "Mercedes"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le terme utilisé pour décrire la puissance d'un moteur ?",
+    "options": {
+      "A": "Couple",
+      "B": "Cylindrée",
+      "C": "Puissance",
+      "D": "Vitesse"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quelle est la voiture la plus vendue au monde ?",
+    "options": {
+      "A": "Toyota Corolla",
+      "B": "Ford F-150",
+      "C": "Volkswagen Golf",
+      "D": "Honda Civic"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel type de véhicule est spécialement conçu pour le tout-terrain ?",
+    "options": {
+      "A": "Berline",
+      "B": "Crossover",
+      "C": "SUV",
+      "D": "Coupé"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le pays d'origine de la marque Ferrari ?",
+    "options": {
+      "A": "Allemagne",
+      "B": "France",
+      "C": "Italie",
+      "D": "Royaume-Uni"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel modèle de voiture est souvent associé à James Bond ?",
+    "options": {
+      "A": "Aston Martin DB5",
+      "B": "BMW Z3",
+      "C": "Ford Mustang",
+      "D": "Chevrolet Corvette"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le principal avantage d'une voiture électrique par rapport à une voiture à essence ?",
+    "options": {
+      "A": "Plus de puissance",
+      "B": "Moins de pollution",
+      "C": "Vitesse maximale",
+      "D": "Coût d'achat"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quelle est la durée de vie moyenne d'une batterie de voiture électrique ?",
+    "options": {
+      "A": "3-5 ans",
+      "B": "5-10 ans",
+      "C": "10-15 ans",
+      "D": "15-20 ans"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le principal composant d'un moteur à combustion interne ?",
+    "options": {
+      "A": "Alternateur",
+      "B": "Cylindre",
+      "C": "Radiateur",
+      "D": "Injecteur"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel type de véhicule est un cabriolet ?",
+    "options": {
+      "A": "Voiture avec toit rigide",
+      "B": "Voiture sans toit",
+      "C": "Voiture de sport",
+      "D": "Voiture familiale"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel constructeur automobile produit la Mustang ?",
+    "options": {
+      "A": "Chevrolet",
+      "B": "Ford",
+      "C": "Dodge",
+      "D": "Toyota"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le terme désignant l'ensemble des actions pour améliorer la sécurité routière ?",
+    "options": {
+      "A": "Prévention routière",
+      "B": "Éducation routière",
+      "C": "Sécurité routière",
+      "D": "Inspection routière"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le modèle de voiture qui a remporté le plus de titres en Formule 1 ?",
+    "options": {
+      "A": "Ferrari",
+      "B": "Mercedes",
+      "C": "Red Bull",
+      "D": "McLaren"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du système de navigation intégré dans de nombreuses voitures modernes ?",
+    "options": {
+      "A": "GPS",
+      "B": "GPRS",
+      "C": "Wi-Fi",
+      "D": "Bluetooth"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du carburant utilisé dans la plupart des voitures à essence ?",
+    "options": {
+      "A": "Diesel",
+      "B": "Essence",
+      "C": "Éthanol",
+      "D": "Hydrogène"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel type de transmission permet de changer de vitesse manuellement ?",
+    "options": {
+      "A": "Automatique",
+      "B": "Semi-automatique",
+      "C": "Manuelle",
+      "D": "Dynamique"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel constructeur est connu pour ses voitures de luxe et son étoile à trois branches ?",
+    "options": {
+      "A": "BMW",
+      "B": "Mercedes-Benz",
+      "C": "Audi",
+      "D": "Porsche"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du célèbre circuit automobile situé à Monaco ?",
+    "options": {
+      "A": "Circuit de Spa-Francorchamps",
+      "B": "Circuit de Monza",
+      "C": "Circuit de Monte-Carlo",
+      "D": "Circuit des 24 Heures du Mans"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quelle est la plus grande foire automobile du monde ?",
+    "options": {
+      "A": "Salon de Genève",
+      "B": "IAA de Francfort",
+      "C": "Los Angeles Auto Show",
+      "D": "Tokyo Motor Show"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du processus de réduction des émissions de CO2 des voitures ?",
+    "options": {
+      "A": "Dépollution",
+      "B": "Ecologisation",
+      "C": "Nettoyage",
+      "D": "Efficacité énergétique"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel type de véhicule est conçu pour transporter des marchandises ?",
+    "options": {
+      "A": "Coupé",
+      "B": "Berline",
+      "C": "Camion",
+      "D": "Monospace"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du célèbre modèle de voiture de sport de Porsche ?",
+    "options": {
+      "A": "911",
+      "B": "Boxster",
+      "C": "Cayenne",
+      "D": "Macan"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quelle technologie permet aux voitures de se garer automatiquement ?",
+    "options": {
+      "A": "Système de détection",
+      "B": "Assistance au stationnement",
+      "C": "Contrôle de traction",
+      "D": "Navigation GPS"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom de la célèbre course de voitures d'endurance qui se déroule en France ?",
+    "options": {
+      "A": "Tour de France Automobile",
+      "B": "Rallye de Monte-Carlo",
+      "C": "24 Heures du Mans",
+      "D": "Gran Premio de España"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le type de voiture qui a une carrosserie sportive et deux portes ?",
+    "options": {
+      "A": "Coupé",
+      "B": "Berline",
+      "C": "Monospace",
+      "D": "SUV"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom de la voiture électrique fabriquée par Tesla qui a un design unique ?",
+    "options": {
+      "A": "Model S",
+      "B": "Model X",
+      "C": "Model 3",
+      "D": "Model Y"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quelle est la vitesse maximale atteinte par une voiture de série record ?",
+    "options": {
+      "A": "300 km/h",
+      "B": "350 km/h",
+      "C": "400 km/h",
+      "D": "450 km/h"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du système qui améliore l'adhérence des pneus sur la route ?",
+    "options": {
+      "A": "ABS",
+      "B": "ESP",
+      "C": "ASR",
+      "D": "TCS"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom de la compétition automobile internationale la plus prestigieuse ?",
+    "options": {
+      "A": "IndyCar",
+      "B": "Formule 1",
+      "C": "Le Mans",
+      "D": "WRC"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel type de moteur utilise de l'essence comme carburant ?",
+    "options": {
+      "A": "Moteur diesel",
+      "B": "Moteur électrique",
+      "C": "Moteur à combustion interne",
+      "D": "Moteur hybride"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom de la voiture de sport emblématique de Lamborghini ?",
+    "options": {
+      "A": "Aventador",
+      "B": "Gallardo",
+      "C": "Huracán",
+      "D": "Murciélago"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du dispositif de sécurité qui retient les passagers lors d'un accident ?",
+    "options": {
+      "A": "Ceinture de sécurité",
+      "B": "Airbag",
+      "C": "Système de freinage",
+      "D": "Contrôle de stabilité"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom de la marque automobile qui produit la célèbre camionnette F-150 ?",
+    "options": {
+      "A": "Chevrolet",
+      "B": "Dodge",
+      "C": "Ford",
+      "D": "Ram"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du processus d'inspection périodique des véhicules ?",
+    "options": {
+      "A": "Contrôle technique",
+      "B": "Inspection automobile",
+      "C": "Dépistage de sécurité",
+      "D": "Vérification routière"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel constructeur automobile est connu pour ses modèles de SUV compacts ?",
+    "options": {
+      "A": "Nissan",
+      "B": "Peugeot",
+      "C": "Toyota",
+      "D": "Mazda"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel type de véhicule est conçu principalement pour le transport de passagers ?",
+    "options": {
+      "A": "Camion",
+      "B": "Berline",
+      "C": "Fourgonnette",
+      "D": "SUV"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom de la technologie qui permet de démarrer une voiture sans clé ?",
+    "options": {
+      "A": "Keyless entry",
+      "B": "Démarrage à distance",
+      "C": "Système d'alarme",
+      "D": "Déverrouillage électronique"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du célèbre constructeur automobile japonais qui produit des voitures sportives ?",
+    "options": {
+      "A": "Honda",
+      "B": "Nissan",
+      "C": "Subaru",
+      "D": "Mitsubishi"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quelle voiture est souvent utilisée comme modèle de sécurité par les forces de l'ordre ?",
+    "options": {
+      "A": "Ford Explorer",
+      "B": "Chevrolet Tahoe",
+      "C": "Dodge Charger",
+      "D": "Toyota Highlander"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom de l'aileron arrière sur les voitures de course ?",
+    "options": {
+      "A": "Spoiler",
+      "B": "Diffuseur",
+      "C": "Aileron",
+      "D": "Porte-aéronef"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du sport automobile qui se déroule sur des circuits fermés ?",
+    "options": {
+      "A": "Rallye",
+      "B": "Formule E",
+      "C": "Endurance",
+      "D": "Tourisme"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel constructeur est connu pour ses voitures au design distinctif et futuriste ?",
+    "options": {
+      "A": "Tesla",
+      "B": "Jaguar",
+      "C": "Porsche",
+      "D": "Maserati"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel type de véhicule est un monospace ?",
+    "options": {
+      "A": "Véhicule de sport",
+      "B": "Véhicule familial",
+      "C": "Véhicule utilitaire",
+      "D": "Véhicule de luxe"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du premier constructeur automobile à avoir introduit la production en série ?",
+    "options": {
+      "A": "Ford",
+      "B": "Chevrolet",
+      "C": "Daimler",
+      "D": "Volkswagen"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom du processus par lequel les voitures électriques rechargent leurs batteries ?",
+    "options": {
+      "A": "Recharge",
+      "B": "Alimentation",
+      "C": "Emmagasinage",
+      "D": "Électrification"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel type de véhicule est une berline ?",
+    "options": {
+      "A": "Véhicule à deux portes",
+      "B": "Véhicule à quatre portes",
+      "C": "Véhicule sportif",
+      "D": "Véhicule utilitaire"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 4,
+    "enigma": "Quel est le nom de la technologie qui améliore la performance des voitures sur la route ?",
+    "options": {
+      "A": "Contrôle de traction",
+      "B": "Suspension active",
+      "C": "Freinage antiblocage",
+      "D": "Système de navigation"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel langage de programmation est principalement utilisé pour le développement web côté serveur ?",
+    "options": {
+      "A": "Python",
+      "B": "JavaScript",
+      "C": "PHP",
+      "D": "Ruby"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le terme pour désigner l'unité centrale de traitement d'un ordinateur ?",
+    "options": {
+      "A": "GPU",
+      "B": "CPU",
+      "C": "RAM",
+      "D": "SSD"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel système d'exploitation est développé par Microsoft ?",
+    "options": {
+      "A": "Linux",
+      "B": "Windows",
+      "C": "macOS",
+      "D": "Ubuntu"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du modèle de développement Agile qui utilise des sprints ?",
+    "options": {
+      "A": "Scrum",
+      "B": "Kanban",
+      "C": "Waterfall",
+      "D": "Extreme Programming"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel composant est responsable du stockage temporaire des données pendant le traitement ?",
+    "options": {
+      "A": "HDD",
+      "B": "SSD",
+      "C": "RAM",
+      "D": "CPU"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le langage de balisage utilisé pour créer des pages web ?",
+    "options": {
+      "A": "HTML",
+      "B": "CSS",
+      "C": "XML",
+      "D": "JavaScript"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quelle unité de mesure correspond à 1024 mégaoctets ?",
+    "options": {
+      "A": "Gigaoctet",
+      "B": "Terraoctet",
+      "C": "Kiloctet",
+      "D": "Mégabits"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le protocole utilisé pour envoyer des e-mails ?",
+    "options": {
+      "A": "HTTP",
+      "B": "FTP",
+      "C": "SMTP",
+      "D": "POP3"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du logiciel utilisé pour gérer les bases de données relationnelles ?",
+    "options": {
+      "A": "MySQL",
+      "B": "Photoshop",
+      "C": "Excel",
+      "D": "Notepad"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel langage est principalement utilisé pour le développement d'applications Android ?",
+    "options": {
+      "A": "Swift",
+      "B": "Kotlin",
+      "C": "C#",
+      "D": "Ruby"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du processus d'élimination des erreurs dans le code ?",
+    "options": {
+      "A": "Debugging",
+      "B": "Compiling",
+      "C": "Refactoring",
+      "D": "Testing"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel type de mémoire est non volatile et utilisé pour le stockage permanent ?",
+    "options": {
+      "A": "RAM",
+      "B": "ROM",
+      "C": "Cache",
+      "D": "SSD"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le système d'exploitation open-source basé sur le noyau Linux ?",
+    "options": {
+      "A": "Ubuntu",
+      "B": "Windows",
+      "C": "macOS",
+      "D": "iOS"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le terme utilisé pour décrire le stockage de données dans le cloud ?",
+    "options": {
+      "A": "Local Storage",
+      "B": "Cloud Storage",
+      "C": "Virtual Storage",
+      "D": "Remote Storage"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel outil de développement permet de contrôler les versions du code source ?",
+    "options": {
+      "A": "Git",
+      "B": "Docker",
+      "C": "Jira",
+      "D": "Slack"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le terme utilisé pour désigner un ensemble de règles de style dans la programmation ?",
+    "options": {
+      "A": "Framework",
+      "B": "Convention",
+      "C": "Syntaxe",
+      "D": "Bibliothèque"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel composant est responsable de l'affichage des graphiques sur un écran ?",
+    "options": {
+      "A": "GPU",
+      "B": "CPU",
+      "C": "RAM",
+      "D": "SSD"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du langage utilisé pour styliser les pages web ?",
+    "options": {
+      "A": "HTML",
+      "B": "CSS",
+      "C": "JavaScript",
+      "D": "XML"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du protocole utilisé pour naviguer sur le web ?",
+    "options": {
+      "A": "SMTP",
+      "B": "HTTP",
+      "C": "FTP",
+      "D": "SSH"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel type d'application permet d'exécuter plusieurs systèmes d'exploitation sur un même matériel ?",
+    "options": {
+      "A": "Virtualisation",
+      "B": "Cloud computing",
+      "C": "Containerisation",
+      "D": "Booting"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du périphérique utilisé pour entrer des données dans un ordinateur ?",
+    "options": {
+      "A": "Écran",
+      "B": "Clavier",
+      "C": "Imprimante",
+      "D": "Haut-parleur"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom de la mémoire cache la plus rapide située près du processeur ?",
+    "options": {
+      "A": "Cache L1",
+      "B": "Cache L2",
+      "C": "RAM",
+      "D": "SSD"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel langage est principalement utilisé pour le développement d'applications iOS ?",
+    "options": {
+      "A": "Java",
+      "B": "Swift",
+      "C": "Python",
+      "D": "C#"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom de l'outil utilisé pour créer des présentations visuelles de code ?",
+    "options": {
+      "A": "Markdown",
+      "B": "PowerPoint",
+      "C": "LaTeX",
+      "D": "Visio"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du système qui gère les ressources matérielles d'un ordinateur ?",
+    "options": {
+      "A": "Système d'exploitation",
+      "B": "Firmware",
+      "C": "Driver",
+      "D": "Middleware"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le terme utilisé pour désigner un réseau de plusieurs ordinateurs interconnectés ?",
+    "options": {
+      "A": "Internet",
+      "B": "Intranet",
+      "C": "Extranet",
+      "D": "LAN"
+    },
+    "answer": "D"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel type d'attaque informatique consiste à surcharger un serveur ?",
+    "options": {
+      "A": "Phishing",
+      "B": "DDoS",
+      "C": "Malware",
+      "D": "Ransomware"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du format de fichier utilisé pour les images numériques ?",
+    "options": {
+      "A": "JPEG",
+      "B": "DOCX",
+      "C": "HTML",
+      "D": "MP3"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel langage de programmation est principalement utilisé pour le développement d'applications de science des données ?",
+    "options": {
+      "A": "Java",
+      "B": "R",
+      "C": "C++",
+      "D": "PHP"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du service cloud de stockage proposé par Google ?",
+    "options": {
+      "A": "OneDrive",
+      "B": "Dropbox",
+      "C": "Google Drive",
+      "D": "iCloud"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom de la technologie qui permet aux ordinateurs de communiquer sans fil ?",
+    "options": {
+      "A": "Ethernet",
+      "B": "Bluetooth",
+      "C": "USB",
+      "D": "HDMI"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du langage de programmation orienté objet développé par Sun Microsystems ?",
+    "options": {
+      "A": "C#",
+      "B": "Python",
+      "C": "Java",
+      "D": "Ruby"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le terme pour désigner la procédure d'installation d'un programme sur un ordinateur ?",
+    "options": {
+      "A": "Configuration",
+      "B": "Installation",
+      "C": "Téléchargement",
+      "D": "Mise à jour"
+    },
+    "answer": "B"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel type de logiciel est utilisé pour créer des graphiques et des illustrations ?",
+    "options": {
+      "A": "Logiciel de traitement de texte",
+      "B": "Logiciel de tableur",
+      "C": "Logiciel de création graphique",
+      "D": "Logiciel de gestion de projet"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du composant qui permet à un ordinateur de se connecter à un réseau ?",
+    "options": {
+      "A": "Carte graphique",
+      "B": "Carte mère",
+      "C": "Carte réseau",
+      "D": "Carte son"
+    },
+    "answer": "C"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du principe de design logiciel qui consiste à diviser un programme en petites unités modulaires ?",
+    "options": {
+      "A": "Modularité",
+      "B": "Intégration",
+      "C": "Simplicité",
+      "D": "Complexité"
+    },
+    "answer": "A"
+  },
+  {
+    "idTheme": 5,
+    "enigma": "Quel est le nom du standard pour le codage des caractères dans les ordinateurs ?",
+    "options": {
+      "A": "ASCII",
+      "B": "UTF-8",
+      "C": "ISO-8859-1",
+      "D": "UTF-16"
+    },
+    "answer": "B"
+  }
+]

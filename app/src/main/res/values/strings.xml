@@ -24,7 +24,7 @@
     <string name="email_pseudo">Email/Pseudo</string>
     <string name="prenom">Prénom</string>
     <string name="parametres">Paramètres</string>
-    <string name="vide">ajouter info bdd</string>
+    <string name="infobdd">ajouter info bdd</string>
     <string name="modifier_profile">Modifier profile</string>
     <string name="mode_sourd">Mode sourd</string>
     <string name="mode_aveugle">Mode non-voyant</string>
@@ -36,4 +36,7 @@
     <string name="thanks">Remerciements</string>
     <string name="avatar">Avatar</string>
     <string name="deconnexion">Deconnexion</string>
+    <string name="validermodif">Valider Modification</string>
+    <string name="photoprofile">photoprofile</string>
+    <string name="jouer"/>
 </resources>
