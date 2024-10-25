@@ -36,7 +36,7 @@
     <string name="thanks">Remerciements</string>
     <string name="avatar">Avatar</string>
     <string name="deconnexion">Deconnexion</string>
-    <string name="validermodif">Valider Modification</string>
+    <string name="validermodif">Valider les Modifications</string>
     <string name="photoprofile">photoprofile</string>
     <string name="jouer"/>
 </resources>
