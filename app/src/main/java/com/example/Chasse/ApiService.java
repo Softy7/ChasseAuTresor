@@ -19,5 +19,8 @@ public interface ApiService {
     Call<Void> createUser(@Body JsonObject jsonObject);
 
     @GET("user/login")
-    Call<UserRequest> login(@Query("email") String email, @Query("password") String password);
+    Call<UserRequest> login(@Query("object") String object, @Query("password") String password);
+
+    @GET("user/find")
+    Call<UserRequest> getUserById(@Query("id") long id);
 }
