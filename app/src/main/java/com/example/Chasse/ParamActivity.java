@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,9 @@ public class ParamActivity extends AppCompatActivity {
     protected AppCompatButton modifprofil;
 
     protected ImageButton backsetting;
+
+    protected Button disconnect;
+    protected MainSystem mainSystem = new MainSystem();
 
     @SuppressLint({"SetTextI18n", "MissingInflatedId", "WrongViewCast"})
     @Override
@@ -63,9 +67,21 @@ public class ParamActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    this.disconnect = findViewById(R.id.btndisconnect);
 
+    this.disconnect.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            mainSystem.unloadUser(ParamActivity.this);
+            Toast.makeText(ParamActivity.this, "Vous êtes déconnecté", Toast.LENGTH_LONG).show();
 
+            Intent intent = new Intent(ParamActivity.this, ChoiceConnectActivity.class);
+            startActivity(intent);
+        }
+    });
     }
+
+
 
     @Override
     protected void onRestart() {
