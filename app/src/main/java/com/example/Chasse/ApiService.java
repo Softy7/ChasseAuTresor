@@ -7,6 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -23,4 +24,7 @@ public interface ApiService {
 
     @GET("user/find")
     Call<UserRequest> getUserById(@Query("id") long id);
+
+    @PUT("user/update")
+    Call<Void> updateUser(@Body JsonObject jsonObject);
 }
