@@ -67,8 +67,7 @@ public class ParamActivity extends AppCompatActivity {
         this.backsetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ParamActivity.this,MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     this.disconnect = findViewById(R.id.btndisconnect);
@@ -79,8 +78,7 @@ public class ParamActivity extends AppCompatActivity {
             mainSystem.unloadUser(ParamActivity.this);
             Toast.makeText(ParamActivity.this, "Vous êtes déconnecté", Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent(ParamActivity.this, ChoiceConnectActivity.class);
-            startActivity(intent);
+            finish();
         }
     });
     }
