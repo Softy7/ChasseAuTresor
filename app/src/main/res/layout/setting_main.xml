@@ -60,6 +60,18 @@
             android:textStyle="bold"
             android:fontFamily="@font/madimi_one_regular"/>
 
+        <TextView
+            android:id="@+id/pseudoAffiche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/infobdd"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="@font/madimi_one_regular"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/modifprofilbtn"
             android:layout_width="wrap_content"

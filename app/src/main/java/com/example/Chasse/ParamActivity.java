@@ -38,6 +38,10 @@ public class ParamActivity extends AppCompatActivity {
         TextView nomprenom=findViewById(R.id.nameaffiche);
         nomprenom.setText(nom + " " + prenom);
 
+        String pseudo = user.getPseudo();
+        TextView pseudoText = findViewById(R.id.pseudoAffiche);
+        pseudoText.setText(pseudo);
+
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_FULLSCREEN |
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
