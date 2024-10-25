@@ -103,9 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     UserRequest user = response.body();
-                    if (user != null) {
-                        Toast.makeText(MainActivity.this, "Vous êtes connectés", Toast.LENGTH_LONG).show();
-                    } else {
+                    if (user == null)  {
                         MainSystem mainSystem = new MainSystem();
                         mainSystem.unloadUser(MainActivity.this);
                         Intent intent = new Intent(MainActivity.this, ChoiceConnectActivity.class);

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Chasse du Cirque de Maubeuge</string>
+    <string name="app_name">CUM Trésors</string>
     <string name="title_activity_choice_connect">ChoiceConnectActivity</string>
     <string name="you_connect">Se Connecter</string>
     <string name="s_inscrire">S\'inscrire</string>
@@ -36,7 +36,7 @@
     <string name="thanks">Remerciements</string>
     <string name="avatar">Avatar</string>
     <string name="deconnexion">Deconnexion</string>
-    <string name="validermodif">Valider Modification</string>
+    <string name="validermodif">Valider les Modifications</string>
     <string name="photoprofile">photoprofile</string>
     <string name="jouer"/>
 </resources>

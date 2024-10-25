@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Beige"
+    android:background="@drawable/background_param"
     >
 
     <RelativeLayout
@@ -47,7 +47,6 @@
             android:layout_height="130dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@color/Beige"
             android:src="@drawable/pirate"/>
 
         <TextView
@@ -91,6 +90,7 @@
                 android:text="@string/infobdd"
                 android:textSize="30sp"
                 android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 />
         </RelativeLayout>
@@ -113,6 +113,7 @@
                 android:textSize="30sp"
                 android:hint="@string/nom"
                 android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 />
 
@@ -138,6 +139,7 @@
                 android:hint="@string/prenom"
                 android:textSize="30sp"
                 android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 />
         </RelativeLayout>
