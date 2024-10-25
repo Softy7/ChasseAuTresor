@@ -71,8 +71,7 @@ public class ChangeProfilActivity extends AppCompatActivity {
         this.backsetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChangeProfilActivity.this,ParamActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
@@ -121,9 +120,6 @@ public class ChangeProfilActivity extends AppCompatActivity {
                             mainSystem.saveUser(ChangeProfilActivity.this, jsonObject1.toString());
 
                             Toast.makeText(ChangeProfilActivity.this, "Modification effectué avec succès !", Toast.LENGTH_LONG).show();
-
-                            Intent intent = new Intent(ChangeProfilActivity.this,ParamActivity.class);
-                            startActivity(intent);
                             // modification bdd local
                             finish();
                         } else if (response.code() == 409) {
