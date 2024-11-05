@@ -39,4 +39,6 @@
     <string name="validermodif">Valider les Modifications</string>
     <string name="photoprofile">photoprofile</string>
     <string name="jouer"/>
+    <string name="ok">Ok</string>
+    <string name="code">Code</string>
 </resources>
