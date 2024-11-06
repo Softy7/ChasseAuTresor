@@ -3,6 +3,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,8 @@ public class ParamActivity extends AppCompatActivity {
     protected ImageButton backsetting;
 
     protected Button disconnect;
+
+    protected Button remerciements;
     protected MainSystem mainSystem = new MainSystem();
 
     @SuppressLint({"SetTextI18n", "MissingInflatedId", "WrongViewCast"})
@@ -70,17 +73,27 @@ public class ParamActivity extends AppCompatActivity {
                 finish();
             }
         });
-    this.disconnect = findViewById(R.id.btndisconnect);
+        this.disconnect = findViewById(R.id.btndisconnect);
 
-    this.disconnect.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            mainSystem.unloadUser(ParamActivity.this);
-            Toast.makeText(ParamActivity.this, "Vous êtes déconnecté", Toast.LENGTH_LONG).show();
+        this.disconnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainSystem.unloadUser(ParamActivity.this);
+                Toast.makeText(ParamActivity.this, "Vous êtes déconnecté", Toast.LENGTH_LONG).show();
 
-            finish();
-        }
-    });
+                finish();
+            }
+        });
+
+        this.remerciements=findViewById(R.id.btnthanks);
+
+        this.remerciements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ParamActivity.this,ThanksMain.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
