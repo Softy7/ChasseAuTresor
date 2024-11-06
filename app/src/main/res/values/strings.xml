@@ -39,4 +39,34 @@
     <string name="validermodif">Valider les Modifications</string>
     <string name="photoprofile">photoprofile</string>
     <string name="jouer"/>
+    <string name="ok">Ok</string>
+    <string name="code">Code</string>
+    <string name="remerciements">Remerciements</string>
+    <string name="textremerciements">Merci à :\n
+Conception du jeu / progrmmation\n
+Valentin Manu\n
+Nathan Bernard\n
+Ewan Michel\n
+Yanis Vangalen\n
+Charles Parsy\n
+\n
+UI design / développement front-end :\n
+Yanis Vangalen\n
+Charles Parsy\n
+\n
+Développement backend :\n
+Valentin Manu\n
+Nathan Bernard\n
+Ewan Michel\n
+\n
+Serveur :\n
+Valentin Menu\n
+\n
+Logiciel :\n
+Android studio\n
+Git Hub\n
+Figma\n
+ChatGPT\n
+Postgres SQL\n
+    </string>
 </resources>

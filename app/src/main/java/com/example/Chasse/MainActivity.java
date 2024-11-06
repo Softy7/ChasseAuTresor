@@ -66,7 +66,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         this.loadGame = findViewById(R.id.LoadGame);
-        this.loadGame.setOnClickListener(v -> {});
+        this.loadGame.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoadGameActivity.class);
+            startActivity(intent);
+        });
 
         this.tparams = findViewById(R.id.parametres);
         this.tparams.setOnClickListener(v -> {
