@@ -11,6 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.System.MainSystem;
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
+
+import java.net.URISyntaxException;
 
 public class InviteFriendActivity extends AppCompatActivity {
 
@@ -19,6 +24,8 @@ public class InviteFriendActivity extends AppCompatActivity {
     protected TextView code, theme;
     protected ImageButton back, launch, search;
     protected int idTheme;
+    private Socket socket;
+    private TextView otherPlayerPseudo;
 
     @Override
     protected void onCreate(Bundle savedInstance) {
@@ -40,6 +47,8 @@ public class InviteFriendActivity extends AppCompatActivity {
         this.theme = findViewById(R.id.theme);
         this.theme.setText(this.getTheTheme());
 
+        this.otherPlayerPseudo = findViewById(R.id.other_player_name);
+
         this.back = findViewById(R.id.back);
         this.back.setOnClickListener(v -> finish());
 
@@ -49,6 +58,58 @@ public class InviteFriendActivity extends AppCompatActivity {
         this.search = findViewById(R.id.search);
         this.search.setOnClickListener(v -> {});
 
+        try {
+            socket = IO.socket("http://10.0.2.2:55557");
+            Log.d("socket url", "l'url marche correctement");
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+
+        socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
+                Log.d("socket", "Connecté au serveur");
+            }
+        }).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
+                Log.d("socket", "Déconnecté du serveur");
+            }
+        });
+
+        emitToSocketCreateNewRoom();
+
+        socket.on("room id exists", new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
+                final String alertMessage = (String) objects[0];
+                runOnUiThread(() -> {
+                    Log.d("message", alertMessage);
+                    game.setCode();
+                    emitToSocketCreateNewRoom();
+                });
+            }
+        });
+
+        socket.on("new room", new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
+                final String alertMessage = (String) objects[0];
+                Log.d("message", alertMessage);
+            }
+        });
+
+        socket.connect();
+
+
+    }
+
+    private void emitToSocketCreateNewRoom(){
+        socket.emit("create new room",
+                mainSystem.readUser(this).getId(),
+                mainSystem.readUser(this).getPseudo(),
+                this.game.getCode()
+        );
     }
 
     private String getTheTheme() {
@@ -60,5 +121,12 @@ public class InviteFriendActivity extends AppCompatActivity {
             case 4 -> "Les voitures";
             case 5 -> "L'informatique";
         };
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        socket.disconnect();
+        socket.off();
     }
 }

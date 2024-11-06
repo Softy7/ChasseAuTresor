@@ -1,11 +1,12 @@
 package com.example.Chasse.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Game {
 
-    public ArrayList<User> users;
+    private final ArrayList<User> users;
     public Course course;
     private int code;
 
@@ -21,6 +22,10 @@ public class Game {
             this.users.add(user);
             return true;
         }
+    }
+
+    public List<User> getUsers() {
+        return users;
     }
 
     public int getCode() {
