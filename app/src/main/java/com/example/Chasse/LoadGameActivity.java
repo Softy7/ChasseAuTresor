@@ -22,7 +22,7 @@ public class LoadGameActivity extends AppCompatActivity {
         this.back = findViewById(R.id.back);
         this.back.setOnClickListener(v -> finish());
 
-        this.ok.findViewById(R.id.ok);
+        this.ok = findViewById(R.id.ok);
         this.ok.setOnClickListener(v -> {});
     }
 }
