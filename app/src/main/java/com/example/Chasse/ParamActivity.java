@@ -30,6 +30,8 @@ public class ParamActivity extends AppCompatActivity {
     protected Button disconnect;
 
     protected Button remerciements;
+
+    protected Button regles;
     protected MainSystem mainSystem = new MainSystem();
 
     @SuppressLint({"SetTextI18n", "MissingInflatedId", "WrongViewCast"})
@@ -94,9 +96,17 @@ public class ParamActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        this.regles=findViewById(R.id.btnrules);
+
+        this.regles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ParamActivity.this,RulesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
-
 
     @Override
     protected void onRestart() {
