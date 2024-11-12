@@ -1,12 +1,14 @@
 package com.example.Chasse;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Chasse.Model.Game;
@@ -14,6 +16,9 @@ import com.example.Chasse.Model.System.MainSystem;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 
@@ -26,6 +31,7 @@ public class InviteFriendActivity extends AppCompatActivity {
     protected int idTheme;
     private Socket socket;
     private TextView otherPlayerPseudo;
+    private boolean isJoiningRoom;
 
     @Override
     protected void onCreate(Bundle savedInstance) {
@@ -37,12 +43,14 @@ public class InviteFriendActivity extends AppCompatActivity {
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
+        Intent intent = getIntent();
+        isJoiningRoom = intent.getBooleanExtra(LoadGameActivity.IS_JOINING_ROOM, false);
+
+
         this.game.addUser(mainSystem.readUser(this));
-        this.game.setCode();
 
         this.code = findViewById(R.id.code);
-        CharSequence join = "Code: "+this.game.getCode();
-        this.code.setText(join);
+
 
         this.theme = findViewById(R.id.theme);
         this.theme.setText(this.getTheTheme());
@@ -59,7 +67,7 @@ public class InviteFriendActivity extends AppCompatActivity {
         this.search.setOnClickListener(v -> {});
 
         try {
-            socket = IO.socket("http://10.0.2.2:55557");
+            socket = IO.socket("http://10.0.2.2:55557/");
             Log.d("socket url", "l'url marche correctement");
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
@@ -77,25 +85,81 @@ public class InviteFriendActivity extends AppCompatActivity {
             }
         });
 
-        emitToSocketCreateNewRoom();
 
-        socket.on("room id exists", new Emitter.Listener() {
+        if (!isJoiningRoom) {
+            this.game.setCode();
+            CharSequence join = "Code: "+this.game.getCode();
+            this.code.setText(join);
+
+            emitToSocketCreateNewRoom();
+
+            socket.on("room id exists", new Emitter.Listener() {
+                @Override
+                public void call(Object... objects) {
+                    final String alertMessage = (String) objects[0];
+                    runOnUiThread(() -> {
+                        Log.d("message", alertMessage);
+                        game.setCode();
+                        emitToSocketCreateNewRoom();
+                    });
+                }
+            });
+
+            socket.on("new room", new Emitter.Listener() {
+                @Override
+                public void call(Object... objects) {
+                    final String alertMessage = (String) objects[0];
+                    Log.d("message", alertMessage);
+                }
+            });
+        } else {
+            this.game.setCode((int) intent.getLongExtra("code", 0));
+            CharSequence join = "Code: "+ intent.getLongExtra("code", 0);
+            this.code.setText(join);
+            emitToJoinExistingRoom();
+        }
+
+
+        socket.on("group update", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
-                final String alertMessage = (String) objects[0];
+                if (objects.length > 0){
+                    String json = objects[0].toString();
+                    try {
+                        JSONArray jsonArray = new JSONArray(json);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            long idUser = jsonObject.getLong("id_user");
+                            String pseudo = jsonObject.getString("pseudo");
+                            System.out.println("User ID: " + idUser + ", Pseudo: " + pseudo);
+                            if (idUser != mainSystem.readUser(InviteFriendActivity.this).getId()){
+                                // Met à jour sur le thread principal
+                                runOnUiThread(() -> {
+                                    otherPlayerPseudo.setText(pseudo);
+                                });
+                            }
+                        }
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
+
+        socket.on("user disconnected", new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
                 runOnUiThread(() -> {
-                    Log.d("message", alertMessage);
-                    game.setCode();
-                    emitToSocketCreateNewRoom();
+                    otherPlayerPseudo.setText("");
                 });
             }
         });
 
-        socket.on("new room", new Emitter.Listener() {
+        socket.on("error", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
-                final String alertMessage = (String) objects[0];
-                Log.d("message", alertMessage);
+                String alertMessage = (String) objects[0];
+                Toast.makeText(InviteFriendActivity.this, alertMessage, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -106,6 +170,15 @@ public class InviteFriendActivity extends AppCompatActivity {
 
     private void emitToSocketCreateNewRoom(){
         socket.emit("create new room",
+                mainSystem.readUser(this).getId(),
+                mainSystem.readUser(this).getPseudo(),
+                this.game.getCode(),
+                getTheTheme()
+        );
+    }
+
+    private void emitToJoinExistingRoom(){
+        socket.emit("join existing room",
                 mainSystem.readUser(this).getId(),
                 mainSystem.readUser(this).getPseudo(),
                 this.game.getCode()

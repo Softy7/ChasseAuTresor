@@ -67,7 +67,8 @@
             android:name="com.example.Chasse.LoadGameActivity"
             android:exported="true">
         </activity>
-        <activity android:name="com.example.Chasse.ThanksMain"
+        <activity
+            android:name="com.example.Chasse.ThanksMain"
             android:exported="true">
         </activity>
     </application>

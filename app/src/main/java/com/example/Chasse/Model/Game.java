@@ -35,4 +35,8 @@ public class Game {
     public void setCode() {
         this.code = new Random().nextInt(1000000);
     }
+
+    public void setCode(int code){
+        this.code = code;
+    }
 }

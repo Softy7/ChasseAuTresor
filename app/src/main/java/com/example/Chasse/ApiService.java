@@ -11,9 +11,6 @@ import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface ApiService {
-    // Pour le test
-    @GET("users")
-    Call<String> getData();
 
     // API Spring Trésor
     @POST("user/add")
@@ -27,4 +24,8 @@ public interface ApiService {
 
     @PUT("user/update")
     Call<Void> updateUser(@Body JsonObject jsonObject);
+
+    // API Node.js
+    @GET("join-room/status")
+    Call<Void> getRoomStatus(@Query("id") long id);
 }
