@@ -67,7 +67,7 @@ public class InviteFriendActivity extends AppCompatActivity {
         this.search.setOnClickListener(v -> {});
 
         try {
-            socket = IO.socket("http://10.0.2.2:55557/");
+            socket = IO.socket("http://92.140.29.192:55557/");
             Log.d("socket url", "l'url marche correctement");
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
