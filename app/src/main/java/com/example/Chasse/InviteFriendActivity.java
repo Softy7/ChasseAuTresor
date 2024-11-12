@@ -63,9 +63,6 @@ public class InviteFriendActivity extends AppCompatActivity {
         this.launch = findViewById(R.id.launch);
         this.launch.setOnClickListener(v -> {});
 
-        this.search = findViewById(R.id.search);
-        this.search.setOnClickListener(v -> {});
-
         try {
             socket = IO.socket("http://92.140.29.192:55557/");
             Log.d("socket url", "l'url marche correctement");
