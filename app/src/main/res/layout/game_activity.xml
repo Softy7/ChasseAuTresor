@@ -4,14 +4,14 @@
                                                    android:layout_height="match_parent"
 android:id="@+id/layout_game">
 
-            <com.example.Chasse.View.MapWithPointsView
-                    android:id="@+id/map_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/map"
-                    android:scaleType="centerInside"
+    <com.example.Chasse.View.MapWithPointsView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:src="@drawable/map"
 
-            />
+
+            android:layout_alignParentBottom="true" android:layout_marginBottom="2dp"/>
 
 
 </RelativeLayout>

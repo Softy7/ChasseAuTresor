@@ -76,6 +76,17 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ParamActivity.class);
             startActivity(intent);
         });
+
+        // Pour le test de la connexion wifi
+        // Sera effacé à temps
+        ConstraintLayout constraintLayout = findViewById(R.id.layoutMain);
+        Button button = new Button(this);
+        button.setText("Jeu");
+        constraintLayout.addView(button);
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, BeforeGameActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

@@ -5,11 +5,14 @@ import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.Chasse.Model.Point;
 import com.example.Chasse.View.MapWithPointsView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -19,10 +22,16 @@ import com.google.android.gms.location.LocationServices;
 import android.location.Location;
 import android.os.Looper;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class GameActivity extends AppCompatActivity {
     private MapWithPointsView mapView;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
+    private final ArrayList<Point> points = new ArrayList<>();
+    private Point pointWhereToGo;
+    private Point player1Position;
 
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
@@ -33,6 +42,21 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_activity);
         mapView = findViewById(R.id.map_view);
+
+
+        // AJOUT DES POINTS
+        points.add(new Point(449, 238, 0, "Table de ping-pong"));
+        points.add(new Point(134, 165, 0, "Garage à vélos"));
+        points.add(new Point(502, 403, 0, "Terrain de pétanque"));
+        points.add(new Point(680, 325, 0, "Machine à café, à côté de l'entrée principale"));
+        points.add(new Point(829, 133, 0, "Au bureau des étudiants, ou à proximité si fermé"));
+        points.add(new Point(307, 174, 1, "Au bout du couloir, à côté de la salle S1.10"));
+        points.add(new Point(595, 166, 1, "A la salle de pause au 1er étage"));
+        points.add(new Point(690, 81, 1, "A la salle S1.05, ou à proximité si fermé ou occupé"));
+        points.add(new Point(918, 78, 1, "Au fond du couloir, à proximité de la salle S1.09"));
+        points.add(new Point(702, 359, 1,"Au dessus de la porte d'entrée principale, à côté de la salle S1.15"));
+        points.add(new Point(576, 281, 2, "A côté de l'amphithéatre"));
+
 
         // Obtient la géocalisation
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -59,10 +83,11 @@ public class GameActivity extends AppCompatActivity {
                     int y = (int) Math.abs(Math.round((833 * (latitudeDep - location.getLatitude() * 1000000) / latitudeDif)));
                     int x = (int) Math.abs(Math.round(1064 * (longitudeDep - location.getLongitude() * 1000000) / longitudeDif));
 
+                    player1Position = new Point(x, y);
+
                     Log.d("Points", "X: " + x + ", Y: " + y);
                     //mapView.addPoint(x, y);
-                    double multiplicator = 2.63;
-                    mapView.addPoint((int) Math.round(x * multiplicator), (int) Math.round(y * multiplicator));
+                    mapView.modifyPointPosition((int) Math.round(x), (int) Math.round(y), 2);
 
                 }
                 locationResult.getLocations().clear();
@@ -77,6 +102,10 @@ public class GameActivity extends AppCompatActivity {
                     LOCATION_PERMISSION_REQUEST_CODE);
         } else {
             getLocation();
+
+            addNewPointToGo();
+            showIfThePlayerIsNear();
+
         }
     }
 
@@ -108,9 +137,9 @@ public class GameActivity extends AppCompatActivity {
         // Récupère la locationRequest
         LocationRequest locationRequest = LocationRequest.create();
         // Interval de temps
-        locationRequest.setInterval(10000);
+        locationRequest.setInterval(1000);
         // Interval de temps le plus rapide
-        locationRequest.setFastestInterval(5000);
+        locationRequest.setFastestInterval(500);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -130,6 +159,20 @@ public class GameActivity extends AppCompatActivity {
     }
 
     /**
+     * Permet de vérifier si un joueur est présent ou pas à proximité du point où aller
+     * @param pointWhereToGo: Le point où aller
+     * @param pointToPlayer: Le point du joueur actuel
+     * @return returne vrai si la distance est inférieure ou égal à 15m, sinon retourne faux
+     */
+    public boolean isPlayerNearToPoint(Point pointWhereToGo, Point pointToPlayer){
+        // 5m = 1024 (trouvé via l'image)
+        // 10m = 4096
+        // 15m = 9216
+        return Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
+                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2) <= 9216;
+    }
+
+    /**
      * Une fois cet activity fermée
      */
 
@@ -139,6 +182,42 @@ public class GameActivity extends AppCompatActivity {
         if (fusedLocationClient != null) {
             fusedLocationClient.removeLocationUpdates(locationCallback);
         }
+    }
+
+    public void addNewPointToGo(){
+        Random random = new Random();
+        int numeroPoint = random.nextInt(points.size());
+        pointWhereToGo = points.get(numeroPoint);
+        mapView.modifyPointPosition(pointWhereToGo.getX(), pointWhereToGo.getY(), 1);
+    }
+
+    public void showIfThePlayerIsNear(){
+        Thread thread = new Thread(() -> {
+            while (true){
+                if (pointWhereToGo != null && player1Position != null) {
+
+
+                    if (isPlayerNearToPoint(pointWhereToGo, player1Position)) {
+                        runOnUiThread(() ->
+                                Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show());
+                        break;
+                    } else {
+                        runOnUiThread(() ->
+                                Toast.makeText(GameActivity.this, "Vous n'êtes pas proche du point", Toast.LENGTH_LONG).show());
+                    }
+
+
+                    try{
+                        synchronized (this){
+                            wait(5000);
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        thread.start();
     }
 
 
