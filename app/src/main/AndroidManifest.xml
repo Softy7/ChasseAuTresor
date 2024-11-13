@@ -70,6 +70,10 @@
         <activity android:name="com.example.Chasse.ThanksMain"
             android:exported="true">
         </activity>
+        <activity
+            android:name="com.example.Chasse.EnigmaActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

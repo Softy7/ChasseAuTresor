@@ -11,10 +11,23 @@ public class Enigma {
     public Enigma(String question, Choice response, Choices choices) {
         this.question = question;
         this.response = response;
+        this.choices = choices;
     }
 
-    public boolean propose(Choice answer) {
+    public boolean checkResponse(Choice answer) {
         return Objects.equals(answer, response);
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public Choice getResponse() {
+        return response;
+    }
+
+    public Choices getChoices() {
+        return choices;
     }
 }
 

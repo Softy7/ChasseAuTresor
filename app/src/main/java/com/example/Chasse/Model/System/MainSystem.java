@@ -3,6 +3,7 @@ package com.example.Chasse.Model.System;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.Chasse.EnigmaActivity;
 import com.example.Chasse.Model.Choice;
 import com.example.Chasse.Model.Choices;
 import com.example.Chasse.Model.Enigma;
@@ -21,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class MainSystem {
@@ -98,29 +100,57 @@ public class MainSystem {
         }
     }
 
-    public ArrayList<Enigma> getEnigmas(int themeid) {
+    public ArrayList<Enigma> getEnigmas(int themeid,Context context) throws JSONException {
+        String jsonString = loadJSONFromAsset(context, "enigmas.json");
         ArrayList<Enigma> enigmas1 = new ArrayList<>();
-        String filePath = "app/src/main/java/com/example/Chasse/Model/JSON/enigmas.json";
-        try {
-            String content = new String(Files.readAllBytes(Paths.get(filePath)));
-            JSONArray enigmas = new JSONArray(content);
+
+        if (jsonString != null) {
+            JSONArray enigmas = new JSONArray(jsonString);
 
             for (int i = 0; i < enigmas.length(); i++) {
                 JSONObject enigma = enigmas.getJSONObject(i);
                 int idTheme = enigma.getInt("idTheme");
+                Log.d("Theme", idTheme+"");
+
                 if (themeid == idTheme) {
                     String question = enigma.getString("enigma");
                     JSONObject options = enigma.getJSONObject("options");
                     String answer = enigma.getString("answer");
                     Choices choices = new Choices();
-                    choices.addAnswer(new Choice("A", options.getString("A")));
+                    Log.d("Question", question);
+                    Log.d("Response", options.getString("A"));
+                    Choice choiceA = new Choice("A", options.getString("A"));
+                    choices.addAnswer(choiceA);
+                    Log.d("Add", "Completed");
                     choices.addAnswer(new Choice("B", options.getString("B")));
+                    Log.d("Add2", "Completed");
                     choices.addAnswer(new Choice("C", options.getString("C")));
+                    Log.d("Add3", "Completed");
                     choices.addAnswer(new Choice("D", options.getString("D")));
+                    Log.d("Add4", "Completed");
                     enigmas1.add(new Enigma(question, new Choice(answer, options.getString(answer)), choices));
+                    Log.d("State", "Completed");
                 }
             }
-        } catch (IOException | JSONException ignored) {}
-        return enigmas1;
+            return enigmas1;
+        }
+        return null;
+    }
+
+    private static String loadJSONFromAsset(Context context, String fileName) {
+        String json = null;
+        try {
+            InputStream is = context.getAssets().open(fileName);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+            Log.d("String", json);
+            return json;
+        } catch (IOException ex) {
+            Log.d("Erreur", Objects.requireNonNull(ex.getMessage()));
+            return null;
+        }
     }
 }
