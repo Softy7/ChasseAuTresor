@@ -848,23 +848,23 @@
   },
   {
     "idTheme": 2,
-    "enigma": "Que faire au stop à la sortie du parking de l'IUT ?",
+    "enigma": "Quel est le pire prof de l'IUT ?",
     "options": {
-      "A": "Rouler normalement à 30 km/h",
-      "B": "Ecraser un professeur du Lycée",
-      "C": "Crier Couscous",
-      "D": "Passer la quatrième"
+      "A": "Julien Vion",
+      "B": "Léa Rutali",
+      "C": "Sophie Lepreux",
+      "D": "Philippe Polet"
     },
-    "answer": "D"
+    "answer": "None"
   },
   {
     "idTheme": 2,
     "enigma": "Qui est professeur attitré pour les mathématiques dans le département informatique ?",
     "options": {
       "A": "Philippe Delattre",
-      "B": "Rikou",
-      "C": "Rikou",
-      "D": "Julien vion"
+      "B": "Jesus Vital Kombaya Touchia",
+      "C": "Léa Rutali",
+      "D": "Julien Vion"
     },
     "answer": "A"
   },
@@ -872,10 +872,10 @@
     "idTheme": 2,
     "enigma": "Quel professeur vient d'un autre pays à 5000 Kilomètres d'ici ?",
     "options": {
-      "A": "Julien Vion (Japon)",
-      "B": "Katia Oliveira (Brésil)",
-      "C": "Fabrice Messager (PSG Qatar)",
-      "D": "Frank Ebel (Basic Fit)"
+      "A": "Julien Vion",
+      "B": "Katia Oliveira",
+      "C": "Fabrice Messager",
+      "D": "Frank Ebel"
     },
     "answer": "B"
   },
@@ -892,12 +892,12 @@
   },
   {
     "idTheme": 2,
-    "enigma": "Que faire à la machine à café ?",
+    "enigma": "Quel est le module le plus compliqué de la formation ?",
     "options": {
-      "A": "Ouvrir le bureau",
-      "B": "Effacer Système 32",
-      "C": "S'offrir un café",
-      "D": "Changer les prix en 0.01 centime"
+      "A": "Programmation Système",
+      "B": "Programmation en C++",
+      "C": "Automates et Langages",
+      "D": "Cryptographie et sécurité"
     },
     "answer": "D"
   },
