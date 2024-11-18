@@ -2,6 +2,7 @@ package com.example.Chasse;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +33,15 @@ public class GameActivity extends AppCompatActivity {
     private final ArrayList<Point> points = new ArrayList<>();
     private Point pointWhereToGo;
     private Point player1Position;
+    private Point player2Position;
+    private final Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
+    private final Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
+    private int counterPart = 0;
+    private int counterGameWins = 0;
+    private static final int NUMBER_OF_MINI_GAMES = 3;
+    private final Intent[] miniGamesList = new Intent[]{enigmaActivity, couleursActivity};
+    private final Intent[] miniGamesOrder = new Intent[NUMBER_OF_MINI_GAMES];
+
 
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
@@ -56,6 +66,19 @@ public class GameActivity extends AppCompatActivity {
         points.add(new Point(918, 78, 1, "Au fond du couloir, à proximité de la salle S1.09"));
         points.add(new Point(702, 359, 1,"Au dessus de la porte d'entrée principale, à côté de la salle S1.15"));
         points.add(new Point(576, 281, 2, "A côté de l'amphithéatre"));
+
+        // Ordre des mini-jeux
+        for (int i = 0; i < NUMBER_OF_MINI_GAMES; i++) {
+            Random rand = new Random();
+            miniGamesOrder[i] = miniGamesList[rand.nextInt(NUMBER_OF_MINI_GAMES)];
+        }
+
+        // Intent
+        Intent intent = getIntent();
+        counterPart = intent.getIntExtra("counterPart", 0);
+        counterGameWins = intent.getIntExtra("counterGameWins", 0);
+
+        Log.d("counterPart", String.valueOf(counterPart));
 
 
         // Obtient la géocalisation
@@ -202,8 +225,10 @@ public class GameActivity extends AppCompatActivity {
 
                     Log.d("position", String.valueOf(this.player1Position.getX()));
                     if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
-                        runOnUiThread(() ->
-                                Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show());
+                        runOnUiThread(() ->{
+                            Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show();
+                            startActivity(miniGamesOrder[counterPart]);
+                        });
                         break;
                     }
                     try{
