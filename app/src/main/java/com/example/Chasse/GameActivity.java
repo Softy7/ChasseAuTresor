@@ -162,14 +162,19 @@ public class GameActivity extends AppCompatActivity {
      * Permet de vérifier si un joueur est présent ou pas à proximité du point où aller
      * @param pointWhereToGo: Le point où aller
      * @param pointToPlayer: Le point du joueur actuel
-     * @return returne vrai si la distance est inférieure ou égal à 15m, sinon retourne faux
+     * @return returne vrai si la distance est inférieure ou égal à 5m, sinon retourne faux
      */
     public boolean isPlayerNearToPoint(Point pointWhereToGo, Point pointToPlayer){
         // 5m = 1024 (trouvé via l'image)
         // 10m = 4096
-        // 15m = 9216
-        return Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
-                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2) <= 9216;
+        // 15m = sqrt(9216) * 2
+        /*
+        Log.d("distance", String.valueOf(Math.sqrt(Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
+                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2))));
+
+         */
+        return Math.sqrt(Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
+                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2)) <= 96 * 3;
     }
 
     /**
