@@ -36,12 +36,10 @@ public class GameActivity extends AppCompatActivity {
     private Point pointWhereToGo;
     private Point player1Position;
     private Point player2Position;
-    private final Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
-    private final Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
     private int counterPart = 0;
     private int counterGameWins = 0;
     private static final int NUMBER_OF_MINI_GAMES = 3;
-    private final Intent[] miniGamesList = new Intent[]{enigmaActivity, couleursActivity};
+    private final ArrayList<Intent> miniGamesList = new ArrayList<>();
     private final Intent[] miniGamesOrder = new Intent[NUMBER_OF_MINI_GAMES];
 
 
@@ -69,11 +67,12 @@ public class GameActivity extends AppCompatActivity {
         points.add(new Point(702, 359, 1,"Au dessus de la porte d'entrée principale, à côté de la salle S1.15"));
         points.add(new Point(576, 281, 2, "A côté de l'amphithéatre"));
 
-        // Ordre des mini-jeux
-        for (int i = 0; i < NUMBER_OF_MINI_GAMES; i++) {
-            Random rand = new Random();
-            miniGamesOrder[i] = miniGamesList[rand.nextInt(miniGamesList.length)];
-        }
+
+        Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
+        Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
+
+        miniGamesList.add(enigmaActivity);
+        miniGamesList.add(couleursActivity);
 
         Log.d("tableau", Arrays.toString(miniGamesOrder));
 
@@ -231,8 +230,12 @@ public class GameActivity extends AppCompatActivity {
                     if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
                         runOnUiThread(() ->{
                             Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show();
-                            Log.d("activity", miniGamesOrder[counterPart].toString());
-                            startActivity(miniGamesOrder[counterPart]);
+                            //Intent intent = new Intent(GameActivity.this, EnigmaActivity.class);
+                            //Log.d("activity", miniGamesOrder[counterPart].toString());
+                            //startActivity(miniGamesOrder[counterPart]);
+                            Random random = new Random();
+                            Intent intent = miniGamesList.get(random.nextInt(miniGamesList.size()));
+                            startActivity(intent);
                         });
                         break;
                     }
