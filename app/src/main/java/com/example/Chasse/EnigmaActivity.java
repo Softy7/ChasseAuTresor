@@ -33,70 +33,71 @@ public class EnigmaActivity extends AppCompatActivity {
 
         try {
             enigmas = mainSystem.getEnigmas(2, EnigmaActivity.this);
+            Log.d("size", String.valueOf(enigmas.size()));
+            this.enigma = enigmas.get(random.nextInt(enigmas.size()));
+
+            this.enigmaText = findViewById(R.id.enigma);
+            this.enigmaText.setText(this.enigma.getQuestion());
+
+            this.A = findViewById(R.id.a);
+            this.A.setOnClickListener(v -> {
+                new Toast(EnigmaActivity.this);
+                if (this.enigma.checkResponse(this.enigma.getChoices().getChoice("A"))) {
+                    finish();
+                    Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                } else {
+                    finish();
+                    Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            this.B = findViewById(R.id.b);
+            this.B.setOnClickListener(v -> {
+                new Toast(EnigmaActivity.this);
+                if (this.enigma.checkResponse(this.enigma.getChoices().getChoice("B"))) {
+                    finish();
+                    Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                } else {
+                    finish();
+                    Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+                }
+            });
+            this.C = findViewById(R.id.c);
+            this.C.setOnClickListener(v -> {
+                new Toast(EnigmaActivity.this);
+                if (this.enigma.checkResponse(this.enigma.getChoices().getChoice("C"))) {
+                    finish();
+                    Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                } else {
+                    finish();
+                    Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+                }
+            });
+            this.D = findViewById(R.id.d);
+            this.D.setOnClickListener(v -> {
+                new Toast(EnigmaActivity.this);
+                if (this.enigma.checkResponse(this.enigma.getChoices().getChoice("D"))) {
+                    finish();
+                    Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                } else {
+                    finish();
+                    Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            this.aText = findViewById(R.id.aText);
+            this.aText.setText(this.enigma.getChoices().getAnswer("A"));
+            this.bText = findViewById(R.id.bText);
+            this.bText.setText(this.enigma.getChoices().getAnswer("B"));
+            this.cText = findViewById(R.id.cText);
+            this.cText.setText(this.enigma.getChoices().getAnswer("C"));
+            this.dText = findViewById(R.id.dText);
+            this.dText.setText(this.enigma.getChoices().getAnswer("D"));
         } catch (JSONException e) {
             Log.d("Erreur", String.valueOf(e));
-            throw new RuntimeException(e);
+            Log.d("1", "1");
         }
-        Log.d("size", String.valueOf(enigmas.size()));
-        this.enigma = enigmas.get(random.nextInt(enigmas.size()));
-
-        this.enigmaText = findViewById(R.id.enigma);
-        this.enigmaText.setText(this.enigma.getQuestion());
-
-        this.A = findViewById(R.id.a);
-        this.A.setOnClickListener(v -> {
-            new Toast(EnigmaActivity.this);
-            if (this.enigma.checkResponse(this.enigma.getChoices().getChoice("A"))) {
-                finish();
-                Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
-            } else {
-                finish();
-                Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        this.B = findViewById(R.id.b);
-        this.B.setOnClickListener(v -> {
-            new Toast(EnigmaActivity.this);
-            if (this.enigma.checkResponse(this.enigma.getChoices().getChoice("B"))) {
-                finish();
-                Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
-            } else {
-                finish();
-                Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
-            }
-        });
-        this.C = findViewById(R.id.c);
-        this.C.setOnClickListener(v -> {
-            new Toast(EnigmaActivity.this);
-            if (this.enigma.checkResponse(this.enigma.getChoices().getChoice("C"))) {
-                finish();
-                Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
-            } else {
-                finish();
-                Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
-            }
-        });
-        this.D = findViewById(R.id.d);
-        this.D.setOnClickListener(v -> {
-            new Toast(EnigmaActivity.this);
-            if (this.enigma.checkResponse(this.enigma.getChoices().getChoice("D"))) {
-                finish();
-                Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
-            } else {
-                finish();
-                Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        this.aText = findViewById(R.id.aText);
-        this.aText.setText(this.enigma.getChoices().getAnswer("A"));
-        this.bText = findViewById(R.id.bText);
-        this.bText.setText(this.enigma.getChoices().getAnswer("B"));
-        this.cText = findViewById(R.id.cText);
-        this.cText.setText(this.enigma.getChoices().getAnswer("C"));
-        this.dText = findViewById(R.id.dText);
-        this.dText.setText(this.enigma.getChoices().getAnswer("D"));
     }
 }
+
 
