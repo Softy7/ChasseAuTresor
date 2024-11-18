@@ -42,11 +42,11 @@
                 android:id="@+id/pirate"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:background="@color/black"/>
+                android:background="@drawable/pirate_theme"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="Pirates"
                 android:textColor="#FFFFFF"
@@ -64,11 +64,11 @@
                 android:id="@+id/alcohool"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:background="@color/black"/>
+                android:background="@drawable/pirate_alcool"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="Alcool"
                 android:textColor="#FFFFFF"
@@ -85,12 +85,12 @@
                 android:id="@+id/IUT"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:background="@color/black"/>
+                android:background="@drawable/pirate_iut"/>
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="IUT"
                 android:textColor="#FFFFFF"
@@ -108,11 +108,11 @@
                 android:id="@+id/nature"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:background="@color/black"/>
+                android:background="@drawable/pirate_nature"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="Nature"
                 android:textColor="#FFFFFF"
@@ -129,11 +129,11 @@
                 android:id="@+id/car"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:background="@color/black"/>
+                android:background="@drawable/pirate_voiture2"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="Voitures"
                 android:textColor="#FFFFFF"
@@ -151,11 +151,11 @@
                 android:id="@+id/informatic"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:background="@color/black"/>
+                android:background="@drawable/pirate_ordi"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="Informatique"
                 android:textColor="#FFFFFF"
