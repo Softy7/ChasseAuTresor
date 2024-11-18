@@ -70,8 +70,9 @@ public class GameActivity extends AppCompatActivity {
                 // Latitude et longitude * 1000000
                 int latitudeDep = 50276900;
                 int longitudeDep = 3982700;
+                Location location = locationResult.getLastLocation();
 
-                for (Location location : locationResult.getLocations()) {
+                //for (Location location : locationResult.getLocations()) {
                     // Récupération des donnéees
                     Log.d("Location", "Location: " + location.toString());
                     Log.d("Location", "Latitude: " + location.getLatitude());
@@ -89,7 +90,7 @@ public class GameActivity extends AppCompatActivity {
                     //mapView.addPoint(x, y);
                     mapView.modifyPointPosition((int) Math.round(x), (int) Math.round(y), 2);
 
-                }
+                //}
                 locationResult.getLocations().clear();
             }
         };
@@ -168,13 +169,11 @@ public class GameActivity extends AppCompatActivity {
         // 5m = 1024 (trouvé via l'image)
         // 10m = 4096
         // 15m = sqrt(9216) * 2
-        /*
+
         Log.d("distance", String.valueOf(Math.sqrt(Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
                 Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2))));
-
-         */
         return Math.sqrt(Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
-                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2)) <= 96 * 3;
+                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2)) <= 150;
     }
 
     /**
@@ -201,17 +200,12 @@ public class GameActivity extends AppCompatActivity {
             while (true){
                 if (pointWhereToGo != null && player1Position != null) {
 
-
-                    if (isPlayerNearToPoint(pointWhereToGo, player1Position)) {
+                    Log.d("position", String.valueOf(this.player1Position.getX()));
+                    if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
                         runOnUiThread(() ->
                                 Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show());
                         break;
-                    } else {
-                        runOnUiThread(() ->
-                                Toast.makeText(GameActivity.this, "Vous n'êtes pas proche du point", Toast.LENGTH_LONG).show());
                     }
-
-
                     try{
                         synchronized (this){
                             wait(5000);
