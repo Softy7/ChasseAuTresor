@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import android.location.Location;
 import android.os.Looper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
@@ -70,8 +72,10 @@ public class GameActivity extends AppCompatActivity {
         // Ordre des mini-jeux
         for (int i = 0; i < NUMBER_OF_MINI_GAMES; i++) {
             Random rand = new Random();
-            miniGamesOrder[i] = miniGamesList[rand.nextInt(NUMBER_OF_MINI_GAMES)];
+            miniGamesOrder[i] = miniGamesList[rand.nextInt(miniGamesList.length)];
         }
+
+        Log.d("tableau", Arrays.toString(miniGamesOrder));
 
         // Intent
         Intent intent = getIntent();
@@ -227,6 +231,7 @@ public class GameActivity extends AppCompatActivity {
                     if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
                         runOnUiThread(() ->{
                             Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show();
+                            Log.d("activity", miniGamesOrder[counterPart].toString());
                             startActivity(miniGamesOrder[counterPart]);
                         });
                         break;
@@ -242,6 +247,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
         thread.start();
+
     }
 
 
