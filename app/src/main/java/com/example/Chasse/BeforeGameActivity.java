@@ -20,7 +20,7 @@ public class BeforeGameActivity extends AppCompatActivity {
 
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         Button button2 = findViewById(R.id.couleurs);
-        button.setOnClickListener(v -> {
+        button2.setOnClickListener(v -> {
             Intent intent = new Intent(this, CouleursActivity.class);
             startActivity(intent);
         });

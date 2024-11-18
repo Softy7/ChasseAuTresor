@@ -1,85 +1,79 @@
-package com.example.Chasse;
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_main"
+        tools:context=".CouleursActivity">
 
-import androidx.appcompat.app.AppCompatActivity;
+<LinearLayout
+        android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.083" />
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
+<LinearLayout
+        android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.078" />
 
-import java.util.ArrayList;
+<Button
+        android:id="@+id/red"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="328dp"
+                android:backgroundTint="#FF0000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                android:onClick="red"/>
 
-public class CouleursActivity extends AppCompatActivity {
+<Button
+        android:id="@+id/blue"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="360dp"
+                android:backgroundTint="#00FF00"
+                app:layout_constraintStart_toEndOf="@+id/red"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                android:onClick="green"/>
 
-    private LinearLayout ll;
-    private LinearLayout ll2;
+<Button
+        android:id="@+id/green"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="320dp"
+                android:backgroundTint="#0000FF"
+                app:layout_constraintStart_toEndOf="@+id/blue"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                android:onClick="blue"/>
 
-    private ArrayList<Integer> combinaison;
-    private ArrayList<Integer> reponse;
 
-
-    @SuppressLint("MissingInflatedId")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.couleurs_activity);
-
-        combinaison = new ArrayList<>();
-        reponse = new ArrayList<>();
-
-        ll = findViewById(R.id.linearLayout);
-        ll2 = findViewById(R.id.linearLayout2);
-
-        combinaison.add(Color.RED);
-        combinaison.add(Color.GREEN);
-        combinaison.add(Color.BLUE);
-        combinaison.add(Color.BLUE);
-        combinaison.add(Color.GREEN);
-        combinaison.add(Color.BLUE);
-        combinaison.add(Color.RED);
-        combinaison.add(Color.RED);
-
-        for (int i = 0; i < combinaison.size(); i++) {
-            View v = new View(this);
-            v.setBackgroundColor(combinaison.get(i));
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(100, 100); // Par exemple, 100x100 pixels
-            params.setMargins(10, 10, 10, 10); // Marge entre les vues
-            v.setLayoutParams(params);
-
-            ll.addView(v);
-        }
-    }
-
-    public void red(View v) {
-        addColor(Color.RED);
-    }
-
-    public void blue(View v) {
-        addColor(Color.BLUE);
-    }
-
-    public void green(View v) {
-        addColor(Color.GREEN);
-    }
-
-    public void addColor(int color) {
-        View v1 = new View(this);
-        v1.setBackgroundColor(color);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(100, 100); // Par exemple, 100x100 pixels
-        params.setMargins(10, 10, 10, 10); // Marge entre les vues
-        v1.setLayoutParams(params);
-        ll2.addView(v1);
-        reponse.add(color);
-
-        if(reponse.size()==combinaison.size()) {
-            if(reponse.equals(combinaison)) {
-                this.finish();
-            }
-            ll2.removeAllViews();
-            reponse.clear();
-        }
-    }
-}
+</androidx.constraintlayout.widget.ConstraintLayout>

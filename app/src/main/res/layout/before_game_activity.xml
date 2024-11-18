@@ -12,11 +12,12 @@
             app:layout_constraintHorizontal_bias="0.496" app:layout_constraintVertical_bias="0.75"/>
 
     <Button
-        android:text="@string/jouer"
-        android:layout_width="333dp"
-        android:layout_height="72dp" android:id="@+id/couleurs"
-        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.496" app:layout_constraintVertical_bias="0.75"/>
+        android:id="@+id/couleurs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jeu Couleurs"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="159dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
