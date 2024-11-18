@@ -1,80 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.LunetteTP1"
         tools:targetApi="31">
-
         <activity
-            android:name="com.example.Chasse.MainActivity"
+            android:name=".CouleursActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.Chasse.Registractivity"
-            android:exported="true">
-        </activity>
+            android:name=".Registractivity"
+            android:exported="true"></activity>
         <activity
-            android:name="com.example.Chasse.ChoiceConnectActivity"
-            android:exported="true">
-        </activity>
+            android:name=".ChoiceConnectActivity"
+            android:exported="true"></activity>
         <activity
-            android:name="com.example.Chasse.LoginActivity"
-            android:exported="true">
-        </activity>
+            android:name=".LoginActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".ParamActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
-                android:name="com.example.Chasse.BeforeGameActivity"
-                android:exported="true">
-        </activity>
+            android:name=".BeforeGameActivity"
+            android:exported="true"></activity>
         <activity
-                android:name="com.example.Chasse.GameActivity"
-                android:exported="true">
-        </activity>
+            android:name=".GameActivity"
+            android:exported="true"></activity>
         <activity
-            android:name="com.example.Chasse.ChangeProfilActivity"
-            android:exported="true">
-        </activity>
+            android:name=".ChangeProfilActivity"
+            android:exported="true"></activity>
         <activity
-            android:name="com.example.Chasse.CreateGameActivity"
-            android:exported="true">
-        </activity>
+            android:name=".CreateGameActivity"
+            android:exported="true"></activity>
         <activity
-            android:name="com.example.Chasse.InviteFriendActivity"
-            android:exported="true">
-        </activity>
+            android:name=".InviteFriendActivity"
+            android:exported="true"></activity>
         <activity
-            android:name="com.example.Chasse.LoadGameActivity"
-            android:exported="true">
-        </activity>
+            android:name=".LoadGameActivity"
+            android:exported="true"></activity>
         <activity
-            android:name="com.example.Chasse.ThanksMain"
-            android:exported="true">
-        </activity>
+            android:name=".ThanksMain"
+            android:exported="true"></activity>
         <activity
-            android:name="com.example.Chasse.EnigmaActivity"
-            android:exported="true">
-        </activity>
+            android:name=".EnigmaActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>
