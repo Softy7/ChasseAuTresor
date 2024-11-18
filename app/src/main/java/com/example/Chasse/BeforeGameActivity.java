@@ -1,7 +1,9 @@
 package com.example.Chasse;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +17,19 @@ public class BeforeGameActivity extends AppCompatActivity {
             Intent intent = new Intent(BeforeGameActivity.this, GameActivity.class);
             startActivity(intent);
         });
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        Button button2 = findViewById(R.id.couleurs);
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CouleursActivity.class);
+            startActivity(intent);
+        });
+
+//        Button button2 = findViewById(R.id.charade);
+//        button.setOnClickListener(v -> {
+//            Intent intent = new Intent(this, Charade.class);
+//            startActivity(intent);
+//        });
+
     }
-
-
 }
