@@ -25,11 +25,11 @@ public class BeforeGameActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-//        Button button2 = findViewById(R.id.charade);
-//        button.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, Charade.class);
-//            startActivity(intent);
-//        });
+        Button button3 = findViewById(R.id.charade);
+        button3.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CharadeActivity.class);
+            startActivity(intent);
+        });
 
     }
 }

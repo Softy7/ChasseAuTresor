@@ -1,0 +1,35 @@
+[
+  {
+    "idTheme": 0,
+    "A": "Mon premier est la première syllabe de pélican.",
+    "B": "Mon second est ce que font les bébés après avoir fini de manger.",
+    "C": "On attend les trains sur mon troisième.",
+    "D": "Mon tout est un oiseau qui répète tout.",
+    "answer": "perroquet"
+  },
+  {
+    "idTheme": 0,
+    "A": "Mon premier signifie 3 en espagnol",
+    "B": "Mon second est un métal précieux que les pirates recherchent.",
+    "C": "Mon tout est bien caché.",
+    "D": "",
+    "answer": "tresor"
+  },
+  {
+    "idTheme": 0,
+    "A": "Mon premier est la lettre K.",
+    "B": "Mon second est un oiseau noir et blanc.",
+    "C": "Mon troisième est une boisson chaude avec de l'eau et des feuilles.",
+    "D": "On utilise une corde pour faire mon quatrième.",
+    "answer": "capitaine"
+  },
+  {
+    "idTheme": 0,
+    "A": "Mon premier est un oiseau noir et blanc.",
+    "B": "Mon second vit dans les égoûts.",
+    "C": "Mon troisième est la dernière syllabe de porte.",
+    "D": "Mon tout est redouté en mer.",
+    "answer": "pirate"
+  }
+]
+

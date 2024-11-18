@@ -21,8 +21,14 @@
         android:theme="@style/Theme.LunetteTP1"
         tools:targetApi="31">
         <activity
+            android:name=".ReponseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CharadeActivity"
+            android:exported="true" />
+        <activity
             android:name=".CouleursActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -34,40 +40,40 @@
         </activity>
         <activity
             android:name=".Registractivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ChoiceConnectActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ParamActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".BeforeGameActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".GameActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ChangeProfilActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".CreateGameActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".InviteFriendActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LoadGameActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ThanksMain"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".EnigmaActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
