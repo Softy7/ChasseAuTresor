@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,6 +22,9 @@ public class ChoiceConnectActivity extends AppCompatActivity {
     protected ImageButton registrer;
     protected MainSystem mainSystem = new MainSystem();
     protected ImageView bateau;
+    protected ImageView nuage_1;
+    protected ImageView nuage_2;
+    protected ImageView nuage_3;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,20 @@ public class ChoiceConnectActivity extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.bateau);
         bateau.startAnimation(animation);
 
+        nuage_1 = findViewById(R.id.nuage_1);
+        Animation animation1 = AnimationUtils.loadAnimation(this,R.anim.nuage_1);
+        animation1.setInterpolator(new LinearInterpolator());
+        nuage_1.startAnimation(animation1);
+
+        nuage_2 = findViewById(R.id.nuage_2);
+        Animation animation2 = AnimationUtils.loadAnimation(this,R.anim.nuage_2);
+        animation2.setInterpolator(new LinearInterpolator());
+        nuage_2.startAnimation(animation2);
+
+        nuage_3 = findViewById(R.id.nuage_3);
+        Animation animation3 = AnimationUtils.loadAnimation(this,R.anim.nuage_3);
+        animation3.setInterpolator(new LinearInterpolator());
+        nuage_3.startAnimation(animation3);
 
         if (mainSystem.readUser(ChoiceConnectActivity.this) != null) {
             finish();

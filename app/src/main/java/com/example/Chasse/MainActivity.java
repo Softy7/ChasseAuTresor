@@ -2,24 +2,20 @@ package com.example.Chasse;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.Chasse.Model.System.MainSystem;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.Chasse.Model.User;
 import com.example.Chasse.Model.UserRequest;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.gson.JsonObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected ImageButton loadGame;
     protected ImageView bateau;
     protected ImageButton tparams;
+    protected ImageView nuage_1;
+    protected ImageView nuage_2;
+    protected ImageView nuage_3;
 
     protected User user;
 
@@ -58,6 +57,21 @@ public class MainActivity extends AppCompatActivity {
         bateau = findViewById(R.id.bateau);
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.bateau);
         bateau.startAnimation(animation);
+
+        nuage_1 = findViewById(R.id.nuage_1);
+        Animation animation1 = AnimationUtils.loadAnimation(this,R.anim.nuage_1);
+        animation1.setInterpolator(new LinearInterpolator());
+        nuage_1.startAnimation(animation1);
+
+        nuage_2 = findViewById(R.id.nuage_2);
+        Animation animation2 = AnimationUtils.loadAnimation(this,R.anim.nuage_2);
+        animation2.setInterpolator(new LinearInterpolator());
+        nuage_2.startAnimation(animation2);
+
+        nuage_3 = findViewById(R.id.nuage_3);
+        Animation animation3 = AnimationUtils.loadAnimation(this,R.anim.nuage_3);
+        animation3.setInterpolator(new LinearInterpolator());
+        nuage_3.startAnimation(animation3);
 
         this.createGame = findViewById(R.id.CreateGame);
         this.createGame.setOnClickListener(v -> {
