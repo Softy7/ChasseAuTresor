@@ -71,10 +71,6 @@
             android:name="com.example.Chasse.ThanksMain"
             android:exported="true">
         </activity>
-        <activity
-            android:name="com.example.Chasse.RulesActivity"
-            android:exported="true">
-        </activity>
     </application>
 
 </manifest>

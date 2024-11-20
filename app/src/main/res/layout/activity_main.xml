@@ -125,18 +125,5 @@
         app:srcCompat="@drawable/btnscore"
         android:contentDescription="@string/classement"/>
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764"
-        app:srcCompat="@drawable/btnfriend"
-        android:contentDescription="@string/amis"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
