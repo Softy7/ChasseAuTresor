@@ -284,7 +284,7 @@ public class GameActivity extends AppCompatActivity {
         Log.d("distance", String.valueOf(Math.sqrt(Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
                 Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2))));
         return Math.sqrt(Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
-                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2)) <= 150;
+                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2)) <= 125;
     }
 
     /**
