@@ -319,7 +319,7 @@ public class GameActivity extends AppCompatActivity {
                             Intent intent = miniGamesList.get(random.nextInt(miniGamesList.size()));
                             intent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
                             intent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
-                            boolean isTheLastPart = counterPart == NUMBER_OF_MINI_GAMES - 1;
+                            boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
                             intent.putExtra(IS_THE_LAST_PART, isTheLastPart);
                             startActivity(intent);
                             finish();

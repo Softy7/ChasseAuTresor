@@ -63,12 +63,12 @@ import java.util.Random;
     }
 
     public void checkAnswer(String letter) {
-        new Toast(EnigmaActivity.this);
+        //new Toast(EnigmaActivity.this);
         if (this.enigma.checkResponse(this.enigma.getChoices().getChoice(letter))) {
-            Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
             gameFinished(true);
         } else {
-            Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
             gameFinished(false);
         }
     }

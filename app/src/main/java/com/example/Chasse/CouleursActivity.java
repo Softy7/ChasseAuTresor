@@ -76,10 +76,7 @@ public class CouleursActivity extends MiniGames {
                 reponse.add(color);
 
                 if(reponse.size()==combinaison.size()) {
-                        if(reponse.equals(combinaison)) {
-                                gameFinished(true);
-                        }
-                        gameFinished(false);
+                    gameFinished(reponse.equals(combinaison));
                 }
         }
 }
