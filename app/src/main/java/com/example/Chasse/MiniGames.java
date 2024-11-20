@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public abstract class MiniGames extends AppCompatActivity {
+public abstract class MiniGames extends Games {
 
     protected static final String IS_WON = "isWon";
     protected static final String COUNTER_MINI_GAMES_PLAYED = "counterMiniGamesPlayed";

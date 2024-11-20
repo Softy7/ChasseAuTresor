@@ -5,13 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.*;
 
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Chasse.Model.Game;
+import com.example.Chasse.Model.SocketManager;
 import com.example.Chasse.Model.System.MainSystem;
 import io.socket.client.IO;
 import io.socket.client.Socket;
@@ -27,11 +26,12 @@ public class InviteFriendActivity extends AppCompatActivity {
     private MainSystem mainSystem = new MainSystem();
     public Game game = new Game();
     protected TextView code, theme;
-    protected ImageButton back, launch, search;
+    protected ImageButton back, start, search;
     protected int idTheme;
     private Socket socket;
     private TextView otherPlayerPseudo;
     private boolean isJoiningRoom;
+    private boolean loadGame = false;
 
     @Override
     protected void onCreate(Bundle savedInstance) {
@@ -60,15 +60,13 @@ public class InviteFriendActivity extends AppCompatActivity {
         this.back = findViewById(R.id.back);
         this.back.setOnClickListener(v -> finish());
 
-        this.launch = findViewById(R.id.launch);
-        this.launch.setOnClickListener(v -> {});
+        this.start = findViewById(R.id.launch);
 
-        try {
-            socket = IO.socket("http://92.140.29.192:55557/");
-            Log.d("socket url", "l'url marche correctement");
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+        socket = SocketManager.getInstance().getSocket();
+
+        this.start.setOnClickListener(v -> {
+            socket.emit("game starts");
+        });
 
         socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
             @Override
@@ -87,6 +85,7 @@ public class InviteFriendActivity extends AppCompatActivity {
             this.game.setCode();
             CharSequence join = "Code: "+this.game.getCode();
             this.code.setText(join);
+            start.setEnabled(false);
 
             emitToSocketCreateNewRoom();
 
@@ -136,6 +135,7 @@ public class InviteFriendActivity extends AppCompatActivity {
                                 });
                             }
                         }
+                        runOnUiThread(() -> start.setEnabled(true));
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -148,6 +148,7 @@ public class InviteFriendActivity extends AppCompatActivity {
             public void call(Object... objects) {
                 runOnUiThread(() -> {
                     otherPlayerPseudo.setText("");
+                    start.setEnabled(false);
                 });
             }
         });
@@ -157,6 +158,18 @@ public class InviteFriendActivity extends AppCompatActivity {
             public void call(Object... objects) {
                 String alertMessage = (String) objects[0];
                 Toast.makeText(InviteFriendActivity.this, alertMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        socket.on("game starting", new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
+                runOnUiThread(() -> {
+                    loadGame = true;
+                    Intent intent = new Intent(InviteFriendActivity.this, GameActivity.class);
+                    startActivity(intent);
+                    finish();
+                });
             }
         });
 
@@ -196,7 +209,9 @@ public class InviteFriendActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        socket.disconnect();
-        socket.off();
+        if (!loadGame){
+            socket.disconnect();
+            socket.off();
+        }
     }
 }

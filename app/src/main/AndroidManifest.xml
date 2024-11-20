@@ -75,5 +75,4 @@
             android:name=".EnigmaActivity"
             android:exported="true" />
     </application>
-
 </manifest>

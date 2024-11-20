@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends Games {
     private MapWithPointsView mapView;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
@@ -56,8 +56,6 @@ public class GameActivity extends AppCompatActivity {
     private EditText editTextPosX;
     private EditText editTextPosY;
     private boolean isDevModeEnabled = false;
-
-
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
@@ -85,7 +83,6 @@ public class GameActivity extends AppCompatActivity {
 
         Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
         Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
-
 
         miniGamesList.add(enigmaActivity);
         miniGamesList.add(couleursActivity);
