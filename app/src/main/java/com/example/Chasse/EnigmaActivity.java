@@ -17,7 +17,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class EnigmaActivity extends AppCompatActivity {
+    public class EnigmaActivity extends MiniGames{
     protected TextView enigmaText, aText, bText, cText, dText;
     protected MainSystem mainSystem = new MainSystem();
     protected Enigma enigma;
@@ -65,12 +65,13 @@ public class EnigmaActivity extends AppCompatActivity {
     public void checkAnswer(String letter) {
         new Toast(EnigmaActivity.this);
         if (this.enigma.checkResponse(this.enigma.getChoices().getChoice(letter))) {
-            finish();
             Toast.makeText(EnigmaActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+            gameFinished(true);
         } else {
-            finish();
             Toast.makeText(EnigmaActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+            gameFinished(false);
         }
     }
 }
+
 

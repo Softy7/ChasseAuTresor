@@ -5,8 +5,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -41,6 +45,17 @@ public class GameActivity extends AppCompatActivity {
     private static final int NUMBER_OF_MINI_GAMES = 3;
     private final ArrayList<Intent> miniGamesList = new ArrayList<>();
     private final Intent[] miniGamesOrder = new Intent[NUMBER_OF_MINI_GAMES];
+    private static final String COUNTER_MINI_GAMES_PLAYED = "miniGamesPlayed";
+    private static final String NUMBER_MINI_GAMES_WON = "numberOfMiniGamesWon";
+    private static final String IS_THE_LAST_PART = "isTheLastPart";
+
+    // Mode développeur
+    private Button buttonModeDev;
+    private TextView textViewPosX;
+    private TextView textViewPosY;
+    private EditText editTextPosX;
+    private EditText editTextPosY;
+    private boolean isDevModeEnabled = false;
 
 
 
@@ -71,6 +86,7 @@ public class GameActivity extends AppCompatActivity {
         Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
         Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
 
+
         miniGamesList.add(enigmaActivity);
         miniGamesList.add(couleursActivity);
 
@@ -78,10 +94,78 @@ public class GameActivity extends AppCompatActivity {
 
         // Intent
         Intent intent = getIntent();
-        counterPart = intent.getIntExtra("counterPart", 0);
-        counterGameWins = intent.getIntExtra("counterGameWins", 0);
+        counterPart = intent.getIntExtra("counterMiniGamesPlayed", 0);
+        counterGameWins = intent.getIntExtra("counterMiniGamesWon", 0);
+
 
         Log.d("counterPart", String.valueOf(counterPart));
+
+        // Initialisation point
+        player1Position = new Point(-99999999, -99999999);
+        mapView.modifyPointPosition(player1Position.getX(), player1Position.getY(), 2);
+
+        // Mode dev
+
+        buttonModeDev = findViewById(R.id.button_dev_mode);
+        textViewPosX = findViewById(R.id.posX);
+        textViewPosY = findViewById(R.id.posY);
+        editTextPosX = findViewById(R.id.text_input_x);
+        editTextPosY = findViewById(R.id.text_input_y);
+
+        // Pour cacher les view
+        textViewPosX.setVisibility(View.GONE);
+        textViewPosY.setVisibility(View.GONE);
+        editTextPosX.setVisibility(View.GONE);
+        editTextPosY.setVisibility(View.GONE);
+
+        buttonModeDev.setOnClickListener(v -> {
+            if (isDevModeEnabled) {
+                textViewPosX.setVisibility(View.GONE);
+                textViewPosY.setVisibility(View.GONE);
+                editTextPosX.setVisibility(View.GONE);
+                editTextPosY.setVisibility(View.GONE);
+                isDevModeEnabled = false;
+            } else {
+                textViewPosX.setVisibility(View.VISIBLE);
+                textViewPosY.setVisibility(View.VISIBLE);
+                editTextPosX.setVisibility(View.VISIBLE);
+                editTextPosY.setVisibility(View.VISIBLE);
+                isDevModeEnabled = true;
+            }
+        });
+
+        TextWatcher textWatcher = new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (editTextPosX.getText().length() > 0 && editTextPosY.getText().length() > 0) {
+                    try {
+                        player1Position = new Point(
+                                Integer.parseInt(editTextPosX.getText().toString()),
+                                Integer.parseInt(editTextPosY.getText().toString()));
+                        mapView.modifyPointPosition(player1Position.getX(), player1Position.getY(), 2);
+                    } catch (NumberFormatException e) {
+                        //
+                    }
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        };
+
+        editTextPosX.addTextChangedListener(textWatcher);
+        editTextPosY.addTextChangedListener(textWatcher);
+
+
 
 
         // Obtient la géocalisation
@@ -90,16 +174,16 @@ public class GameActivity extends AppCompatActivity {
         locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(@NonNull LocationResult locationResult) {
-                // Données récupérées à partir d'un morceau de carte sur Google Maps
-                int latitudeDif = 1200;
-                int longitudeDif = 2400;
-                // Latitude et longitude * 1000000
-                int latitudeDep = 50276900;
-                int longitudeDep = 3982700;
-                Location location = locationResult.getLastLocation();
+                if (!isDevModeEnabled) {
+                    // Données récupérées à partir d'un morceau de carte sur Google Maps
+                    int latitudeDif = 1200;
+                    int longitudeDif = 2400;
+                    // Latitude et longitude * 1000000
+                    int latitudeDep = 50276900;
+                    int longitudeDep = 3982700;
+                    Location location = locationResult.getLastLocation();
 
-                //for (Location location : locationResult.getLocations()) {
-                    // Récupération des donnéees
+
                     Log.d("Location", "Location: " + location.toString());
                     Log.d("Location", "Latitude: " + location.getLatitude());
                     Log.d("Location", "Longitude: " + location.getLongitude());
@@ -116,8 +200,9 @@ public class GameActivity extends AppCompatActivity {
                     //mapView.addPoint(x, y);
                     mapView.modifyPointPosition((int) Math.round(x), (int) Math.round(y), 2);
 
-                //}
-                locationResult.getLocations().clear();
+                    //}
+                    locationResult.getLocations().clear();
+                }
             }
         };
 
@@ -230,12 +315,14 @@ public class GameActivity extends AppCompatActivity {
                     if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
                         runOnUiThread(() ->{
                             Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show();
-                            //Intent intent = new Intent(GameActivity.this, EnigmaActivity.class);
-                            //Log.d("activity", miniGamesOrder[counterPart].toString());
-                            //startActivity(miniGamesOrder[counterPart]);
                             Random random = new Random();
                             Intent intent = miniGamesList.get(random.nextInt(miniGamesList.size()));
+                            intent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
+                            intent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
+                            boolean isTheLastPart = counterPart == NUMBER_OF_MINI_GAMES - 1;
+                            intent.putExtra(IS_THE_LAST_PART, isTheLastPart);
                             startActivity(intent);
+                            finish();
                         });
                         break;
                     }

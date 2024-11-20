@@ -20,4 +20,10 @@
         tools:layout_editor_absoluteY="159dp"
         tools:ignore="MissingConstraints" />
 
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quizz"
+            android:text="Quizz"
+            tools:layout_editor_absoluteY="230dp" tools:layout_editor_absoluteX="16dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
