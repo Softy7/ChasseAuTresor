@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
-public class CouleursActivity extends AppCompatActivity {
+public class CouleursActivity extends MiniGames {
 
         private LinearLayout ll;
         private LinearLayout ll2;
@@ -77,10 +77,9 @@ public class CouleursActivity extends AppCompatActivity {
 
                 if(reponse.size()==combinaison.size()) {
                         if(reponse.equals(combinaison)) {
-                                this.finish();
+                                gameFinished(true);
                         }
-                        ll2.removeAllViews();
-                        reponse.clear();
+                        gameFinished(false);
                 }
         }
 }

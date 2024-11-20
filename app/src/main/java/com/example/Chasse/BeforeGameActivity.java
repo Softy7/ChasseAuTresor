@@ -31,5 +31,17 @@ public class BeforeGameActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button boutonQuizz = findViewById(R.id.quizz);
+        boutonQuizz.setOnClickListener(v -> {
+           Intent intent = new Intent(this, EnigmaActivity.class);
+           startActivity(intent);
+        });
+
+//        Button button2 = findViewById(R.id.charade);
+//        button.setOnClickListener(v -> {
+//            Intent intent = new Intent(this, Charade.class);
+//            startActivity(intent);
+//        });
+
     }
 }
