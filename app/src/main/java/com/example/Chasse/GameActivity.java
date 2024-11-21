@@ -27,6 +27,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import android.location.Location;
 import android.os.Looper;
+import io.socket.emitter.Emitter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,6 +58,8 @@ public class GameActivity extends Games {
     private EditText editTextPosY;
     private boolean isDevModeEnabled = false;
 
+    private boolean isTheMainUser;
+
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -65,6 +68,7 @@ public class GameActivity extends Games {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_activity);
         mapView = findViewById(R.id.map_view);
+
 
 
         // AJOUT DES POINTS
@@ -93,12 +97,14 @@ public class GameActivity extends Games {
         Intent intent = getIntent();
         counterPart = intent.getIntExtra("counterMiniGamesPlayed", 0);
         counterGameWins = intent.getIntExtra("counterMiniGamesWon", 0);
+        isTheMainUser = intent.getBooleanExtra("isTheMainUser", false);
 
 
         Log.d("counterPart", String.valueOf(counterPart));
 
         // Initialisation point
         player1Position = new Point(-99999999, -99999999);
+        player2Position = new Point(-99999999, -99999999);
         mapView.modifyPointPosition(player1Position.getX(), player1Position.getY(), 2);
 
         // Mode dev
@@ -162,6 +168,37 @@ public class GameActivity extends Games {
         editTextPosX.addTextChangedListener(textWatcher);
         editTextPosY.addTextChangedListener(textWatcher);
 
+        // socket
+        socket.on("player state main game", new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
+                int positionXPlayer2 = (int) objects[0];
+                int positionYPlayer2 = (int) objects[1];
+                player2Position = new Point(positionXPlayer2, positionYPlayer2);
+                runOnUiThread(() -> mapView.modifyPointPosition(player2Position.getX(), player2Position.getY(), 3));
+            }
+        });
+
+
+        if (isTheMainUser){
+            addNewPointToGo();
+            socket.emit("point position to go", pointWhereToGo.getX(), pointWhereToGo.getY());
+        }
+
+        socket.on("point position to go", new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
+                int posX = (int) objects[0];
+                int posY = (int) objects[1];
+                Log.d("Positions", posX + " " + posY);
+                pointWhereToGo = new Point(posX, posY);
+                runOnUiThread(() -> mapView.modifyPointPosition(pointWhereToGo.getX(), pointWhereToGo.getY(), 1));
+            }
+        });
+
+
+        showIfThePlayerIsNear();
+
 
 
 
@@ -211,9 +248,6 @@ public class GameActivity extends Games {
                     LOCATION_PERMISSION_REQUEST_CODE);
         } else {
             getLocation();
-
-            addNewPointToGo();
-            showIfThePlayerIsNear();
 
         }
     }
@@ -309,6 +343,8 @@ public class GameActivity extends Games {
                 if (pointWhereToGo != null && player1Position != null) {
 
                     Log.d("position", String.valueOf(this.player1Position.getX()));
+                    // émet côté serveur l'état du joueur
+                    socket.emit("player state main game", player1Position.getX(), player1Position.getY());
                     if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
                         runOnUiThread(() ->{
                             Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show();
@@ -318,14 +354,14 @@ public class GameActivity extends Games {
                             intent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
                             boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
                             intent.putExtra(IS_THE_LAST_PART, isTheLastPart);
-                            startActivity(intent);
-                            finish();
+                            //startActivity(intent);
+                            //finish();
                         });
                         break;
                     }
                     try{
                         synchronized (this){
-                            wait(5000);
+                            wait(2000);
                         }
                     } catch (InterruptedException e) {
                         e.printStackTrace();

@@ -12,6 +12,7 @@ public abstract class MiniGames extends Games {
     protected static final String IS_WON = "isWon";
     protected static final String COUNTER_MINI_GAMES_PLAYED = "counterMiniGamesPlayed";
     protected static final String COUNTER_MINI_GAMES_WON = "counterMiniGamesWon";
+    protected static final String IS_THE_MAIN_USER = "isTheMainUser";
     private boolean isGameFinished;
     private int miniGamesPlayed;
     private int counterMiniGamesWon;
@@ -38,6 +39,9 @@ public abstract class MiniGames extends Games {
                         text + (counterMiniGamesWon + res) + "/" + miniGamesPlayed + " mini-jeux gagné",
                         Toast.LENGTH_LONG)
                 .show();
+        /*
+        TODO: choisir l'utilisateur principal côté serveur
+         */
         if (!isGameFinished)
             startActivity(intent);
         finish();

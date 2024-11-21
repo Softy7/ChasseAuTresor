@@ -32,6 +32,7 @@ public class InviteFriendActivity extends AppCompatActivity {
     private TextView otherPlayerPseudo;
     private boolean isJoiningRoom;
     private boolean loadGame = false;
+    private static final String IS_THE_MAIN_USER = "isTheMainUser";
 
     @Override
     protected void onCreate(Bundle savedInstance) {
@@ -165,8 +166,10 @@ public class InviteFriendActivity extends AppCompatActivity {
             @Override
             public void call(Object... objects) {
                 runOnUiThread(() -> {
+                    int userId = (int) objects[0];
                     loadGame = true;
                     Intent intent = new Intent(InviteFriendActivity.this, GameActivity.class);
+                    intent.putExtra(IS_THE_MAIN_USER, userId == mainSystem.readUser(InviteFriendActivity.this).getId());
                     startActivity(intent);
                     finish();
                 });

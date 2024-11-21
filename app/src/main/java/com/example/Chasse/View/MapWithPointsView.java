@@ -24,6 +24,8 @@ public class MapWithPointsView extends PhotoView {
             android.R.color.holo_green_dark
     };
     private final static double MULTIPLICATOR = 2.63;
+    private static final int PIXEL_X = 1064;
+    private static final int PIXEL_Y = 833;
     //private final List<Point> points = new ArrayList<>();
 
     public MapWithPointsView(Context context, AttributeSet attrs) {
@@ -55,10 +57,6 @@ public class MapWithPointsView extends PhotoView {
             paints[i].setStrokeWidth(20);
             pointsTab[i] = new Point(-99999, -99999); // permet d'initialiser et de ne pas afficher le point
         }
-    }
-
-    public int[] getPointPosition(int index) {
-        return new int[]{(int) ((int) pointsTab[index].x / MULTIPLICATOR), (int) ((int) pointsTab[index].y / MULTIPLICATOR)};
     }
 
     /**
@@ -106,10 +104,22 @@ public class MapWithPointsView extends PhotoView {
         super.onDraw(canvas);
         // Récupère la matrice de l'image
         Matrix displayMatrix = this.getImageMatrix();
+
+        RectF displayRect = getDisplayRect();
+        float displayedWidth = displayRect.width();
+        float displayedHeight = displayRect.height();
+
+        // Ratios d'échelle
+        float scaleX = displayedWidth / PIXEL_X;
+        float scaleY = displayedHeight / PIXEL_Y;
+
         for (int i = 0; i < pointsTab.length; i++) {
+            float originalX = pointsTab[i].x * scaleX;
+            float originalY = pointsTab[i].y * scaleY;
+
             // Ajout des points sur une image
             float[] mappedPoint = new float[2];
-            displayMatrix.mapPoints(mappedPoint, new float[]{pointsTab[i].x, pointsTab[i].y});
+            displayMatrix.mapPoints(mappedPoint, new float[]{originalX, originalY});
             // Dessine un cercle sur l'image de dimension 10 en position x, y
             canvas.drawCircle(mappedPoint[0], mappedPoint[1], 10, paints[i]);
         }
