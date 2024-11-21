@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
@@ -11,10 +12,13 @@ import io.socket.emitter.Emitter;
 public abstract class Games extends AppCompatActivity {
 
     protected Socket socket;
+    protected Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        game = Game.getInstance();
 
         socket = SocketManager.getInstance().getSocket();
 

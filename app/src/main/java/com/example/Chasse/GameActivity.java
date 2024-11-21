@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.Chasse.Model.Point;
+import com.example.Chasse.Model.System.MainSystem;
 import com.example.Chasse.View.MapWithPointsView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -68,6 +69,7 @@ public class GameActivity extends Games {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_activity);
         mapView = findViewById(R.id.map_view);
+
 
 
 
@@ -183,8 +185,14 @@ public class GameActivity extends Games {
         if (isTheMainUser){
             addNewPointToGo();
             socket.emit("point position to go", pointWhereToGo.getX(), pointWhereToGo.getY());
-        }
 
+            socket.on("send point", new Emitter.Listener() {
+                @Override
+                public void call(Object... objects) {
+                    socket.emit("point position to go", pointWhereToGo.getX(), pointWhereToGo.getY());
+                }
+            });
+        }
         socket.on("point position to go", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
@@ -359,13 +367,15 @@ public class GameActivity extends Games {
                         });
                         break;
                     }
-                    try{
-                        synchronized (this){
-                            wait(2000);
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                } else if (!isTheMainUser && pointWhereToGo == null){
+                    socket.emit("point not received");
+                }
+                try{
+                    synchronized (this){
+                        wait(1000);
                     }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         });

@@ -24,7 +24,7 @@ import java.net.URISyntaxException;
 public class InviteFriendActivity extends AppCompatActivity {
 
     private MainSystem mainSystem = new MainSystem();
-    public Game game = new Game();
+    public Game game = Game.getInstance();
     protected TextView code, theme;
     protected ImageButton back, start, search;
     protected int idTheme;
@@ -33,6 +33,7 @@ public class InviteFriendActivity extends AppCompatActivity {
     private boolean isJoiningRoom;
     private boolean loadGame = false;
     private static final String IS_THE_MAIN_USER = "isTheMainUser";
+    private static final String GAME_ID = "gameId";
 
     @Override
     protected void onCreate(Bundle savedInstance) {
@@ -63,23 +64,12 @@ public class InviteFriendActivity extends AppCompatActivity {
 
         this.start = findViewById(R.id.launch);
 
-        socket = SocketManager.getInstance().getSocket();
+        socket = SocketManager.newInstance().getSocket();
 
         this.start.setOnClickListener(v -> {
             socket.emit("game starts");
         });
 
-        socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
-            @Override
-            public void call(Object... objects) {
-                Log.d("socket", "Connecté au serveur");
-            }
-        }).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
-            @Override
-            public void call(Object... objects) {
-                Log.d("socket", "Déconnecté du serveur");
-            }
-        });
 
 
         if (!isJoiningRoom) {
@@ -176,7 +166,9 @@ public class InviteFriendActivity extends AppCompatActivity {
             }
         });
 
-        socket.connect();
+        if (!socket.connected()){
+            socket.connect();
+        }
 
 
     }
@@ -215,6 +207,7 @@ public class InviteFriendActivity extends AppCompatActivity {
         if (!loadGame){
             socket.disconnect();
             socket.off();
+            SocketManager.destroyInstance();
         }
     }
 }
