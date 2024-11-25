@@ -1,4 +1,4 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.LoadGame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.Chasse.R;
 
 public class CreateGameActivity extends AppCompatActivity {
 

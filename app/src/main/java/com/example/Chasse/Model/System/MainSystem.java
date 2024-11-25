@@ -3,7 +3,6 @@ package com.example.Chasse.Model.System;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.Chasse.EnigmaActivity;
 import com.example.Chasse.Model.Choice;
 import com.example.Chasse.Model.Choices;
 import com.example.Chasse.Model.Enigma;
@@ -18,8 +17,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Objects;

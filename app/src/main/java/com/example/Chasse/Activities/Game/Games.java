@@ -1,4 +1,4 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Game;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,11 +13,12 @@ public abstract class Games extends AppCompatActivity {
 
     protected Socket socket;
     protected Game game;
+    protected boolean isTheGameFinished = true;
+    protected static final String IS_THE_MAIN_USER_NEXT_GAME = "isTheMainUserNextGame";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         game = Game.getInstance();
 
         socket = SocketManager.getInstance().getSocket();
@@ -51,8 +52,12 @@ public abstract class Games extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        socket.disconnect();
-        socket.off();
+        if (isTheGameFinished) {
+            socket.disconnect();
+            socket.off();
+        }
+
+
     }
 
 

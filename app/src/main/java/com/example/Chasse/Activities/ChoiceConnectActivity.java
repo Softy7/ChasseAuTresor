@@ -1,20 +1,20 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
+import com.example.Chasse.Activities.Connect.LoginActivity;
+import com.example.Chasse.Activities.Connect.Registractivity;
 import com.example.Chasse.Model.System.MainSystem;
+import com.example.Chasse.R;
 
 public class ChoiceConnectActivity extends AppCompatActivity {
 

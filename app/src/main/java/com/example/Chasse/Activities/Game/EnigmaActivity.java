@@ -1,17 +1,14 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Game;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Chasse.Model.Enigma;
 import com.example.Chasse.Model.System.MainSystem;
 
+import com.example.Chasse.R;
 import org.json.JSONException;
 
 import java.util.ArrayList;

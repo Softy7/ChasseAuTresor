@@ -1,4 +1,4 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.Chasse.R;
+import com.example.Chasse.Activities.ReponseActivity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

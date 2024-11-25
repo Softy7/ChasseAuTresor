@@ -1,4 +1,4 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.LoadGame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,9 @@ import android.widget.ImageButton;
 
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.Chasse.ApiService;
 import com.example.Chasse.Model.System.MainSystem;
+import com.example.Chasse.R;
 import io.socket.client.Socket;
 import retrofit2.Call;
 import retrofit2.Callback;

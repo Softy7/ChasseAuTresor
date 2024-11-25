@@ -1,4 +1,4 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import com.example.Chasse.Activities.LoadGame.CreateGameActivity;
+import com.example.Chasse.Activities.LoadGame.LoadGameActivity;
+import com.example.Chasse.Activities.Parameters.ParamActivity;
+import com.example.Chasse.Activities.Test.BeforeGameActivity;
+import com.example.Chasse.ApiService;
 import com.example.Chasse.Model.System.MainSystem;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.Chasse.Model.User;
 import com.example.Chasse.Model.UserRequest;
 
+import com.example.Chasse.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

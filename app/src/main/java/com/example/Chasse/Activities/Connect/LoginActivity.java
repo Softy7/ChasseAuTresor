@@ -1,17 +1,17 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Connect;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.Chasse.ApiService;
 import com.example.Chasse.Model.System.MainSystem;
 import com.example.Chasse.Model.UserRequest;
+import com.example.Chasse.R;
 import com.google.gson.JsonObject;
 
 

@@ -1,4 +1,4 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Parameters;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,6 +6,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.Chasse.R;
 
 public class ThanksMain extends AppCompatActivity {
 

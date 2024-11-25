@@ -21,16 +21,16 @@
         android:theme="@style/Theme.LunetteTP1"
         tools:targetApi="31">
         <activity
-            android:name=".ReponseActivity"
+            android:name=".Activities.ReponseActivity"
             android:exported="true" />
         <activity
-            android:name=".CharadeActivity"
+            android:name=".Activities.Game.CharadeActivity"
             android:exported="true" />
         <activity
-            android:name=".CouleursActivity"
+            android:name=".Activities.Game.CouleursActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,40 +39,40 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Registractivity"
+            android:name=".Activities.Connect.Registractivity"
             android:exported="true" />
         <activity
-            android:name=".ChoiceConnectActivity"
+            android:name=".Activities.ChoiceConnectActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.Connect.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".ParamActivity"
+            android:name=".Activities.Parameters.ParamActivity"
             android:exported="true" />
         <activity
-            android:name=".BeforeGameActivity"
+            android:name=".Activities.Test.BeforeGameActivity"
             android:exported="true" />
         <activity
-            android:name=".GameActivity"
+            android:name=".Activities.Game.GameActivity"
             android:exported="true" />
         <activity
-            android:name=".ChangeProfilActivity"
+            android:name=".Activities.Parameters.ChangeProfilActivity"
             android:exported="true" />
         <activity
-            android:name=".CreateGameActivity"
+            android:name=".Activities.LoadGame.CreateGameActivity"
             android:exported="true" />
         <activity
-            android:name=".InviteFriendActivity"
+            android:name=".Activities.LoadGame.InviteFriendActivity"
             android:exported="true" />
         <activity
-            android:name=".LoadGameActivity"
+            android:name=".Activities.LoadGame.LoadGameActivity"
             android:exported="true" />
         <activity
-            android:name=".ThanksMain"
+            android:name=".Activities.Parameters.ThanksMain"
             android:exported="true" />
         <activity
-            android:name=".EnigmaActivity"
+            android:name=".Activities.Game.EnigmaActivity"
             android:exported="true" />
     </application>
 </manifest>

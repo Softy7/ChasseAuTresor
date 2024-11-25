@@ -1,24 +1,19 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Parameters;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.viewpager.widget.ViewPager;
 
 import com.example.Chasse.Model.System.MainSystem;
 import com.example.Chasse.Model.User;
-import com.google.android.material.tabs.TabLayout;
+import com.example.Chasse.R;
 
 
 public class ParamActivity extends AppCompatActivity {
@@ -90,7 +85,7 @@ public class ParamActivity extends AppCompatActivity {
         this.remerciements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ParamActivity.this,ThanksMain.class);
+                Intent intent = new Intent(ParamActivity.this, ThanksMain.class);
                 startActivity(intent);
             }
         });

@@ -1,4 +1,4 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Game;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -12,14 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.Chasse.Model.Point;
-import com.example.Chasse.Model.System.MainSystem;
+import com.example.Chasse.R;
 import com.example.Chasse.View.MapWithPointsView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -59,7 +57,11 @@ public class GameActivity extends Games {
     private EditText editTextPosY;
     private boolean isDevModeEnabled = false;
 
+
     private boolean isTheMainUser;
+    private boolean isTheMiniGameWillStart = false;
+
+    private Thread thread;
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
@@ -87,6 +89,7 @@ public class GameActivity extends Games {
         points.add(new Point(576, 281, 2, "A côté de l'amphithéatre"));
 
 
+        // AJOUT DES MINI JEUX
         Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
         Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
 
@@ -201,6 +204,39 @@ public class GameActivity extends Games {
                 Log.d("Positions", posX + " " + posY);
                 pointWhereToGo = new Point(posX, posY);
                 runOnUiThread(() -> mapView.modifyPointPosition(pointWhereToGo.getX(), pointWhereToGo.getY(), 1));
+            }
+        });
+
+        socket.on("choose random game", new Emitter.Listener() {
+
+            @Override
+            public void call(Object... objects) {
+                if (isTheMainUser && !isTheMiniGameWillStart){
+                    isTheMiniGameWillStart = true;
+                    //isThePlayer1NextGame = true;
+                    Random random = new Random();
+                    int miniGameId = random.nextInt(miniGamesList.size());
+                    socket.emit("new mini game starts", miniGameId);
+                }
+
+            }
+        });
+
+        socket.on("mini game starting", new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
+                thread.interrupt();
+                int miniGame = (int) objects[1];
+                Log.d("mini game id", String.valueOf(miniGame));
+                Intent miniGameIntent = miniGamesList.get(miniGame);
+                miniGameIntent.putExtra(IS_THE_MAIN_USER_NEXT_GAME, (int) objects[0] == game.getUserId() );
+                miniGameIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
+                miniGameIntent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
+                boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
+                miniGameIntent.putExtra(IS_THE_LAST_PART, isTheLastPart);
+                isTheGameFinished = false;
+                startActivity(miniGameIntent);
+                finish();
             }
         });
 
@@ -346,14 +382,16 @@ public class GameActivity extends Games {
     }
 
     public void showIfThePlayerIsNear(){
-        Thread thread = new Thread(() -> {
+        thread = new Thread(() -> {
             while (true){
                 if (pointWhereToGo != null && player1Position != null) {
 
                     Log.d("position", String.valueOf(this.player1Position.getX()));
                     // émet côté serveur l'état du joueur
-                    socket.emit("player state main game", player1Position.getX(), player1Position.getY());
                     if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
+                        socket.emit("player state main game", player1Position.getX(), player1Position.getY(), true);
+
+                        /*
                         runOnUiThread(() ->{
                             Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show();
                             Random random = new Random();
@@ -365,17 +403,17 @@ public class GameActivity extends Games {
                             //startActivity(intent);
                             //finish();
                         });
-                        break;
+                         */
+                    } else {
+                        socket.emit("player state main game", player1Position.getX(), player1Position.getY());
                     }
                 } else if (!isTheMainUser && pointWhereToGo == null){
                     socket.emit("point not received");
                 }
                 try{
-                    synchronized (this){
-                        wait(1000);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Thread.sleep(1000);
+                } catch (InterruptedException ignored) {
+                    //
                 }
             }
         });

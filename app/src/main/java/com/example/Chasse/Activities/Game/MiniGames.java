@@ -1,11 +1,9 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Game;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class MiniGames extends Games {
 
@@ -13,6 +11,7 @@ public abstract class MiniGames extends Games {
     protected static final String COUNTER_MINI_GAMES_PLAYED = "counterMiniGamesPlayed";
     protected static final String COUNTER_MINI_GAMES_WON = "counterMiniGamesWon";
     protected static final String IS_THE_MAIN_USER = "isTheMainUser";
+    protected boolean isTheMainUser = false;
     private boolean isGameFinished;
     private int miniGamesPlayed;
     private int counterMiniGamesWon;
@@ -24,6 +23,7 @@ public abstract class MiniGames extends Games {
         miniGamesPlayed = intent.getIntExtra("miniGamesPlayed", 0) + 1;
         counterMiniGamesWon = intent.getIntExtra("numberOfMiniGamesWon", 0);
         isGameFinished = intent.getBooleanExtra("isTheLastPart", true);
+        isTheMainUser = intent.getBooleanExtra("isTheMainUserNextGame", false);
         Log.d("Game finished ? ", String.valueOf(isGameFinished));
     }
 
@@ -42,8 +42,10 @@ public abstract class MiniGames extends Games {
         /*
         TODO: choisir l'utilisateur principal côté serveur
          */
-        if (!isGameFinished)
+        if (!isGameFinished) {
+            isTheGameFinished = false;
             startActivity(intent);
+        }
         finish();
     }
 

@@ -1,11 +1,15 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Test;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.Chasse.*;
+import com.example.Chasse.Activities.Game.CharadeActivity;
+import com.example.Chasse.Activities.Game.CouleursActivity;
+import com.example.Chasse.Activities.Game.EnigmaActivity;
+import com.example.Chasse.Activities.Game.GameActivity;
 
 public class BeforeGameActivity extends AppCompatActivity {
     @Override
