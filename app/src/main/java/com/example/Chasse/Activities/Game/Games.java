@@ -14,12 +14,14 @@ public abstract class Games extends AppCompatActivity {
     protected Socket socket;
     protected Game game;
     protected boolean isTheGameFinished = true;
-    protected static final String IS_THE_MAIN_USER_NEXT_GAME = "isTheMainUserNextGame";
+    protected static final String IS_THE_MAIN_USER = "isTheMainUser";
+    protected static final int NUMBER_OF_MINI_GAMES = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         game = Game.getInstance();
+
 
         socket = SocketManager.getInstance().getSocket();
 
@@ -46,18 +48,22 @@ public abstract class Games extends AppCompatActivity {
         });
         builder.setCancelable(false);
         AlertDialog alert = builder.create();
-        alert.show();
+        if (!game.isFinished()){
+            alert.show();
+        }
     }
+
+    protected void onPreDestroy() {}
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        onPreDestroy();
         if (isTheGameFinished) {
             socket.disconnect();
             socket.off();
+            SocketManager.destroyInstance();
         }
-
-
+        super.onDestroy();
     }
 
 

@@ -40,9 +40,8 @@ public class GameActivity extends Games {
     private Point pointWhereToGo;
     private Point player1Position;
     private Point player2Position;
-    private int counterPart = 0;
+    private int counterPart;
     private int counterGameWins = 0;
-    private static final int NUMBER_OF_MINI_GAMES = 3;
     private final ArrayList<Intent> miniGamesList = new ArrayList<>();
     private final Intent[] miniGamesOrder = new Intent[NUMBER_OF_MINI_GAMES];
     private static final String COUNTER_MINI_GAMES_PLAYED = "miniGamesPlayed";
@@ -60,6 +59,7 @@ public class GameActivity extends Games {
 
     private boolean isTheMainUser;
     private boolean isTheMiniGameWillStart = false;
+    private volatile boolean loop = true;
 
     private Thread thread;
 
@@ -69,6 +69,11 @@ public class GameActivity extends Games {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("finished", String.valueOf(game.isFinished()));
+        if (game.isFinished()){
+            finish();
+        }
+
         setContentView(R.layout.game_activity);
         mapView = findViewById(R.id.map_view);
 
@@ -93,14 +98,14 @@ public class GameActivity extends Games {
         Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
         Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
 
-        miniGamesList.add(enigmaActivity);
+        //miniGamesList.add(enigmaActivity);
         miniGamesList.add(couleursActivity);
 
         Log.d("tableau", Arrays.toString(miniGamesOrder));
 
         // Intent
         Intent intent = getIntent();
-        counterPart = intent.getIntExtra("counterMiniGamesPlayed", 0);
+        counterPart = intent.getIntExtra("miniGamesPlayed", 0);
         counterGameWins = intent.getIntExtra("counterMiniGamesWon", 0);
         isTheMainUser = intent.getBooleanExtra("isTheMainUser", false);
 
@@ -225,18 +230,19 @@ public class GameActivity extends Games {
         socket.on("mini game starting", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
-                thread.interrupt();
                 int miniGame = (int) objects[1];
                 Log.d("mini game id", String.valueOf(miniGame));
-                Intent miniGameIntent = miniGamesList.get(miniGame);
-                miniGameIntent.putExtra(IS_THE_MAIN_USER_NEXT_GAME, (int) objects[0] == game.getUserId() );
-                miniGameIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
-                miniGameIntent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
-                boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
-                miniGameIntent.putExtra(IS_THE_LAST_PART, isTheLastPart);
-                isTheGameFinished = false;
-                startActivity(miniGameIntent);
-                finish();
+                runOnUiThread(() -> {
+                    Intent miniGameIntent = miniGamesList.get(miniGame);
+                    miniGameIntent.putExtra(IS_THE_MAIN_USER, Long.parseLong(objects[0].toString()) == game.getUserId() );
+                    miniGameIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
+                    miniGameIntent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
+                    boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
+                    miniGameIntent.putExtra(IS_THE_LAST_PART, isTheLastPart);
+                    isTheGameFinished = false;
+                    startActivity(miniGameIntent);
+                    finish();
+                });
             }
         });
 
@@ -372,6 +378,7 @@ public class GameActivity extends Games {
         if (fusedLocationClient != null) {
             fusedLocationClient.removeLocationUpdates(locationCallback);
         }
+        thread.interrupt();
     }
 
     public void addNewPointToGo(){
@@ -383,27 +390,16 @@ public class GameActivity extends Games {
 
     public void showIfThePlayerIsNear(){
         thread = new Thread(() -> {
-            while (true){
+            while (loop){
+                if (Thread.currentThread().isInterrupted()){
+                    break;
+                }
                 if (pointWhereToGo != null && player1Position != null) {
 
                     Log.d("position", String.valueOf(this.player1Position.getX()));
                     // émet côté serveur l'état du joueur
                     if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
                         socket.emit("player state main game", player1Position.getX(), player1Position.getY(), true);
-
-                        /*
-                        runOnUiThread(() ->{
-                            Toast.makeText(GameActivity.this, "Vous êtes proche du point", Toast.LENGTH_LONG).show();
-                            Random random = new Random();
-                            Intent intent = miniGamesList.get(random.nextInt(miniGamesList.size()));
-                            intent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
-                            intent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
-                            boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
-                            intent.putExtra(IS_THE_LAST_PART, isTheLastPart);
-                            //startActivity(intent);
-                            //finish();
-                        });
-                         */
                     } else {
                         socket.emit("player state main game", player1Position.getX(), player1Position.getY());
                     }
@@ -412,13 +408,32 @@ public class GameActivity extends Games {
                 }
                 try{
                     Thread.sleep(1000);
-                } catch (InterruptedException ignored) {
-                    //
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
                 }
             }
         });
         thread.start();
 
+    }
+
+    private void stopThread() {
+        if (thread != null) {
+            thread.interrupt();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            loop = false;
+        }
+    }
+
+
+    @Override
+    protected void onPreDestroy() {
+        stopThread();
     }
 
 

@@ -11,6 +11,9 @@ public class Game {
     private int code = -1;
     private long userId = -1;
     private static Game instance;
+    private long userIdPlayer;
+    private String pseudoPlayer2;
+    private boolean isFinished = false;
 
     public Game(){}
 
@@ -52,5 +55,29 @@ public class Game {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public long getUserIdPlayer() {
+        return userIdPlayer;
+    }
+
+    public void setUserIdPlayer(long userIdPlayer) {
+        this.userIdPlayer = userIdPlayer;
+    }
+
+    public String getPseudoPlayer2() {
+        return pseudoPlayer2;
+    }
+
+    public void setPseudoPlayer2(String pseudoPlayer2) {
+        this.pseudoPlayer2 = pseudoPlayer2;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
     }
 }

@@ -69,4 +69,5 @@ Figma\n
 ChatGPT\n
 Postgres SQL\n
     </string>
+    <string name="supprimer_derni_re_couleur">Supprimer dernière couleur</string>
 </resources>
