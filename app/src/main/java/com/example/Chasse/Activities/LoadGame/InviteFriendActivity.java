@@ -9,6 +9,7 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Chasse.Activities.Game.CouleursActivity;
+import com.example.Chasse.Activities.Game.EnigmaActivity;
 import com.example.Chasse.Activities.Game.GameActivity;
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
@@ -33,6 +34,7 @@ public class InviteFriendActivity extends AppCompatActivity {
     private boolean loadGame = false;
     private static final String IS_THE_MAIN_USER = "isTheMainUser";
     private static final String GAME_ID = "gameId";
+    private boolean gameStarting = false;
 
     @Override
     protected void onCreate(Bundle savedInstance) {
@@ -156,27 +158,21 @@ public class InviteFriendActivity extends AppCompatActivity {
         socket.on("game starting", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
-                runOnUiThread(() -> {
-                    int userId = (int) objects[0];
-                    loadGame = true;
+                //socket.off("game starting");
+                if (!gameStarting) {
+                    gameStarting = true;
+                    runOnUiThread(() -> {
+                        int userId = (int) objects[0];
+                        loadGame = true;
 
-                    Intent intent = new Intent(InviteFriendActivity.this, GameActivity.class);
-
-                    game.setUserId(mainSystem.readUser(InviteFriendActivity.this).getId());
-                    intent.putExtra(IS_THE_MAIN_USER, userId == game.getUserId());
-                    startActivity(intent);
-                    finish();
-
-
-                    // Sera à supprimer
-                    /*
-                    Intent intent = new Intent(InviteFriendActivity.this, CouleursActivity.class);
-                    intent.putExtra(IS_THE_MAIN_USER, userId == mainSystem.readUser(InviteFriendActivity.this).getId());
-                    startActivity(intent);
-                    finish();
-
-                     */
-                });
+                        //Intent intent = new Intent(InviteFriendActivity.this, GameActivity.class);
+                        Intent intent = new Intent(InviteFriendActivity.this, EnigmaActivity.class);
+                        game.setUserId(mainSystem.readUser(InviteFriendActivity.this).getId());
+                        intent.putExtra(IS_THE_MAIN_USER, userId == game.getUserId());
+                        startActivity(intent);
+                        finish();
+                    });
+                }
             }
         });
 
@@ -218,6 +214,11 @@ public class InviteFriendActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        socket.off("user disconnected");
+        socket.off("join existing room");
+        socket.off("create new room");
+        socket.off("group update");
+        socket.off("new room");
         if (!loadGame){
             socket.disconnect();
             socket.off();
