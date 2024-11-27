@@ -2,6 +2,7 @@ package com.example.Chasse.Activities.Parameters;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,12 +19,16 @@ import com.example.Chasse.Model.User;
 import com.example.Chasse.R;
 import com.google.gson.JsonObject;
 
+import java.util.Locale;
+
 
 public class ParamActivity extends AppCompatActivity {
 
     protected AppCompatButton modifprofil;
 
     protected ImageButton backsetting;
+
+    private TextToSpeech voc;
 
     protected Button disconnect;
     protected Switch btn;
@@ -51,6 +56,12 @@ public class ParamActivity extends AppCompatActivity {
                 View.SYSTEM_UI_FLAG_FULLSCREEN |
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        voc = new TextToSpeech(this,status -> {
+            if (status == TextToSpeech.SUCCESS) {
+                voc.setLanguage(Locale.FRENCH);
+            }
+        });
 
 
         //Boutton modification d'info
@@ -112,11 +123,13 @@ public class ParamActivity extends AppCompatActivity {
                     jsonObject.addProperty("synthese", user.getSynthese());
                     mainSystem.saveUser(ParamActivity.this, jsonObject.toString());
                     Toast.makeText(ParamActivity.this, "Synthèse activée", Toast.LENGTH_SHORT).show();
+                    voc.speak("mode non-voyant activée",TextToSpeech.QUEUE_FLUSH,null);
                 } else {
                     user.setSynthese(false);
                     jsonObject.addProperty("synthese", user.getSynthese());
                     mainSystem.saveUser(ParamActivity.this, jsonObject.toString());
                     Toast.makeText(ParamActivity.this, "Synthèse désactivée", Toast.LENGTH_SHORT).show();
+                    voc.speak("mode non-voyant désactivée",TextToSpeech.QUEUE_FLUSH,null);
                 }
             }
         });
