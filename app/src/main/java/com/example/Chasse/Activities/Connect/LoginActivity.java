@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             UserRequest user = response.body();
                             if (user != null) {
-
+                                mainSystem.unloadUser(LoginActivity.this);
                                 JsonObject jsonObject = new JsonObject();
                                 Log.d("email",user.email());
                                 jsonObject.addProperty("email", user.email());
