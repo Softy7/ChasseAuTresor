@@ -44,5 +44,12 @@ android:id="@+id/layout_game">
             android:id="@+id/text_input_y" android:layout_marginTop="50dp" android:layout_below="@+id/posX"
             android:layout_marginEnd="-80dp" android:layout_alignEnd="@+id/posY"/>
 
+    <Button
+        android:id="@+id/openChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chat"
+        android:layout_gravity="center"
+        android:layout_marginStart="300dp"/>
 
 </RelativeLayout>
