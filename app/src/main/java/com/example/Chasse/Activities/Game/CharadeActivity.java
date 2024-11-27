@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.Chasse.Activities.GlobalTresorActivity;
 import com.example.Chasse.R;
 import com.example.Chasse.Activities.ReponseActivity;
 import org.json.JSONArray;
@@ -19,7 +20,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
-public class CharadeActivity extends AppCompatActivity {
+public class CharadeActivity extends GlobalTresorActivity {
 
     protected Button test;
 
@@ -69,5 +70,9 @@ public class CharadeActivity extends AppCompatActivity {
             intent.putExtras(bundle);
             startActivity(intent);
         });
+    }
+    @Override
+    protected void speak(){
+        textToSpeech(testText.getText().toString());
     }
 }

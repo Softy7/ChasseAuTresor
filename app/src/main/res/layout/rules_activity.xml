@@ -20,6 +20,7 @@
             android:contentDescription="@string/retour"/>
 
         <TextView
+            android:id="@+id/texteregle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rules"
@@ -44,6 +45,7 @@
         >
 
         <TextView
+            android:id="@+id/regle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Regle"

@@ -1,16 +1,23 @@
-package com.example.Chasse;
+package com.example.Chasse.Activities.Parameters;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RulesActivity extends AppCompatActivity {
+import com.example.Chasse.Activities.GlobalTresorActivity;
+import com.example.Chasse.R;
+
+public class RulesActivity extends GlobalTresorActivity {
 
     protected ImageButton backmenu;
+
+    protected String test;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,5 +40,13 @@ public class RulesActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        TextView y = findViewById(R.id.regle);
+        test = y.getText().toString();
+    }
+
+    @Override
+    protected void speak(){
+        textToSpeech("regle du jeux :" + test);
     }
 }

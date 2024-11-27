@@ -32,6 +32,7 @@ public class ParamActivity extends AppCompatActivity {
 
     protected Button disconnect;
     protected Switch btn;
+    protected Button rules;
     protected Button remerciements;
     protected MainSystem mainSystem = new MainSystem();
 
@@ -100,6 +101,16 @@ public class ParamActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ParamActivity.this, ThanksMain.class);
+                startActivity(intent);
+            }
+        });
+
+        this.rules=findViewById(R.id.btnrules);
+
+        this.rules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ParamActivity.this, RulesActivity.class);
                 startActivity(intent);
             }
         });

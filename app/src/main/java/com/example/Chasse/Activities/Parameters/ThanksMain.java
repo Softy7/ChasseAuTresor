@@ -19,8 +19,6 @@ public class ThanksMain extends GlobalTresorActivity {
 
     protected ImageButton backsetting;
 
-    protected TextToSpeech voc;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
@@ -45,6 +43,6 @@ public class ThanksMain extends GlobalTresorActivity {
 
     @Override
     protected void speak(){
-        textToSpeech("Remerciements à l'équipe de devellopement : Valentin Menu, Nathan Bernard, Ewan Michel.");
+        textToSpeech("Concepteur du jeu : Valentin Menu, Nathan Bernard, Yanis Vangalen, Ewan Michel et Charles Parsy");
     }
 }

@@ -73,4 +73,5 @@ Postgres SQL\n
     <string name="message">message</string>
     <string name="envoie">envoie</string>
     <string name="chat">Chat</string>
+    <string name="Regle">En Travaux</string>
 </resources>
