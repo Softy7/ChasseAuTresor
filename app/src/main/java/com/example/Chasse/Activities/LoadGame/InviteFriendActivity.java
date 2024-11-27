@@ -165,8 +165,8 @@ public class InviteFriendActivity extends AppCompatActivity {
                         int userId = (int) objects[0];
                         loadGame = true;
 
-                        //Intent intent = new Intent(InviteFriendActivity.this, GameActivity.class);
-                        Intent intent = new Intent(InviteFriendActivity.this, EnigmaActivity.class);
+                        Intent intent = new Intent(InviteFriendActivity.this, GameActivity.class);
+                        //Intent intent = new Intent(InviteFriendActivity.this, EnigmaActivity.class);
                         game.setUserId(mainSystem.readUser(InviteFriendActivity.this).getId());
                         intent.putExtra(IS_THE_MAIN_USER, userId == game.getUserId());
                         startActivity(intent);
