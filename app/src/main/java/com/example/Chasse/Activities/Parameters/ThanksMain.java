@@ -9,12 +9,13 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.Chasse.Activities.GlobalTresorActivity;
 import com.example.Chasse.Model.System.MainSystem;
 import com.example.Chasse.R;
 
 import java.util.Locale;
 
-public class ThanksMain extends AppCompatActivity {
+public class ThanksMain extends GlobalTresorActivity {
 
     protected ImageButton backsetting;
 
@@ -32,26 +33,6 @@ public class ThanksMain extends AppCompatActivity {
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        voc = new TextToSpeech(this,status -> {
-            if (status == TextToSpeech.SUCCESS) {
-                voc.setLanguage(Locale.FRENCH);
-            }
-        });
-
-        MainSystem test = new MainSystem();
-
-        boolean param = test.readUser(this).getSynthese();
-        Thread t = new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-                if(param){
-                    voc.speak("Remerciements à l'équipe de devellopement : Valentin Menu, Nathan Bernard, Ewan Michel ",TextToSpeech.QUEUE_FLUSH,null);
-                }
-            } catch (InterruptedException ignored){
-
-            }
-        });
-        t.start();
 
         this.backsetting = findViewById(R.id.backthanks);
         this.backsetting.setOnClickListener(new View.OnClickListener() {
@@ -60,5 +41,10 @@ public class ThanksMain extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void speak(){
+        textToSpeech("Remerciements à l'équipe de devellopement : Valentin Menu, Nathan Bernard, Ewan Michel.");
     }
 }
