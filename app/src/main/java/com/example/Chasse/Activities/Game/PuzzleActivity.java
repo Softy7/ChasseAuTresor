@@ -13,12 +13,13 @@ import android.widget.Toast;
 
 import com.example.Chasse.R;
 
-public class PuzzleActivity extends AppCompatActivity {
+public class PuzzleActivity extends MiniGames {
 
     private Drawable piece;
     private int nbPieces = 0;
 
     private TableLayout mat;
+    private final boolean[][] yourPieces = new boolean[3][3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,10 @@ public class PuzzleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_puzzle);
 
         this.piece = null;
+
+        if (isTheMainUser){
+
+        }
 
         this.mat = findViewById(R.id.mat);
     }
