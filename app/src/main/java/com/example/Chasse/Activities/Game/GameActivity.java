@@ -98,8 +98,8 @@ public class GameActivity extends Games {
         Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
         Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
 
-        //miniGamesList.add(enigmaActivity);
-        miniGamesList.add(couleursActivity);
+        miniGamesList.add(enigmaActivity);
+        //miniGamesList.add(couleursActivity);
 
         Log.d("tableau", Arrays.toString(miniGamesOrder));
 
@@ -433,6 +433,11 @@ public class GameActivity extends Games {
 
     @Override
     protected void onPreDestroy() {
+        socket.off("mini game starting");
+        socket.off("choose random game");
+        socket.off("player state main game");
+        socket.off("send point");
+        socket.off("point position to go");
         stopThread();
     }
 
