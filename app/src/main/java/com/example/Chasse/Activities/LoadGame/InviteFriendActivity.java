@@ -158,7 +158,7 @@ public class InviteFriendActivity extends AppCompatActivity {
         socket.on("game starting", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
-                socket.off("game starting");
+                //socket.off("game starting");
                 if (!gameStarting) {
                     gameStarting = true;
                     runOnUiThread(() -> {

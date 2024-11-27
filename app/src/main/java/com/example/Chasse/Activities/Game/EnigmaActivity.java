@@ -25,6 +25,7 @@ public class EnigmaActivity extends MiniGames{
         private char responsePlayer2 = ' ';
         private List<ImageButton> buttons;
         private List<TextView> texts;
+        private int index = -1;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -47,35 +48,37 @@ public class EnigmaActivity extends MiniGames{
                 socket.emit("quizz enigma index", enigmaIndex);
             }
 
+
+            Thread t = new Thread(() -> {
+                // Tant qu'il n'a pas reçu le quizz
+                while (index == -1){
+                    socket.emit("quizz empty");
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException ignored) {
+
+                    }
+                }
+                runOnUiThread(() -> getQuestion(enigmas, index));
+            });
+            t.start();
+
+
+
+            socket.on("get quizz question", new Emitter.Listener() {
+                @Override
+                public void call(Object... objects) {
+                    index = (int) objects[0];
+                }
+            });
+
+
             socket.on("enigma index", new Emitter.Listener() {
                 @Override
                 public void call(Object... objects) {
-                    int index = (int) objects[0];
+                    index = (int) objects[0];
                     runOnUiThread(() -> {
-                        enigma = enigmas.get(index);
-                        enigmaText = findViewById(R.id.enigma);
-                        enigmaText.setText(enigma.getQuestion());
-
-                        buttonA = findViewById(R.id.a);
-                        buttonA.setOnClickListener(v -> clickResponse('A'));
-                        buttonB = findViewById(R.id.b);
-                        buttonB.setOnClickListener(v -> clickResponse('B'));
-                        buttonC = findViewById(R.id.c);
-                        buttonC.setOnClickListener(v -> clickResponse('C'));
-                        buttonD = findViewById(R.id.d);
-                        buttonD.setOnClickListener(v -> clickResponse('D'));
-
-                        aText = findViewById(R.id.aText);
-                        aText.setText(enigma.getChoices().getAnswer("A"));
-                        bText = findViewById(R.id.bText);
-                        bText.setText(enigma.getChoices().getAnswer("B"));
-                        cText = findViewById(R.id.cText);
-                        cText.setText(enigma.getChoices().getAnswer("C"));
-                        dText = findViewById(R.id.dText);
-                        dText.setText(enigma.getChoices().getAnswer("D"));
-
-                        buttons = Arrays.asList(buttonA, buttonB, buttonC, buttonD);
-                        texts = Arrays.asList(aText, bText, cText, dText);
+                        getQuestion(enigmas, index);
                     });
                 }
             });
@@ -92,33 +95,13 @@ public class EnigmaActivity extends MiniGames{
                         if (yourResponse != ' ' && responsePlayer2 == ' '){
                             buttonsAction(false);
                         } else if (yourResponse != ' ') {
-                            boolean allButtonsIsVisible = true;
-                            for (ImageButton button : buttons) {
-                                if (button.getVisibility() == View.GONE){
-                                    allButtonsIsVisible = false;
-                                    break;
-                                }
-                            }
-                            // Tous les boutons sont visibles
-                            if (allButtonsIsVisible){
-                                // Cas 1 où les 2 réponses sont identiques
-                                if (yourResponse == responsePlayer2){
-                                    checkAnswer(yourResponse);
-                                    // Cas 2 où les réponses sont différentes
-                                } else {
-                                    removeButton();
-                                    responsePlayer2 = ' ';
-                                    buttonsAction(true);
-                                }
-                                // Cas où tous les boutons sont pas là
+                            // Cas 1 où les 2 réponses sont identiques
+                            if (yourResponse == responsePlayer2){
+                                checkAnswer(yourResponse);
+                                // Cas 2 où les réponses sont différentes
                             } else {
-                                if (yourResponse == responsePlayer2){
-                                    checkAnswer(yourResponse);
-                                } else {
-                                    gameFinished(false);
-                                }
+                                gameFinished(false);
                             }
-
                         }
                     });
                 }
@@ -133,27 +116,31 @@ public class EnigmaActivity extends MiniGames{
             });
         }
 
-        private void removeButton(){
-            Map<Character, Integer> buttonMap = new HashMap<>();
-            buttonMap.put('A', 0);
-            buttonMap.put('B', 1);
-            buttonMap.put('C', 2);
-            buttonMap.put('D', 3);
+        private void getQuestion(ArrayList<Enigma> enigmas, int index){
+            enigma = enigmas.get(index);
+            enigmaText = findViewById(R.id.enigma);
+            enigmaText.setText(enigma.getQuestion());
 
-            List<Character> keepResponses = Arrays.asList(yourResponse, responsePlayer2);
+            buttonA = findViewById(R.id.a);
+            buttonA.setOnClickListener(v -> clickResponse('A'));
+            buttonB = findViewById(R.id.b);
+            buttonB.setOnClickListener(v -> clickResponse('B'));
+            buttonC = findViewById(R.id.c);
+            buttonC.setOnClickListener(v -> clickResponse('C'));
+            buttonD = findViewById(R.id.d);
+            buttonD.setOnClickListener(v -> clickResponse('D'));
 
-            for (Map.Entry<Character, Integer> entry : buttonMap.entrySet()) {
-                Character response = entry.getKey();
-                int index = entry.getValue();
+            aText = findViewById(R.id.aText);
+            aText.setText(enigma.getChoices().getAnswer("A"));
+            bText = findViewById(R.id.bText);
+            bText.setText(enigma.getChoices().getAnswer("B"));
+            cText = findViewById(R.id.cText);
+            cText.setText(enigma.getChoices().getAnswer("C"));
+            dText = findViewById(R.id.dText);
+            dText.setText(enigma.getChoices().getAnswer("D"));
 
-                if (!keepResponses.contains(response)) {
-                    // Vérifier si l'indice est valide avant de masquer les vues
-                    if (index >= 0 && index < buttons.size()) {
-                        buttons.get(index).setVisibility(View.GONE);
-                        texts.get(index).setVisibility(View.GONE);
-                    }
-                }
-            }
+            buttons = Arrays.asList(buttonA, buttonB, buttonC, buttonD);
+            texts = Arrays.asList(aText, bText, cText, dText);
         }
 
 
@@ -189,6 +176,7 @@ public class EnigmaActivity extends MiniGames{
             socket.off("enigma index");
             socket.off("quizz update");
             socket.off("quizz response player");
+            socket.off("get quizz question");
         }
 
 
