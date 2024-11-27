@@ -3,7 +3,6 @@ package com.example.Chasse.Model.System;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.Chasse.EnigmaActivity;
 import com.example.Chasse.Model.Choice;
 import com.example.Chasse.Model.Choices;
 import com.example.Chasse.Model.Enigma;
@@ -18,8 +17,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -70,6 +67,7 @@ public class MainSystem {
             String lastName = jsonObject.getString("lastName");
             String firstName = jsonObject.getString("firstName");
             String mail = jsonObject.getString("email");
+            boolean synthese = jsonObject.getBoolean("synthese");
             int id = jsonObject.getInt("id");
 
             User user = new User();
@@ -78,6 +76,7 @@ public class MainSystem {
             user.setFirstName(firstName);
             user.setEmail(mail);
             user.setId(id);
+            user.setSynthese(synthese);
 
             return user;
         }

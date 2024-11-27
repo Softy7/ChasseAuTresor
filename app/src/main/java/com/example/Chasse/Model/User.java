@@ -11,9 +11,9 @@ public class User {
     private String pseudo;
     private long id;
     private ArrayList<User> friends;
+    private boolean synthese = false;
 
     public User() {}
-
 
     public User(String email, String firstName, String lastName, String pseudo, long id){
         this.email = email;
@@ -22,6 +22,15 @@ public class User {
         this.pseudo = pseudo;
         this.id = id;
         this.friends = new ArrayList<User>();
+    }
+    public User(String email, String firstName, String lastName, String pseudo, long id, boolean synthese){
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.pseudo = pseudo;
+        this.id = id;
+        this.friends = new ArrayList<User>();
+        this.synthese = synthese;
     }
 
 
@@ -65,6 +74,14 @@ public class User {
         this.id = id;
     }
 
+    public boolean getSynthese() {
+        return this.synthese;
+    }
+
+    public void setSynthese(boolean synthese) {
+        this.synthese = synthese;
+    }
+
     public ArrayList<User> getFriends() {
         return this.friends;
     }
@@ -77,7 +94,7 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", pseudo='" + pseudo + '\'' +
                 ", id=" + id +
-                ", friends=" + friends +
+                ", synthese='" + synthese + '\'' +
                 '}';
     }
 }

@@ -69,5 +69,8 @@ Figma\n
 ChatGPT\n
 Postgres SQL\n
     </string>
-    <string name="Regle">EN TRAVAUX</string>
+    <string name="supprimer_derni_re_couleur">Supprimer dernière couleur</string>
+    <string name="message">message</string>
+    <string name="envoie">envoie</string>
+    <string name="chat">Chat</string>
 </resources>

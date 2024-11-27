@@ -16,8 +16,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jeu Couleurs"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="159dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="-1dp" />
+
+    <Button
+        android:id="@+id/charade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:text="Jeu Charade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/couleurs" />
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quizz"
+            android:text="Quizz"
+            tools:layout_editor_absoluteY="230dp" tools:layout_editor_absoluteX="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
