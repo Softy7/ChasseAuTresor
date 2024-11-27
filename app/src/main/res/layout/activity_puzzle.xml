@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_main"
+    tools:context=".Activities.Game.PuzzleActivity">
+
+    <TableLayout
+        android:id="@+id/mat"
+        android:layout_width="323dp"
+        android:layout_height="324dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/piece1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace1"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace2"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace3"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece4"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace4"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/piece5"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace5"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece6"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace6"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece7"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace7"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece8"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace8"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/piece9"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace9"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece10"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace10"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece11"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace11"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece12"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace12"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/piece13"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace13"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece14"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace14"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece15"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace15"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/piece16"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="remplace16"
+                app:srcCompat="@drawable/mystere"
+                tools:ignore="MissingConstraints" />
+        </TableRow>
+    </TableLayout>
+
+
+
+
+    <ImageView
+        android:id="@+id/choix1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mat"
+        app:srcCompat="@drawable/puzzle3"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="40dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix1"
+        app:layout_constraintTop_toBottomOf="@+id/mat"
+        app:srcCompat="@drawable/puzzle1"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/choix3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="40dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@id/choix2"
+        app:layout_constraintTop_toBottomOf="@+id/mat"
+        app:srcCompat="@drawable/puzzle5"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="40dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@id/choix3"
+        app:layout_constraintTop_toBottomOf="@+id/mat"
+        app:srcCompat="@drawable/puzzle11"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix5"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choix1"
+        app:srcCompat="@drawable/puzzle8"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix6"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix5"
+        app:layout_constraintTop_toBottomOf="@+id/choix2"
+        app:srcCompat="@drawable/puzzle7"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix7"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix6"
+        app:layout_constraintTop_toBottomOf="@+id/choix3"
+        app:srcCompat="@drawable/puzzle9"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+
+    <ImageView
+        android:id="@+id/choix8"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix7"
+        app:layout_constraintTop_toBottomOf="@+id/choix4"
+        app:srcCompat="@drawable/puzzle13"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix9"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choix5"
+        app:srcCompat="@drawable/puzzle2"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix10"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix9"
+        app:layout_constraintTop_toBottomOf="@+id/choix6"
+        app:srcCompat="@drawable/puzzle14"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix11"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix10"
+        app:layout_constraintTop_toBottomOf="@+id/choix7"
+        app:srcCompat="@drawable/puzzle15"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix12"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix11"
+        app:layout_constraintTop_toBottomOf="@+id/choix8"
+        app:srcCompat="@drawable/puzzle16"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix13"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choix9"
+        app:srcCompat="@drawable/puzzle12"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix14"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix13"
+        app:layout_constraintTop_toBottomOf="@+id/choix10"
+        app:srcCompat="@drawable/puzzle10"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix15"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix14"
+        app:layout_constraintTop_toBottomOf="@+id/choix11"
+        app:srcCompat="@drawable/puzzle4"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <ImageView
+        android:id="@+id/choix16"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="choixPiece"
+        app:layout_constraintLeft_toRightOf="@+id/choix15"
+        app:layout_constraintTop_toBottomOf="@+id/choix12"
+        app:srcCompat="@drawable/puzzle6"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
