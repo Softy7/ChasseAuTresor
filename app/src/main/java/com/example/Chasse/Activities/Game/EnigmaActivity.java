@@ -59,6 +59,11 @@ import java.util.Random;
         this.dText.setText(this.enigma.getChoices().getAnswer("D"));
     }
 
+      /*  @Override
+        protected void speak(){
+            textToSpeech(enigmaText.getText().toString() + " Les réponses possible sont : Choix 1" + aText.getText().toString() + "choix 2" + bText.getText().toString() + "choix 3" + cText.getText().toString() + "choix 4" + dText.getText().toString());
+        }*/
+
     public void checkAnswer(String letter) {
         //new Toast(EnigmaActivity.this);
         if (this.enigma.checkResponse(this.enigma.getChoices().getChoice(letter))) {

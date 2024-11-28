@@ -2,6 +2,7 @@ package com.example.Chasse.Activities.LoadGame;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Chasse.Activities.Game.CouleursActivity;
 import com.example.Chasse.Activities.Game.GameActivity;
+import com.example.Chasse.Activities.GlobalTresorActivity;
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
 import com.example.Chasse.Model.System.MainSystem;
@@ -20,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class InviteFriendActivity extends AppCompatActivity {
+public class InviteFriendActivity extends GlobalTresorActivity {
 
     private MainSystem mainSystem = new MainSystem();
     public Game game = Game.getInstance();
@@ -123,6 +125,7 @@ public class InviteFriendActivity extends AppCompatActivity {
                                 runOnUiThread(() -> {
                                     otherPlayerPseudo.setText(pseudo);
                                     game.setUserIdPlayer(idUser);
+                                    textToSpeech(pseudo + " vous a rejoinds");
                                     game.setPseudoPlayer2(pseudo);
                                 });
                             }

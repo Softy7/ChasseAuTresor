@@ -43,6 +43,6 @@ public class ThanksMain extends GlobalTresorActivity {
 
     @Override
     protected void speak(){
-        textToSpeech("Concepteur du jeu : Valentin Menu, Nathan Bernard, Yanis Vangalen, Ewan Michel et Charles Parsy");
+        textToSpeech("Concepteur du jeu : Valentin Menu, Nathan Bernard, Yanis Vangalen, Ewan Michel et Charles Parsy. Remerciements à madame Lepreux pour son suivis tous le long du projet et aux autres profs qui on participé dans la création de l'application.");
     }
 }
