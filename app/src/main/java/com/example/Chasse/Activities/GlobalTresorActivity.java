@@ -12,6 +12,8 @@ import java.util.Locale;
 public abstract class GlobalTresorActivity extends AppCompatActivity {
 
     protected TextToSpeech vocal;
+
+    protected boolean isVocalActivate;
     private Bundle speakParams;
     protected View buttonSpeak = null;
 
@@ -28,7 +30,7 @@ public abstract class GlobalTresorActivity extends AppCompatActivity {
         speakParams.putInt(TextToSpeech.Engine.KEY_PARAM_STREAM, AudioManager.STREAM_MUSIC);
 
         MainSystem mainSystem = new MainSystem();
-        boolean isVocalActivate = mainSystem.readUser(this).getSynthese();
+        isVocalActivate = mainSystem.readUser(this).getSynthese();
 
 
         Thread thread = new Thread(() -> {

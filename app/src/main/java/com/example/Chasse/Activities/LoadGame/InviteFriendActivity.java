@@ -125,8 +125,10 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                                 runOnUiThread(() -> {
                                     otherPlayerPseudo.setText(pseudo);
                                     game.setUserIdPlayer(idUser);
-                                    textToSpeech(pseudo + " vous a rejoinds");
                                     game.setPseudoPlayer2(pseudo);
+                                    if(isVocalActivate) {
+                                        textToSpeech(pseudo + " vous a rejoins");
+                                    }
                                 });
                             }
                         }
@@ -142,6 +144,9 @@ public class InviteFriendActivity extends GlobalTresorActivity {
             @Override
             public void call(Object... objects) {
                 runOnUiThread(() -> {
+                    if(isVocalActivate) {
+                        textToSpeech(otherPlayerPseudo.getText().toString() + " a quitté le groupe");
+                    }
                     otherPlayerPseudo.setText("");
                     start.setEnabled(false);
                 });
