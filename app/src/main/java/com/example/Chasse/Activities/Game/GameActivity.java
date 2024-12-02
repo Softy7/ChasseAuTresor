@@ -119,8 +119,8 @@ public class GameActivity extends Games {
 
         openChat = findViewById(R.id.openChat);
         openChat.setOnClickListener(v -> {
-            Intent intent = new Intent(GameActivity.this, ChatActivity.class);
-            startActivity(intent);
+            Intent intentChat = new Intent(GameActivity.this, ChatActivity.class);
+            startActivity(intentChat);
         });
 
 

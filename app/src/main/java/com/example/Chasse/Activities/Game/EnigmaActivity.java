@@ -150,6 +150,8 @@ public class EnigmaActivity extends MiniGames{
             socket.emit("quizz response player", letter);
         }
 
+
+
         public void checkAnswer(char letter) {
             //new Toast(EnigmaActivity.this);
             System.out.println(letter);
@@ -170,6 +172,11 @@ public class EnigmaActivity extends MiniGames{
             for (ImageButton button : buttons) {
                 button.setEnabled(enable);
             }
+        }
+
+        @Override
+        protected void speak(){
+            //
         }
 
         @Override

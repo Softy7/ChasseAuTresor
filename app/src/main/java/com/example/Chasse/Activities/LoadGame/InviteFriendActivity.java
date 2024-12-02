@@ -37,6 +37,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
     private boolean loadGame = false;
     private static final String IS_THE_MAIN_USER = "isTheMainUser";
     private static final String GAME_ID = "gameId";
+    private boolean gameStarting = false;
 
     @Override
     protected void onCreate(Bundle savedInstance) {
