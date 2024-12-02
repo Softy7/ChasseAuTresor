@@ -42,6 +42,7 @@ public class CouleursActivity extends MiniGames {
                         green.setVisibility(View.GONE);
                         blue.setVisibility(View.GONE);
                         yellow.setVisibility(View.GONE);
+                        findViewById(R.id.textRemoveColor).setVisibility(View.GONE);
                         findViewById(R.id.button_remove_last_color).setVisibility(View.GONE);
                         ll2.setVisibility(View.GONE);
                         for (int i = 0; i < 10; i++){
