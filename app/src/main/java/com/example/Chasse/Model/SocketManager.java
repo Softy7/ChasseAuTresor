@@ -27,7 +27,11 @@ public class SocketManager{
             options.reconnectionDelay = 1000;
             options.reconnectionDelayMax = 5000;
             options.timeout = 20000;
-            socket = IO.socket(new MainSystem().getAddressNodejsServor() + "/", options);
+            String addressNodejsServor = new MainSystem().getAddressNodejsServor();
+            if (addressNodejsServor.endsWith("/")) {
+                addressNodejsServor = addressNodejsServor.substring(0, addressNodejsServor.length() - 1);
+            }
+            socket = IO.socket(addressNodejsServor);
             socket.connect();
 
 
