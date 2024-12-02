@@ -176,7 +176,11 @@ public class EnigmaActivity extends MiniGames{
 
         @Override
         protected void speak(){
-            //
+            textToSpeech(enigmaText.getText().toString() +
+                    " Les réponses possible sont : Choix 1" + aText.getText().toString() +
+                    "choix 2" + bText.getText().toString() +
+                    "choix 3" + cText.getText().toString() +
+                    "choix 4" + dText.getText().toString());
         }
 
         @Override
