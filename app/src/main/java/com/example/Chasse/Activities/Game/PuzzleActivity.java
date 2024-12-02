@@ -373,7 +373,9 @@ public class PuzzleActivity extends MiniGames {
             lock = true;
             runOnUiThread(() -> view.setOnClickListener(null));
             remplace(imageView);
-            sendPiece(rowPlayerChoosen, columnPlayerChoosen, choosenRowPiece, choosenColumnPiece);
+            if (this.piece != null){
+                sendPiece(rowPlayerChoosen, columnPlayerChoosen, choosenRowPiece, choosenColumnPiece);
+            }
             waitBeforeUnlock();
         }
     }
