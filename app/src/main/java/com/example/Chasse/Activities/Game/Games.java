@@ -3,13 +3,16 @@ package com.example.Chasse.Activities.Game;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.Chasse.Activities.GlobalTresorActivity;
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 
-public abstract class Games extends AppCompatActivity {
+public abstract class Games extends GlobalTresorActivity {
 
     protected Socket socket;
     protected Game game;
@@ -24,6 +27,17 @@ public abstract class Games extends AppCompatActivity {
 
 
         socket = SocketManager.getInstance().getSocket();
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                socket.disconnect();
+                socket.close();
+                SocketManager.destroyInstance();
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
 
         socket.on("user disconnected", new Emitter.Listener() {
             @Override
@@ -58,6 +72,7 @@ public abstract class Games extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         onPreDestroy();
+
         if (isTheGameFinished) {
             socket.disconnect();
             socket.off();

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_param"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background_param">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,7 +11,7 @@
         android:background="@color/BeigeF">
 
         <ImageButton
-            android:id="@+id/backthanks"
+            android:id="@+id/backrules"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/retour"
@@ -22,13 +20,14 @@
             android:contentDescription="@string/retour"/>
 
         <TextView
+            android:id="@+id/texteregle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/rules"
             android:layout_centerInParent="true"
-            android:fontFamily="@font/madimi_one_regular"
-            android:text="@string/remerciements"
             android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:fontFamily="@font/madimi_one_regular"/>
 
     </RelativeLayout>
 
@@ -46,9 +45,10 @@
         >
 
         <TextView
+            android:id="@+id/regle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/textremerciements"
+            android:text="@string/Regle"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black50"

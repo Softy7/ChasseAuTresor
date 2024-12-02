@@ -10,6 +10,7 @@ import com.example.Chasse.Activities.Game.CharadeActivity;
 import com.example.Chasse.Activities.Game.CouleursActivity;
 import com.example.Chasse.Activities.Game.EnigmaActivity;
 import com.example.Chasse.Activities.Game.GameActivity;
+import com.example.Chasse.Activities.Game.PuzzleActivity;
 
 public class BeforeGameActivity extends AppCompatActivity {
     @Override
@@ -35,17 +36,18 @@ public class BeforeGameActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        Button button4 = findViewById(R.id.puzzle);
+        button4.setOnClickListener(v -> {
+            Intent intent = new Intent(this, PuzzleActivity.class);
+            startActivity(intent);
+        });
+
         Button boutonQuizz = findViewById(R.id.quizz);
         boutonQuizz.setOnClickListener(v -> {
            Intent intent = new Intent(this, EnigmaActivity.class);
            startActivity(intent);
         });
-
-//        Button button2 = findViewById(R.id.charade);
-//        button.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, Charade.class);
-//            startActivity(intent);
-//        });
 
     }
 }

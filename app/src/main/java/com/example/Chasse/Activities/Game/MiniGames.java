@@ -34,14 +34,16 @@ public abstract class MiniGames extends Games {
         Log.d("Game finished ? ", String.valueOf(isGameFinished));
         Log.d("Main user ?", String.valueOf(isTheMainUser));
 
+
         socket.on("game starting", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
+                socket.off("game starting");
                 long userId = Long.parseLong(objects[0].toString());
                 boolean isWon = (boolean) objects[1];
                 boolean isMainUser = userId == game.getUserId();
                 runOnUiThread(() -> {
-
+                    Log.d("is won ???", String.valueOf(isWon));
                     int res = isWon ? 1 : 0;
                     String text = isWon ? "Bravo ! Vous avez gagné ce mini-jeu." : "Oh non, vous avez perdu ce mini-jeu.";
                     Toast.makeText(MiniGames.this,
@@ -66,7 +68,6 @@ public abstract class MiniGames extends Games {
                             socket.close();
                         }
                         SocketManager.destroyInstance();
-
                         startActivity(mainMenuIntent);
                     }
                     finish();
@@ -79,8 +80,10 @@ public abstract class MiniGames extends Games {
             @Override
             public void call(Object... objects) {
                 isWonTheGame = (boolean) objects[0];
+                Log.d("is won ??", String.valueOf(isTheGameWillStart));
                 if (isTheMainUser && !isTheGameWillStart) {
                     isTheGameWillStart = true;
+                    Log.d("is won ??", String.valueOf(isWonTheGame));
                     socket.emit("game starts", isWonTheGame);
                 }
             }
@@ -89,8 +92,15 @@ public abstract class MiniGames extends Games {
 
 
     public void gameFinished(boolean isWon) {
-        socket.emit("game starts", isWon);
+        socket.emit("mini game finished", isWon);
+    }
 
+    protected void onPrePreDestroy(){}
+
+    @Override
+    protected void onPreDestroy(){
+        onPrePreDestroy();
+        socket.off("mini game finished");
     }
 
 

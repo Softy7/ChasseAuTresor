@@ -25,6 +25,8 @@ import java.util.Objects;
 public class MainSystem {
 
     public User user;
+    private static final String ADDRESS_SPRING_SERVOR = "http://92.140.29.192:55556/";
+    private static final String ADDRESS_NODEJS_SERVOR = "http://92.140.29.192:55557/";
 
     public MainSystem() {}
 
@@ -67,6 +69,7 @@ public class MainSystem {
             String lastName = jsonObject.getString("lastName");
             String firstName = jsonObject.getString("firstName");
             String mail = jsonObject.getString("email");
+            boolean synthese = jsonObject.getBoolean("synthese");
             int id = jsonObject.getInt("id");
 
             User user = new User();
@@ -75,6 +78,7 @@ public class MainSystem {
             user.setFirstName(firstName);
             user.setEmail(mail);
             user.setId(id);
+            user.setSynthese(synthese);
 
             return user;
         }
@@ -149,5 +153,13 @@ public class MainSystem {
             Log.d("Erreur", Objects.requireNonNull(ex.getMessage()));
             return null;
         }
+    }
+
+    public String getAddressSpringServor(){
+        return ADDRESS_SPRING_SERVOR;
+    }
+
+    public String getAddressNodejsServor(){
+        return ADDRESS_NODEJS_SERVOR;
     }
 }

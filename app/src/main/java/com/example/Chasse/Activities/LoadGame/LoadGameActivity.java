@@ -48,7 +48,7 @@ public class LoadGameActivity extends AppCompatActivity {
         this.ok.setOnClickListener(v -> {
             try {
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://92.140.29.192:55557/")
+                        .baseUrl(new MainSystem().getAddressNodejsServor())
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
 

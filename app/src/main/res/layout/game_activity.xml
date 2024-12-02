@@ -43,6 +43,27 @@ android:id="@+id/layout_game">
             android:ems="10"
             android:id="@+id/text_input_y" android:layout_marginTop="50dp" android:layout_below="@+id/posX"
             android:layout_marginEnd="-80dp" android:layout_alignEnd="@+id/posY"/>
+    <TextView
+            android:id="@+id/statut_game"
+            android:text="Nombre de joueurs"
+            android:layout_width="263dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="226dp"
+            android:layout_below="@+id/text_input_x"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="101dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="84dp"
+            android:layout_above="@+id/map_view"
+            android:textAlignment="center"
+            android:layout_marginBottom="186dp"/>
 
+    <Button
+        android:id="@+id/openChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chat"
+        android:layout_gravity="center"
+        android:layout_marginStart="300dp"/>
 
 </RelativeLayout>

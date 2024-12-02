@@ -1,5 +1,7 @@
 package com.example.Chasse.Model;
 
+import com.example.Chasse.Activities.GlobalTresorActivity;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
