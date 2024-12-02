@@ -27,7 +27,7 @@ public class SocketManager{
             options.reconnectionDelay = 1000;
             options.reconnectionDelayMax = 5000;
             options.timeout = 20000;
-            socket = IO.socket("http://10.0.2.2:55557", options);
+            socket = IO.socket(new MainSystem().getAddressNodejsServor() + "/", options);
             socket.connect();
 
 

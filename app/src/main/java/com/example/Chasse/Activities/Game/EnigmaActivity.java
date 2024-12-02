@@ -100,7 +100,8 @@ public class EnigmaActivity extends MiniGames{
                                 checkAnswer(yourResponse);
                                 // Cas 2 où les réponses sont différentes
                             } else {
-                                gameFinished(false);
+                                if (isTheMainUser)
+                                    gameFinished(false);
                             }
                         }
                     });

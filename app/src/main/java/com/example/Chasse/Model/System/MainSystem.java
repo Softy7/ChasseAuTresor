@@ -25,6 +25,8 @@ import java.util.Objects;
 public class MainSystem {
 
     public User user;
+    private static final String ADDRESS_SPRING_SERVOR = "http://92.140.29.192:55556/";
+    private static final String ADDRESS_NODEJS_SERVOR = "http://92.140.29.192:55557/";
 
     public MainSystem() {}
 
@@ -149,5 +151,13 @@ public class MainSystem {
             Log.d("Erreur", Objects.requireNonNull(ex.getMessage()));
             return null;
         }
+    }
+
+    public String getAddressSpringServor(){
+        return ADDRESS_SPRING_SERVOR;
+    }
+
+    public String getAddressNodejsServor(){
+        return ADDRESS_NODEJS_SERVOR;
     }
 }

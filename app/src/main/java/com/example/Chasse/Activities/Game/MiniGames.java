@@ -38,6 +38,7 @@ public abstract class MiniGames extends Games {
         socket.on("game starting", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
+                socket.off("game starting");
                 long userId = Long.parseLong(objects[0].toString());
                 boolean isWon = (boolean) objects[1];
                 boolean isMainUser = userId == game.getUserId();
@@ -99,7 +100,7 @@ public abstract class MiniGames extends Games {
     @Override
     protected void onPreDestroy(){
         onPrePreDestroy();
-
+        socket.off("mini game finished");
     }
 
 

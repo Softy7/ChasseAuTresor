@@ -28,9 +28,8 @@ import android.location.Location;
 import android.os.Looper;
 import io.socket.emitter.Emitter;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class GameActivity extends Games {
     private MapWithPointsView mapView;
@@ -38,15 +37,17 @@ public class GameActivity extends Games {
     private LocationCallback locationCallback;
     private final ArrayList<Point> points = new ArrayList<>();
     private Point pointWhereToGo;
-    private Point player1Position;
-    private Point player2Position;
+    private Point player1Position = new Point(-999999, -999999);
+    private Point player2Position = new Point(-999999, -999999);
     private int counterPart;
     private int counterGameWins = 0;
+    private TextView textState;
     private final ArrayList<Intent> miniGamesList = new ArrayList<>();
     private final Intent[] miniGamesOrder = new Intent[NUMBER_OF_MINI_GAMES];
     private static final String COUNTER_MINI_GAMES_PLAYED = "miniGamesPlayed";
     private static final String NUMBER_MINI_GAMES_WON = "numberOfMiniGamesWon";
     private static final String IS_THE_LAST_PART = "isTheLastPart";
+    private volatile int numberOfPlayersNeedNearToPoint;
 
     // Mode développeur
     private Button buttonModeDev;
@@ -55,6 +56,7 @@ public class GameActivity extends Games {
     private EditText editTextPosX;
     private EditText editTextPosY;
     private boolean isDevModeEnabled = false;
+    private final Map<Integer, List<?>> mapGameList = new HashMap<>(); // Activity, nombre de joueurs proche du point
 
 
     private boolean isTheMainUser;
@@ -65,7 +67,7 @@ public class GameActivity extends Games {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint({"ClickableViewAccessibility", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +78,42 @@ public class GameActivity extends Games {
 
         setContentView(R.layout.game_activity);
         mapView = findViewById(R.id.map_view);
+        textState = findViewById(R.id.statut_game);
+
+        // Initialisation point
+        mapView.modifyPointPosition(player1Position.getX(), player1Position.getY(), 2);
+
+        // Intent
+        Intent intent = getIntent();
+        counterPart = intent.getIntExtra("miniGamesPlayed", 0);
+        counterGameWins = intent.getIntExtra("counterMiniGamesWon", 0);
+        isTheMainUser = intent.getBooleanExtra("isTheMainUser", false);
+
+        // AJOUT DES MINI JEUX
+        Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
+        Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
+        Intent puzzleActivity = new Intent(GameActivity.this, PuzzleActivity.class);
+
+        mapGameList.put(0, Arrays.asList(enigmaActivity, 1));
+        mapGameList.put(1, Arrays.asList(couleursActivity, 1));
+        mapGameList.put(2, Arrays.asList(puzzleActivity, 2));
+
+
+        try {
+            if (mapGameList.containsKey(counterPart)) {
+                List<?> values = mapGameList.get(counterPart);
+
+                if (values.size() > 1 && values.get(1) instanceof Integer) {
+                    numberOfPlayersNeedNearToPoint = (int) values.get(1);
+                } else {
+                    numberOfPlayersNeedNearToPoint = 1;
+                }
+            } else {
+                numberOfPlayersNeedNearToPoint = 1;
+            }
+        } catch (Exception e) {
+            numberOfPlayersNeedNearToPoint = 1;
+        }
 
 
 
@@ -94,28 +132,23 @@ public class GameActivity extends Games {
         points.add(new Point(576, 281, 2, "A côté de l'amphithéatre"));
 
 
-        // AJOUT DES MINI JEUX
-        Intent enigmaActivity = new Intent(GameActivity.this, EnigmaActivity.class);
-        Intent couleursActivity = new Intent(GameActivity.this, CouleursActivity.class);
+        if (numberOfPlayersNeedNearToPoint == 1){
+            textState.setText("Il faut qu'il n'y ait qu'un seul joueur proche du point");
+        } else {
+            textState.setText("Il faut qu'il y ait 2 joueurs proches du point");
+        }
 
-        miniGamesList.add(enigmaActivity);
+
+
+        //miniGamesList.add(enigmaActivity);
         //miniGamesList.add(couleursActivity);
 
         Log.d("tableau", Arrays.toString(miniGamesOrder));
 
-        // Intent
-        Intent intent = getIntent();
-        counterPart = intent.getIntExtra("miniGamesPlayed", 0);
-        counterGameWins = intent.getIntExtra("counterMiniGamesWon", 0);
-        isTheMainUser = intent.getBooleanExtra("isTheMainUser", false);
+
 
 
         Log.d("counterPart", String.valueOf(counterPart));
-
-        // Initialisation point
-        player1Position = new Point(-99999999, -99999999);
-        player2Position = new Point(-99999999, -99999999);
-        mapView.modifyPointPosition(player1Position.getX(), player1Position.getY(), 2);
 
         // Mode dev
 
@@ -218,10 +251,9 @@ public class GameActivity extends Games {
             public void call(Object... objects) {
                 if (isTheMainUser && !isTheMiniGameWillStart){
                     isTheMiniGameWillStart = true;
-                    //isThePlayer1NextGame = true;
-                    Random random = new Random();
-                    int miniGameId = random.nextInt(miniGamesList.size());
-                    socket.emit("new mini game starts", miniGameId);
+                    //Random random = new Random();
+                    //int miniGameId = random.nextInt(miniGamesList.size());
+                    socket.emit("new mini game starts");
                 }
 
             }
@@ -233,7 +265,13 @@ public class GameActivity extends Games {
                 int miniGame = (int) objects[1];
                 Log.d("mini game id", String.valueOf(miniGame));
                 runOnUiThread(() -> {
-                    Intent miniGameIntent = miniGamesList.get(miniGame);
+                    Intent miniGameIntent;
+                    try {
+                        miniGameIntent = (Intent) mapGameList.get(counterPart).get(0);
+                    } catch (Exception e) {
+                        miniGameIntent = new Intent(GameActivity.this, EnigmaActivity.class);
+                    }
+
                     miniGameIntent.putExtra(IS_THE_MAIN_USER, Long.parseLong(objects[0].toString()) == game.getUserId() );
                     miniGameIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
                     miniGameIntent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
@@ -399,9 +437,9 @@ public class GameActivity extends Games {
                     Log.d("position", String.valueOf(this.player1Position.getX()));
                     // émet côté serveur l'état du joueur
                     if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
-                        socket.emit("player state main game", player1Position.getX(), player1Position.getY(), true);
+                        socket.emit("player state main game", player1Position.getX(), player1Position.getY(), true, numberOfPlayersNeedNearToPoint);
                     } else {
-                        socket.emit("player state main game", player1Position.getX(), player1Position.getY());
+                        socket.emit("player state main game", player1Position.getX(), player1Position.getY(), false, numberOfPlayersNeedNearToPoint);
                     }
                 } else if (!isTheMainUser && pointWhereToGo == null){
                     socket.emit("point not received");

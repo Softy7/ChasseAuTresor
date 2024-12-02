@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.Chasse.Activities.Game.CouleursActivity;
 import com.example.Chasse.Activities.Game.EnigmaActivity;
 import com.example.Chasse.Activities.Game.GameActivity;
+import com.example.Chasse.Activities.Game.PuzzleActivity;
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
 import com.example.Chasse.Model.System.MainSystem;
@@ -167,6 +168,7 @@ public class InviteFriendActivity extends AppCompatActivity {
 
                         Intent intent = new Intent(InviteFriendActivity.this, GameActivity.class);
                         //Intent intent = new Intent(InviteFriendActivity.this, EnigmaActivity.class);
+                        //Intent intent = new Intent(InviteFriendActivity.this, PuzzleActivity.class);
                         game.setUserId(mainSystem.readUser(InviteFriendActivity.this).getId());
                         intent.putExtra(IS_THE_MAIN_USER, userId == game.getUserId());
                         startActivity(intent);
@@ -214,7 +216,6 @@ public class InviteFriendActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        socket.off("user disconnected");
         socket.off("join existing room");
         socket.off("create new room");
         socket.off("group update");

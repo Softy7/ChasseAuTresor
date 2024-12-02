@@ -70,9 +70,6 @@ public abstract class Games extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         onPreDestroy();
-        socket.off("user disconnected");
-        socket.off("game starting");
-        socket.off("mini game finished");
 
         if (isTheGameFinished) {
             socket.disconnect();

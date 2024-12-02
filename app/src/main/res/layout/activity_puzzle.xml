@@ -193,17 +193,16 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/choix3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="40dp"
-        android:onClick="choixPiece"
-        app:layout_constraintLeft_toRightOf="@id/choix2"
-        app:layout_constraintTop_toBottomOf="@+id/mat"
-        app:srcCompat="@drawable/puzzle5"
-        tools:ignore="MissingConstraints,UnknownId" />
-
+            android:id="@+id/choix3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="40dp"
+            android:onClick="choixPiece"
+            app:layout_constraintLeft_toRightOf="@id/choix2"
+            app:layout_constraintTop_toBottomOf="@+id/mat"
+            app:srcCompat="@drawable/puzzle5"
+            tools:ignore="MissingConstraints,UnknownId"/>
     <ImageView
         android:id="@+id/choix4"
         android:layout_width="80dp"

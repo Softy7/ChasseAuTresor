@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = this.password.getText().toString();
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://92.140.29.192:55556/sae_tresor/api/")
+                        .baseUrl(new MainSystem().getAddressSpringServor() + "sae_tresor/api/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
 
