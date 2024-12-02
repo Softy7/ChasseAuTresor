@@ -6,9 +6,11 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.Chasse.Activities.GlobalTresorActivity;
 import com.example.Chasse.R;
 
-public class CreateGameActivity extends AppCompatActivity {
+public class CreateGameActivity extends GlobalTresorActivity {
 
     protected ImageButton pirate, alcohool, IUT, nature, car, informatic, back;
 
@@ -48,5 +50,10 @@ public class CreateGameActivity extends AppCompatActivity {
         Intent intent = new Intent(CreateGameActivity.this, InviteFriendActivity.class);
         intent.putExtra("idTheme", theme);
         startActivity(intent);
+    }
+
+    @Override
+    protected void speak(){
+        textToSpeech("choisir un thème parmi : Pirate, Alcool, IUT, Nature, Voitures, Informatique");
     }
 }

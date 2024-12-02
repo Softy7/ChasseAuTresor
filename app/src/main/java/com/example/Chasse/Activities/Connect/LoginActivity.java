@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             UserRequest user = response.body();
                             if (user != null) {
-
+                                mainSystem.unloadUser(LoginActivity.this);
                                 JsonObject jsonObject = new JsonObject();
                                 Log.d("email",user.email());
                                 jsonObject.addProperty("email", user.email());
@@ -82,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                                 jsonObject.addProperty("pseudo", user.pseudo());
                                 Log.d("id", ""+user.userId());
                                 jsonObject.addProperty("id", user.userId());
+                                jsonObject.addProperty("synthese", false);
 
                                 if(mainSystem.saveUser(LoginActivity.this, jsonObject.toString())) {
                                     Toast.makeText(LoginActivity.this, "Vous êtes connectés", Toast.LENGTH_LONG).show();

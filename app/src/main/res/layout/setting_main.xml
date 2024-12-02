@@ -97,42 +97,7 @@
             android:padding="15dp"
             android:background="@drawable/rond_layout_setting"
             android:elevation="20dp">
-            
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/modesourd"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/help_param"
-                android:padding="5sp"
-                android:layout_centerVertical="true"/>
 
-            <TextView
-                android:layout_marginStart="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:textSize="18sp"
-                android:text="@string/mode_sourd"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_toEndOf="@id/modesourd"
-                android:fontFamily="@font/madimi_one_regular"
-                />
-
-                <Switch
-                    android:id="@+id/btnsourd"
-                    android:height="48dp"
-                    android:width="48dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:switchMinWidth="27dp"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
-            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -141,7 +106,7 @@
                     android:id="@+id/modeaveugle"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/audio_param"
+                    android:src="@drawable/help_param"
                     android:padding="5sp"
                     android:layout_centerVertical="true"/>
 

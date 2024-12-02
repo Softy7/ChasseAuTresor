@@ -77,6 +77,13 @@
         <activity
             android:name=".Activities.Game.EnigmaActivity"
             android:exported="true" />
+        <activity
+            android:name=".Activities.Game.ChatActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".Activities.Parameters.RulesActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

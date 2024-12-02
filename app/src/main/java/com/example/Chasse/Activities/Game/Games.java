@@ -5,12 +5,14 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.Chasse.Activities.GlobalTresorActivity;
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 
-public abstract class Games extends AppCompatActivity {
+public abstract class Games extends GlobalTresorActivity {
 
     protected Socket socket;
     protected Game game;

@@ -185,5 +185,3 @@ public class EnigmaActivity extends MiniGames{
 }
 
 
-
-

@@ -32,6 +32,8 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class GameActivity extends Games {
+
+    private Button openChat;
     private MapWithPointsView mapView;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
@@ -115,7 +117,11 @@ public class GameActivity extends Games {
             numberOfPlayersNeedNearToPoint = 1;
         }
 
-
+        openChat = findViewById(R.id.openChat);
+        openChat.setOnClickListener(v -> {
+            Intent intent = new Intent(GameActivity.this, ChatActivity.class);
+            startActivity(intent);
+        });
 
 
         // AJOUT DES POINTS
@@ -466,6 +472,7 @@ public class GameActivity extends Games {
             }
             loop = false;
         }
+
     }
 
 
@@ -522,4 +529,5 @@ public class GameActivity extends Games {
         }
     }
      */
+
 }

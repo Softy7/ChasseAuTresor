@@ -2,6 +2,7 @@ package com.example.Chasse.Activities.Parameters;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.Chasse.Activities.GlobalTresorActivity;
 import com.example.Chasse.ApiService;
 import com.example.Chasse.Model.System.MainSystem;
 import com.example.Chasse.Model.User;
@@ -22,7 +24,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ChangeProfilActivity extends AppCompatActivity {
+public class ChangeProfilActivity extends GlobalTresorActivity {
 
     protected ImageButton backsetting;
 
@@ -145,5 +147,10 @@ public class ChangeProfilActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void speak(){
+        textToSpeech("Vous pouvez modifier votre speudo , nom et prenom et valider avec le boutton en dessous");
     }
 }
