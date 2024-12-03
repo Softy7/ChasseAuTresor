@@ -26,8 +26,8 @@ public class MainSystem {
 
     public User user;
     private static final String ADDRESS_SPRING_SERVOR = "http://92.140.29.192:55556/";
-    //private static final String ADDRESS_NODEJS_SERVOR = "http://92.140.29.192:55557/";
-    private static final String ADDRESS_NODEJS_SERVOR = "http://10.0.2.2:55557/";
+    private static final String ADDRESS_NODEJS_SERVOR = "http://92.140.29.192:55557/";
+    //private static final String ADDRESS_NODEJS_SERVOR = "http://10.0.2.2:55557/";
 
     public MainSystem() {}
 
