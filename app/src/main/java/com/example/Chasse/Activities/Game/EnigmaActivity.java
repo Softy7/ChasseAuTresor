@@ -32,6 +32,11 @@ public class EnigmaActivity extends MiniGames{
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_enigma);
 
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_FULLSCREEN |
+                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                            View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
             Random random = new Random();
             ArrayList<Enigma> enigmas;
             int enigmaIndex;
