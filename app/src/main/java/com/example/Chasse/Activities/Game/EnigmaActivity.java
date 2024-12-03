@@ -32,11 +32,12 @@ public class EnigmaActivity extends MiniGames{
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_enigma);
 
-            this.idTheme = getIntent().getIntExtra("idTheme", 0);
+
             Random random = new Random();
             ArrayList<Enigma> enigmas;
             int enigmaIndex;
             try {
+                this.idTheme = getIntent().getIntExtra("idTheme", 0);
                 enigmas = mainSystem.getEnigmas(this.idTheme, EnigmaActivity.this);
             } catch (JSONException e) {
                 Log.d("Erreur", String.valueOf(e));
