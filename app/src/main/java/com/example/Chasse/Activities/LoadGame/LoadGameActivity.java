@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.Chasse.ApiService;
+import com.example.Chasse.Model.SocketManager;
 import com.example.Chasse.Model.System.MainSystem;
 import com.example.Chasse.R;
 import io.socket.client.Socket;
@@ -39,6 +40,7 @@ public class LoadGameActivity extends AppCompatActivity {
 
         this.back = findViewById(R.id.back_load_game);
         this.back.setOnClickListener(v -> finish());
+        SocketManager.destroyInstance();
 
         this.code = findViewById(R.id.editTextText2);
 

@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Chasse.Activities.GlobalTresorActivity;
+import com.example.Chasse.Model.SocketManager;
 import com.example.Chasse.R;
 
 public class CreateGameActivity extends GlobalTresorActivity {
@@ -23,6 +24,8 @@ public class CreateGameActivity extends GlobalTresorActivity {
                 View.SYSTEM_UI_FLAG_FULLSCREEN |
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        SocketManager.destroyInstance();
 
         this.pirate = findViewById(R.id.pirate);
         this.pirate.setOnClickListener(v -> startactivity(0));

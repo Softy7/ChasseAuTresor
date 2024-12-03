@@ -154,7 +154,8 @@ public class InviteFriendActivity extends GlobalTresorActivity {
             @Override
             public void call(Object... objects) {
                 String alertMessage = (String) objects[0];
-                Toast.makeText(InviteFriendActivity.this, alertMessage, Toast.LENGTH_SHORT).show();
+                runOnUiThread(() -> Toast.makeText(InviteFriendActivity.this, alertMessage, Toast.LENGTH_SHORT).show());
+
             }
         });
 

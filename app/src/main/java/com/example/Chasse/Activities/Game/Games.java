@@ -62,7 +62,7 @@ public abstract class Games extends GlobalTresorActivity {
         });
         builder.setCancelable(false);
         AlertDialog alert = builder.create();
-        if (!game.isFinished()){
+        if (!game.isFinished() || game != null){
             alert.show();
         }
     }

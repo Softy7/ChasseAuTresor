@@ -23,6 +23,7 @@ import java.util.concurrent.CountDownLatch;
 public class PuzzleActivity extends MiniGames {
 
     private volatile Drawable piece;
+    private volatile Drawable pieceGotBySocket;
     private int nbPieces = 0;
     private volatile boolean lock = false;
 
@@ -99,7 +100,7 @@ public class PuzzleActivity extends MiniGames {
 
             } else {
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(200);
                 } catch (InterruptedException ignored) {
 
                 }
@@ -146,6 +147,11 @@ public class PuzzleActivity extends MiniGames {
         });
 
         secondThread.start();
+        try {
+            secondThread.join();
+        } catch (InterruptedException ignored) {
+            //
+        }
 
         socket.on("put piece puzzle", new Emitter.Listener() {
             @Override
@@ -173,42 +179,40 @@ public class PuzzleActivity extends MiniGames {
                         getDrawable(R.drawable.puzzle15),
                         getDrawable(R.drawable.puzzle16)
                 );
-                piece = drawables.get(pieceColumn + pieceRow * yourPieces.length);
-                runOnUiThread(() -> {
-                    if (playerRowChoosen == 0 && playerColumnChoosen == 0) {
-                        remplace(findViewById(R.id.piece1));
-                    } else if (playerRowChoosen == 0 && playerColumnChoosen == 1) {
-                        remplace(findViewById(R.id.piece2));
-                    } else if (playerRowChoosen == 0 && playerColumnChoosen == 2) {
-                        remplace(findViewById(R.id.piece3));
-                    } else if (playerRowChoosen == 0 && playerColumnChoosen == 3) {
-                        remplace(findViewById(R.id.piece4));
-                    } else if (playerRowChoosen == 1 && playerColumnChoosen == 0) {
-                        remplace(findViewById(R.id.piece5));
-                    } else if (playerRowChoosen == 1 && playerColumnChoosen == 1) {
-                        remplace(findViewById(R.id.piece6));
-                    } else if (playerRowChoosen == 1 && playerColumnChoosen == 2) {
-                        remplace(findViewById(R.id.piece7));
-                    } else if (playerRowChoosen == 1 && playerColumnChoosen == 3) {
-                        remplace(findViewById(R.id.piece8));
-                    } else if (playerRowChoosen == 2 && playerColumnChoosen == 0) {
-                        remplace(findViewById(R.id.piece9));
-                    } else if (playerRowChoosen == 2 && playerColumnChoosen == 1) {
-                        remplace(findViewById(R.id.piece10));
-                    } else if (playerRowChoosen == 2 && playerColumnChoosen == 2) {
-                        remplace(findViewById(R.id.piece11));
-                    } else if (playerRowChoosen == 2 && playerColumnChoosen == 3) {
-                        remplace(findViewById(R.id.piece12));
-                    } else if (playerRowChoosen == 3 && playerColumnChoosen == 0) {
-                        remplace(findViewById(R.id.piece13));
-                    } else if (playerRowChoosen == 3 && playerColumnChoosen == 1) {
-                        remplace(findViewById(R.id.piece14));
-                    } else if (playerRowChoosen == 3 && playerColumnChoosen == 2) {
-                        remplace(findViewById(R.id.piece15));
-                    } else if (playerRowChoosen == 3 && playerColumnChoosen == 3) {
-                        remplace(findViewById(R.id.piece16));
-                    }
-                });
+                pieceGotBySocket = drawables.get(pieceColumn + pieceRow * yourPieces.length);
+                if (playerRowChoosen == 0 && playerColumnChoosen == 0) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece1), true));
+                } else if (playerRowChoosen == 0 && playerColumnChoosen == 1) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece2), true));
+                } else if (playerRowChoosen == 0 && playerColumnChoosen == 2) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece3), true));
+                } else if (playerRowChoosen == 0 && playerColumnChoosen == 3) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece4), true));
+                } else if (playerRowChoosen == 1 && playerColumnChoosen == 0) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece5), true));
+                } else if (playerRowChoosen == 1 && playerColumnChoosen == 1) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece6), true));
+                } else if (playerRowChoosen == 1 && playerColumnChoosen == 2) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece7), true));
+                } else if (playerRowChoosen == 1 && playerColumnChoosen == 3) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece8), true));
+                } else if (playerRowChoosen == 2 && playerColumnChoosen == 0) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece9), true));
+                } else if (playerRowChoosen == 2 && playerColumnChoosen == 1) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece10), true));
+                } else if (playerRowChoosen == 2 && playerColumnChoosen == 2) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece11), true));
+                } else if (playerRowChoosen == 2 && playerColumnChoosen == 3) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece12), true));
+                } else if (playerRowChoosen == 3 && playerColumnChoosen == 0) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece13), true));
+                } else if (playerRowChoosen == 3 && playerColumnChoosen == 1) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece14), true));
+                } else if (playerRowChoosen == 3 && playerColumnChoosen == 2) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece15), true));
+                } else if (playerRowChoosen == 3 && playerColumnChoosen == 3) {
+                    runOnUiThread(() -> remplace(findViewById(R.id.piece16), true));
+                }
             }
         });
 
@@ -372,10 +376,8 @@ public class PuzzleActivity extends MiniGames {
         if (!lock) {
             lock = true;
             runOnUiThread(() -> view.setOnClickListener(null));
-            remplace(imageView);
-            if (this.piece != null){
-                sendPiece(rowPlayerChoosen, columnPlayerChoosen, choosenRowPiece, choosenColumnPiece);
-            }
+            remplace(imageView, false);
+            sendPiece(rowPlayerChoosen, columnPlayerChoosen, choosenRowPiece, choosenColumnPiece);
             waitBeforeUnlock();
         }
     }
@@ -383,7 +385,7 @@ public class PuzzleActivity extends MiniGames {
     public void waitBeforeUnlock(){
         Thread t = new Thread(() -> {
             try {
-                Thread.sleep(150);
+                Thread.sleep(120);
                 lock = false;
             } catch (InterruptedException ignored) {
                 //
@@ -393,29 +395,38 @@ public class PuzzleActivity extends MiniGames {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    public void remplace(ImageView v) {
-        if(this.piece!=null) {
-            v.setImageDrawable(this.piece);
-            Thread t = new Thread(() -> {
-               try {
-                   Thread.sleep(90);
-                   this.piece = null;
-               } catch (InterruptedException ignored) {}
-            });
-            v.setClickable(false);
-            this.nbPieces++;
-            t.start();
-            try {
-                t.join();
-            } catch (InterruptedException ignored) {}
-            if (isTheMainUser){
-                if(this.nbPieces>=16) {
-                    //Toast.makeText(PuzzleActivity.this, String.valueOf(score()), Toast.LENGTH_SHORT).show();
-                    gameFinished(score());
-                }
+    public void remplace(ImageView v, boolean isGotBySocket) {
+        if (isGotBySocket){
+            if (this.pieceGotBySocket != null){
+                drawPiece(v, this.pieceGotBySocket);
             }
-
+        } else {
+            if(this.piece!=null) {
+                drawPiece(v, this.piece);
+            }
         }
+        if (isTheMainUser){
+            if(this.nbPieces>=16) {
+                //Toast.makeText(PuzzleActivity.this, String.valueOf(score()), Toast.LENGTH_SHORT).show();
+                gameFinished(score());
+            }
+        }
+    }
+
+    public void drawPiece(ImageView pieceToRemplace, Drawable pieceToPut){
+        pieceToRemplace.setImageDrawable(pieceToPut);
+        Thread t = new Thread(() -> {
+            try {
+                Thread.sleep(25);
+                this.piece = null;
+            } catch (InterruptedException ignored) {}
+        });
+        pieceToRemplace.setClickable(false);
+        this.nbPieces++;
+        t.start();
+        try {
+            t.join();
+        } catch (InterruptedException ignored) {}
     }
 
     public void sendPiece(int rowChoosen, int columnChoosen, int rowPiece, int columnPiece) {

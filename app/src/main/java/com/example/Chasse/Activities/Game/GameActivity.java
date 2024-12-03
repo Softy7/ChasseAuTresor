@@ -50,6 +50,7 @@ public class GameActivity extends Games {
     private static final String NUMBER_MINI_GAMES_WON = "numberOfMiniGamesWon";
     private static final String IS_THE_LAST_PART = "isTheLastPart";
     private volatile int numberOfPlayersNeedNearToPoint;
+    private volatile boolean isGameCanStart = false;
 
     // Mode développeur
     private Button buttonModeDev;
@@ -144,7 +145,7 @@ public class GameActivity extends Games {
             textState.setText("Il faut qu'il y ait 2 joueurs proches du point");
         }
 
-
+        showIfThePlayerIsNear();
 
         //miniGamesList.add(enigmaActivity);
         //miniGamesList.add(couleursActivity);
@@ -251,48 +252,6 @@ public class GameActivity extends Games {
             }
         });
 
-        socket.on("choose random game", new Emitter.Listener() {
-
-            @Override
-            public void call(Object... objects) {
-                if (isTheMainUser && !isTheMiniGameWillStart){
-                    isTheMiniGameWillStart = true;
-                    //Random random = new Random();
-                    //int miniGameId = random.nextInt(miniGamesList.size());
-                    socket.emit("new mini game starts");
-                }
-
-            }
-        });
-
-        socket.on("mini game starting", new Emitter.Listener() {
-            @Override
-            public void call(Object... objects) {
-                int miniGame = (int) objects[1];
-                Log.d("mini game id", String.valueOf(miniGame));
-                runOnUiThread(() -> {
-                    Intent miniGameIntent;
-                    try {
-                        miniGameIntent = (Intent) mapGameList.get(counterPart).get(0);
-                    } catch (Exception e) {
-                        miniGameIntent = new Intent(GameActivity.this, EnigmaActivity.class);
-                    }
-
-                    miniGameIntent.putExtra(IS_THE_MAIN_USER, Long.parseLong(objects[0].toString()) == game.getUserId() );
-                    miniGameIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
-                    miniGameIntent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
-                    boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
-                    miniGameIntent.putExtra(IS_THE_LAST_PART, isTheLastPart);
-                    isTheGameFinished = false;
-                    startActivity(miniGameIntent);
-                    finish();
-                });
-            }
-        });
-
-
-        showIfThePlayerIsNear();
-
 
 
 
@@ -344,6 +303,56 @@ public class GameActivity extends Games {
             getLocation();
 
         }
+
+
+        socket.on("choose random game", new Emitter.Listener() {
+
+            @Override
+            public void call(Object... objects) {
+                if (isTheMainUser && !isTheMiniGameWillStart){
+                    isTheMiniGameWillStart = true;
+                    //Random random = new Random();
+                    //int miniGameId = random.nextInt(miniGamesList.size());
+                    socket.emit("new mini game starts");
+                }
+            }
+        });
+
+        socket.on("mini game starting", new Emitter.Listener() {
+            @Override
+            public void call(Object... objects) {
+                int miniGame = (int) objects[1];
+                Log.d("mini game id", String.valueOf(miniGame));
+                runOnUiThread(() -> {
+                    Intent miniGameIntent;
+                    try {
+                        miniGameIntent = (Intent) mapGameList.get(counterPart).get(0);
+                    } catch (Exception e) {
+                        miniGameIntent = new Intent(GameActivity.this, EnigmaActivity.class);
+                    }
+
+                    miniGameIntent.putExtra(IS_THE_MAIN_USER, Long.parseLong(objects[0].toString()) == game.getUserId() );
+                    miniGameIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
+                    miniGameIntent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
+                    boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
+                    miniGameIntent.putExtra(IS_THE_LAST_PART, isTheLastPart);
+                    isTheGameFinished = false;
+                    startActivity(miniGameIntent);
+                    finish();
+                });
+            }
+        });
+
+
+        Thread t1 = new Thread(() -> {
+           try {
+               Thread.sleep(5000);
+           } catch (InterruptedException ignored) {
+
+           }
+           isGameCanStart = true;
+        });
+        t1.start();
     }
 
     /**
@@ -451,7 +460,7 @@ public class GameActivity extends Games {
                     socket.emit("point not received");
                 }
                 try{
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     break;
