@@ -44,6 +44,7 @@ public class GameActivity extends Games {
     private Point player2Position = new Point(-999999, -999999);
     private int counterPart;
     private int counterGameWins = 0;
+    private int idTheme;
     private TextView textState;
     private final ArrayList<Intent> miniGamesList = new ArrayList<>();
     private final Intent[] miniGamesOrder = new Intent[NUMBER_OF_MINI_GAMES];
@@ -307,7 +308,6 @@ public class GameActivity extends Games {
             @Override
             public void call(Object... objects) {
                 if (isTheMainUser && !isTheMiniGameWillStart){
-                    Log.d("game", "le mini jeu va commencer");
                     isTheMiniGameWillStart = true;
                     //Random random = new Random();
                     //int miniGameId = random.nextInt(miniGamesList.size());
