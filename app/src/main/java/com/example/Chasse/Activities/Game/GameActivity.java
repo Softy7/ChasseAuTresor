@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -34,7 +35,7 @@ import java.util.*;
 
 public class GameActivity extends Games {
 
-    private Button openChat;
+    private ImageButton openChat;
     private MapWithPointsView mapView;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
@@ -55,9 +56,7 @@ public class GameActivity extends Games {
     private volatile boolean isGameCanStart = false;
 
     // Mode développeur
-    private Button buttonModeDev;
-    private TextView textViewPosX;
-    private TextView textViewPosY;
+    private ImageButton buttonModeDev;
     private EditText editTextPosX;
     private EditText editTextPosY;
     private boolean isDevModeEnabled = false;
@@ -80,6 +79,11 @@ public class GameActivity extends Games {
         if (game.isFinished()){
             finish();
         }
+
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         setContentView(R.layout.game_activity);
         mapView = findViewById(R.id.map_view);
@@ -157,27 +161,19 @@ public class GameActivity extends Games {
         // Mode dev
 
         buttonModeDev = findViewById(R.id.button_dev_mode);
-        textViewPosX = findViewById(R.id.posX);
-        textViewPosY = findViewById(R.id.posY);
         editTextPosX = findViewById(R.id.text_input_x);
         editTextPosY = findViewById(R.id.text_input_y);
 
         // Pour cacher les view
-        textViewPosX.setVisibility(View.GONE);
-        textViewPosY.setVisibility(View.GONE);
         editTextPosX.setVisibility(View.GONE);
         editTextPosY.setVisibility(View.GONE);
 
         buttonModeDev.setOnClickListener(v -> {
             if (isDevModeEnabled) {
-                textViewPosX.setVisibility(View.GONE);
-                textViewPosY.setVisibility(View.GONE);
                 editTextPosX.setVisibility(View.GONE);
                 editTextPosY.setVisibility(View.GONE);
                 isDevModeEnabled = false;
             } else {
-                textViewPosX.setVisibility(View.VISIBLE);
-                textViewPosY.setVisibility(View.VISIBLE);
                 editTextPosX.setVisibility(View.VISIBLE);
                 editTextPosY.setVisibility(View.VISIBLE);
                 isDevModeEnabled = true;

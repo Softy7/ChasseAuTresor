@@ -47,7 +47,7 @@
             android:layout_height="130dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:src="@drawable/pirate_theme"/>
+            android:src="@drawable/pirate"/>
 
         <TextView
             android:id="@+id/nameaffiche"

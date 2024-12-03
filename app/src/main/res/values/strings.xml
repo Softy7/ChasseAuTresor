@@ -74,4 +74,8 @@ Postgres SQL\n
     <string name="envoie">envoie</string>
     <string name="chat">Chat</string>
     <string name="Regle">En Travaux</string>
+    <string name="mode_d_veloppeur">Mode développeur</string>
+    <string name="position_x">Position X</string>
+    <string name="position_y">Position Y</string>
+    <string name="nombre_de_joueurs">Nombre de joueurs</string>
 </resources>
