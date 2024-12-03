@@ -43,6 +43,7 @@ public class GameActivity extends Games {
     private Point player2Position = new Point(-999999, -999999);
     private int counterPart;
     private int counterGameWins = 0;
+    private int idTheme;
     private TextView textState;
     private final ArrayList<Intent> miniGamesList = new ArrayList<>();
     private final Intent[] miniGamesOrder = new Intent[NUMBER_OF_MINI_GAMES];
@@ -74,6 +75,7 @@ public class GameActivity extends Games {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.idTheme = getIntent().getIntExtra("idTheme", 0);
         Log.d("finished", String.valueOf(game.isFinished()));
         if (game.isFinished()){
             finish();
@@ -334,6 +336,7 @@ public class GameActivity extends Games {
                     miniGameIntent.putExtra(IS_THE_MAIN_USER, Long.parseLong(objects[0].toString()) == game.getUserId() );
                     miniGameIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
                     miniGameIntent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
+                    miniGameIntent.putExtra("idTheme", idTheme);
                     boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
                     miniGameIntent.putExtra(IS_THE_LAST_PART, isTheLastPart);
                     isTheGameFinished = false;
