@@ -377,15 +377,18 @@ public class PuzzleActivity extends MiniGames {
             lock = true;
             runOnUiThread(() -> view.setOnClickListener(null));
             remplace(imageView, false);
-            sendPiece(rowPlayerChoosen, columnPlayerChoosen, choosenRowPiece, choosenColumnPiece);
+            if (this.piece != null) {
+                sendPiece(rowPlayerChoosen, columnPlayerChoosen, choosenRowPiece, choosenColumnPiece);
+            }
             waitBeforeUnlock();
+            this.piece = null;
         }
     }
 
     public void waitBeforeUnlock(){
         Thread t = new Thread(() -> {
             try {
-                Thread.sleep(120);
+                Thread.sleep(25);
                 lock = false;
             } catch (InterruptedException ignored) {
                 //
@@ -399,6 +402,7 @@ public class PuzzleActivity extends MiniGames {
         if (isGotBySocket){
             if (this.pieceGotBySocket != null){
                 drawPiece(v, this.pieceGotBySocket);
+                this.pieceGotBySocket = null;
             }
         } else {
             if(this.piece!=null) {
@@ -418,7 +422,6 @@ public class PuzzleActivity extends MiniGames {
         Thread t = new Thread(() -> {
             try {
                 Thread.sleep(25);
-                this.piece = null;
             } catch (InterruptedException ignored) {}
         });
         pieceToRemplace.setClickable(false);

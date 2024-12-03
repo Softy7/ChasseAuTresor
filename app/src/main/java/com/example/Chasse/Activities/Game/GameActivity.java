@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -145,11 +146,6 @@ public class GameActivity extends Games {
             textState.setText("Il faut qu'il y ait 2 joueurs proches du point");
         }
 
-        showIfThePlayerIsNear();
-
-        //miniGamesList.add(enigmaActivity);
-        //miniGamesList.add(couleursActivity);
-
         Log.d("tableau", Arrays.toString(miniGamesOrder));
 
 
@@ -186,6 +182,8 @@ public class GameActivity extends Games {
                 isDevModeEnabled = true;
             }
         });
+
+        showIfThePlayerIsNear();
 
         TextWatcher textWatcher = new TextWatcher() {
 
@@ -306,10 +304,10 @@ public class GameActivity extends Games {
 
 
         socket.on("choose random game", new Emitter.Listener() {
-
             @Override
             public void call(Object... objects) {
                 if (isTheMainUser && !isTheMiniGameWillStart){
+                    Log.d("game", "le mini jeu va commencer");
                     isTheMiniGameWillStart = true;
                     //Random random = new Random();
                     //int miniGameId = random.nextInt(miniGamesList.size());
@@ -330,29 +328,39 @@ public class GameActivity extends Games {
                     } catch (Exception e) {
                         miniGameIntent = new Intent(GameActivity.this, EnigmaActivity.class);
                     }
+                    final Intent finalIntent = miniGameIntent;
 
-                    miniGameIntent.putExtra(IS_THE_MAIN_USER, Long.parseLong(objects[0].toString()) == game.getUserId() );
-                    miniGameIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
-                    miniGameIntent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
+                    finalIntent.putExtra(IS_THE_MAIN_USER, Long.parseLong(objects[0].toString()) == game.getUserId() );
+                    finalIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, counterPart);
+                    finalIntent.putExtra(NUMBER_MINI_GAMES_WON, counterGameWins);
                     boolean isTheLastPart = counterPart >= NUMBER_OF_MINI_GAMES - 1;
-                    miniGameIntent.putExtra(IS_THE_LAST_PART, isTheLastPart);
+                    finalIntent.putExtra(IS_THE_LAST_PART, isTheLastPart);
                     isTheGameFinished = false;
-                    startActivity(miniGameIntent);
-                    finish();
+                    if (isVocalActivate){
+                        textToSpeech("Le prochain mini-jeu va bientôt commencer");
+                    } else {
+                        Toast.makeText(GameActivity.this, "Le prochain mini-jeu va bientôt commencer", Toast.LENGTH_SHORT).show();
+                    }
+                    Thread thread1 = new Thread(() -> {
+                        // Attend 1 s avant que le jeu démarre
+                        try {
+                            Thread.sleep(1200);
+                        } catch (InterruptedException ignored) {
+                            //
+                        }
+                    });
+                    thread1.start();
+                    try {
+                        thread1.join();
+                    } catch (InterruptedException ignored) {
+                        //
+                    } finally {
+                        startActivity(finalIntent);
+                        finish();
+                    }
                 });
             }
         });
-
-
-        Thread t1 = new Thread(() -> {
-           try {
-               Thread.sleep(5000);
-           } catch (InterruptedException ignored) {
-
-           }
-           isGameCanStart = true;
-        });
-        t1.start();
     }
 
     /**
@@ -448,19 +456,14 @@ public class GameActivity extends Games {
                     break;
                 }
                 if (pointWhereToGo != null && player1Position != null) {
-
                     Log.d("position", String.valueOf(this.player1Position.getX()));
                     // émet côté serveur l'état du joueur
-                    if (isPlayerNearToPoint(this.pointWhereToGo, this.player1Position)) {
-                        socket.emit("player state main game", player1Position.getX(), player1Position.getY(), true, numberOfPlayersNeedNearToPoint);
-                    } else {
-                        socket.emit("player state main game", player1Position.getX(), player1Position.getY(), false, numberOfPlayersNeedNearToPoint);
-                    }
+                    socket.emit("player state main game", player1Position.getX(), player1Position.getY(), isPlayerNearToPoint(this.pointWhereToGo, this.player1Position), numberOfPlayersNeedNearToPoint);
                 } else if (!isTheMainUser && pointWhereToGo == null){
                     socket.emit("point not received");
                 }
                 try{
-                    Thread.sleep(500);
+                    Thread.sleep(650);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     break;
