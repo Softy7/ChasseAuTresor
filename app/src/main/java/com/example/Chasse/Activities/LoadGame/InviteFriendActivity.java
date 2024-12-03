@@ -173,6 +173,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                         //Intent intent = new Intent(InviteFriendActivity.this, PuzzleActivity.class);
                         game.setUserId(mainSystem.readUser(InviteFriendActivity.this).getId());
                         intent.putExtra(IS_THE_MAIN_USER, userId == game.getUserId());
+                        intent.putExtra("idTheme", idTheme);
                         startActivity(intent);
                         finish();
                     });

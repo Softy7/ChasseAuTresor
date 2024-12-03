@@ -25,18 +25,19 @@ public class EnigmaActivity extends MiniGames{
         private char responsePlayer2 = ' ';
         private List<ImageButton> buttons;
         private List<TextView> texts;
-        private int index = -1;
+        private int index = -1, idTheme;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_enigma);
 
+            this.idTheme = getIntent().getIntExtra("idTheme", 0);
             Random random = new Random();
             ArrayList<Enigma> enigmas;
             int enigmaIndex;
             try {
-                enigmas = mainSystem.getEnigmas(2, EnigmaActivity.this);
+                enigmas = mainSystem.getEnigmas(this.idTheme, EnigmaActivity.this);
             } catch (JSONException e) {
                 Log.d("Erreur", String.valueOf(e));
                 throw new RuntimeException(e);
