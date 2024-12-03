@@ -44,6 +44,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
         super.onCreate(savedInstance);
         setContentView(R.layout.add_friend_game);
         this.idTheme = getIntent().getIntExtra("idTheme", 0);
+
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_FULLSCREEN |
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
@@ -52,7 +53,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
         Intent intent = getIntent();
         isJoiningRoom = intent.getBooleanExtra(LoadGameActivity.IS_JOINING_ROOM, false);
 
-
+        this.game.setIdTheme(idTheme);
         this.game.addUser(mainSystem.readUser(this));
 
         this.code = findViewById(R.id.code);
@@ -114,29 +115,30 @@ public class InviteFriendActivity extends GlobalTresorActivity {
         socket.on("group update", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
-                if (objects.length > 0){
-                    String json = objects[0].toString();
-                    try {
-                        JSONArray jsonArray = new JSONArray(json);
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            long idUser = jsonObject.getLong("id_user");
-                            String pseudo = jsonObject.getString("pseudo");
-                            System.out.println("User ID: " + idUser + ", Pseudo: " + pseudo);
-                            if (idUser != mainSystem.readUser(InviteFriendActivity.this).getId()){
-                                // Met à jour sur le thread principal
-                                runOnUiThread(() -> {
-                                    otherPlayerPseudo.setText(pseudo);
-                                    game.setUserIdPlayer(idUser);
-                                    game.setPseudoPlayer2(pseudo);
-                                });
-                            }
+                String json = objects[0].toString();
+                int theme = (int) objects[1];
+                game.setIdTheme(theme);
+                try {
+                    JSONArray jsonArray = new JSONArray(json);
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        long idUser = jsonObject.getLong("id_user");
+                        String pseudo = jsonObject.getString("pseudo");
+                        System.out.println("User ID: " + idUser + ", Pseudo: " + pseudo + " , Id_theme: " + game.getIdTheme());
+                        if (idUser != mainSystem.readUser(InviteFriendActivity.this).getId()){
+                            // Met à jour sur le thread principal
+                            runOnUiThread(() -> {
+                                otherPlayerPseudo.setText(pseudo);
+                                game.setUserIdPlayer(idUser);
+                                game.setPseudoPlayer2(pseudo);
+                            });
                         }
-                        runOnUiThread(() -> start.setEnabled(true));
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
                     }
+                    runOnUiThread(() -> start.setEnabled(true));
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
                 }
+
             }
         });
 
@@ -194,7 +196,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                 mainSystem.readUser(this).getId(),
                 mainSystem.readUser(this).getPseudo(),
                 this.game.getCode(),
-                getTheTheme()
+                this.game.getIdTheme()
         );
     }
 

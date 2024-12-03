@@ -37,7 +37,7 @@ public class EnigmaActivity extends MiniGames{
             ArrayList<Enigma> enigmas;
             int enigmaIndex;
             try {
-                enigmas = mainSystem.getEnigmas(this.idTheme, EnigmaActivity.this);
+                enigmas = mainSystem.getEnigmas(game.getIdTheme(), EnigmaActivity.this);
             } catch (JSONException e) {
                 Log.d("Erreur", String.valueOf(e));
                 throw new RuntimeException(e);

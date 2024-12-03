@@ -7,13 +7,13 @@ import java.util.Random;
 public class Game {
 
     private final ArrayList<User> users = new ArrayList<>();
-    public Course course = new Course();
     private int code = -1;
     private long userId = -1;
     private static Game instance;
     private long userIdPlayer;
     private String pseudoPlayer2;
     private boolean isFinished = false;
+    private int idTheme;
 
     public Game(){}
 
@@ -79,5 +79,13 @@ public class Game {
 
     public void setFinished(boolean finished) {
         isFinished = finished;
+    }
+
+    public int getIdTheme() {
+        return idTheme;
+    }
+
+    public void setIdTheme(int idTheme) {
+        this.idTheme = idTheme;
     }
 }
