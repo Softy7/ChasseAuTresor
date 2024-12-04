@@ -28,6 +28,11 @@ public class ChatService extends Service {
         executorService = Executors.newSingleThreadExecutor();
         clearMessagesInBackground();
         initSocketListeners();
+
+
+        Intent intent = new Intent("com.example.Chasse.SERVICE_STATUS");
+        intent.putExtra("isServiceRunning", true);
+        sendBroadcast(intent);
     }
 
     @Override
@@ -86,9 +91,13 @@ public class ChatService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        socket.off("receive message");
         if (executorService != null) {
             executorService.shutdown();
         }
+        Intent intent = new Intent("com.example.Chasse.SERVICE_STATUS");
+        intent.putExtra("isServiceRunning", false);
+        sendBroadcast(intent);
     }
 
     public class LocalBinder extends Binder {

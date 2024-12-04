@@ -117,5 +117,31 @@
 
     </FrameLayout>
 
+    <FrameLayout
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+                android:id="@+id/openChat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn"
+                android:contentDescription="@string/chat"
+                android:scaleType="centerCrop" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/chat"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:fontFamily="@font/madimi_one_regular"
+                android:textColor="@android:color/white" />
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

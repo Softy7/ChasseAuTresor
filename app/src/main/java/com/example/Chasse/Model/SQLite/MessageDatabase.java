@@ -1,12 +1,9 @@
 package com.example.Chasse.Model.SQLite;
 
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
 import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import com.example.Chasse.Activities.Game.Chat.MessageDao;
 import com.example.Chasse.Model.Message;
 
 

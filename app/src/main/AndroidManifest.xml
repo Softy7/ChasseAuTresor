@@ -18,6 +18,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
+        android:screenOrientation="portrait"
         android:theme="@style/Theme.LunetteTP1"
         tools:targetApi="31">
         <activity
@@ -83,10 +84,15 @@
         <activity
             android:name=".Activities.Parameters.RulesActivity"
             android:exported="true"/>
+        <activity
+                android:name=".Activities.Game.EndGameActivity"
+                android:exported="true" />
         <service android:name=".Activities.Game.Chat.ChatService"
                  android:enabled="true"
                  android:exported="true" />
-        <receiver android:name=".Activities.Game.Chat.ChatActivity$MessageReceiver"
+        <receiver android:name=".Activities.Game.Chat.ChatActivity"
+                  android:exported="true" />
+        <receiver android:name=".Activities.Game.Chat.CloseReceiver"
                   android:exported="true" />
     </application>
 

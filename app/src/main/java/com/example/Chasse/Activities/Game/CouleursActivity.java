@@ -1,11 +1,15 @@
 package com.example.Chasse.Activities.Game;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import com.example.Chasse.Activities.Game.Chat.ChatActivity;
 import com.example.Chasse.R;
 
 import com.google.gson.Gson;
@@ -42,6 +46,12 @@ public class CouleursActivity extends MiniGames {
                 trueColors = new ArrayList<>();
                 ll = findViewById(R.id.linearLayout);
                 ll2 = findViewById(R.id.linearLayout2);
+
+                ImageButton openChat = findViewById(R.id.openChat);
+                openChat.setOnClickListener(v -> {
+                        Intent intentChat = new Intent(CouleursActivity.this, ChatActivity.class);
+                        startActivity(intentChat);
+                });
 
                 socket.on("receive colors", new Emitter.Listener() {
                         @Override

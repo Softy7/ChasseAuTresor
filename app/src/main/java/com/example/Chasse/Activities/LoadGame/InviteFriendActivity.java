@@ -1,20 +1,17 @@
 package com.example.Chasse.Activities.LoadGame;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.Chasse.Activities.Game.Chat.ChatService;
-import com.example.Chasse.Activities.Game.CouleursActivity;
-import com.example.Chasse.Activities.Game.EnigmaActivity;
 import com.example.Chasse.Activities.Game.GameActivity;
 import com.example.Chasse.Activities.GlobalTresorActivity;
-import com.example.Chasse.Activities.Game.PuzzleActivity;
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
 import com.example.Chasse.Model.System.MainSystem;
@@ -29,7 +26,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
 
     private MainSystem mainSystem = new MainSystem();
     public Game game = Game.getInstance();
-    protected TextView code, theme;
+    protected TextView code, themeText;
     protected ImageButton back, start, search;
     protected int idTheme;
     private Socket socket;
@@ -39,12 +36,18 @@ public class InviteFriendActivity extends GlobalTresorActivity {
     private static final String IS_THE_MAIN_USER = "isTheMainUser";
     private static final String GAME_ID = "gameId";
     private boolean gameStarting = false;
+    private static final String IS_THE_FIRST_GAME = "isTheFirstGame";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.add_friend_game);
         this.idTheme = getIntent().getIntExtra("idTheme", 0);
+
+        Intent gameService = new Intent(InviteFriendActivity.this, ChatService.class);
+        stopService(gameService);
 
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_FULLSCREEN |
@@ -60,8 +63,8 @@ public class InviteFriendActivity extends GlobalTresorActivity {
         this.code = findViewById(R.id.code);
 
 
-        this.theme = findViewById(R.id.theme);
-        this.theme.setText(this.getTheTheme());
+        this.themeText = findViewById(R.id.theme);
+        this.themeText.setText(this.getTheTheme());
 
         this.otherPlayerPseudo = findViewById(R.id.other_player_name);
 
@@ -117,8 +120,10 @@ public class InviteFriendActivity extends GlobalTresorActivity {
             @Override
             public void call(Object... objects) {
                 String json = objects[0].toString();
-                int theme = (int) objects[1];
+                final int theme = (int) objects[1];
                 game.setIdTheme(theme);
+                Log.d("Theme", String.valueOf(theme));
+                runOnUiThread(() -> themeText.setText(getTheTheme(theme)));
                 try {
                     JSONArray jsonArray = new JSONArray(json);
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -182,6 +187,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                         game.setUserId(mainSystem.readUser(InviteFriendActivity.this).getId());
                         intent.putExtra(IS_THE_MAIN_USER, userId == game.getUserId());
                         intent.putExtra("idTheme", idTheme);
+                        intent.putExtra(IS_THE_FIRST_GAME, true);
                         startActivity(intent);
                         finish();
                     });
@@ -213,15 +219,23 @@ public class InviteFriendActivity extends GlobalTresorActivity {
         );
     }
 
-    private String getTheTheme() {
-        return switch (this.idTheme) {
-            default -> "Les Pirates";
+    private String getThemeName(int numero){
+        return switch (numero) {
             case 1 -> "Les Alcools";
             case 2 -> "L'IUT";
             case 3 -> "La Nature";
             case 4 -> "Les voitures";
             case 5 -> "L'informatique";
+            default -> "Les Pirates";
         };
+    }
+
+    private String getTheTheme() {
+        return getThemeName(idTheme);
+    }
+
+    private String getTheTheme(int themeId) {
+        return getThemeName(themeId);
     }
 
     @Override

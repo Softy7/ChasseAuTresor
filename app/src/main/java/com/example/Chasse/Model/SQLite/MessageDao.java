@@ -1,12 +1,9 @@
-package com.example.Chasse.Activities.Game.Chat;
+package com.example.Chasse.Model.SQLite;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import com.example.Chasse.Model.Message;
-import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-import androidx.room.Insert;
 import androidx.room.Query;
 
 import java.util.List;

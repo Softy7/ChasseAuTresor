@@ -36,11 +36,10 @@ public class ChatActivity extends GlobalTresorActivity {
     private MessageAdapter messageAdapter;
     private ChatService chatService;
     private boolean isBound = false;
-    private MessageDatabase messageDatabase;
     private ChatViewModel chatViewModel;
     private List<Message> messageList = new ArrayList<>();
 
-    private ServiceConnection connection = new ServiceConnection() {
+    private final ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName className, IBinder service) {
             ChatService.LocalBinder binder = (ChatService.LocalBinder) service;
@@ -53,21 +52,7 @@ public class ChatActivity extends GlobalTresorActivity {
             isBound = false;
         }
     };
-    public class MessageReceiver{
-        private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                //String messageContent = intent.getStringExtra("message");
-                //Log.d("ChatActivity", "Message reçu: " + messageContent);
-                //if (messageContent != null) {
-                //    receiveMessage(messageContent);
-                //}
-
-                Log.d("ChatActivity", "Message reçu");
-            }
-        };
-    }
-    private MessageReceiver messageReceiver = new MessageReceiver();
+    private final BroadcastReceiver closeReceiver = new CloseReceiver();
 
 
     @Override
@@ -110,14 +95,14 @@ public class ChatActivity extends GlobalTresorActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        IntentFilter intentFilter = new IntentFilter("com.example.Chasse.NEW_MESSAGE");
-        registerReceiver(messageReceiver.broadcastReceiver, intentFilter, Context.RECEIVER_EXPORTED);
+        IntentFilter closeFilter = new IntentFilter("com.example.Chasse.CLOSE_CHAT");
+        registerReceiver(closeReceiver, closeFilter, Context.RECEIVER_EXPORTED);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        unregisterReceiver(messageReceiver.broadcastReceiver);
+        unregisterReceiver(closeReceiver);
     }
 
     @Override

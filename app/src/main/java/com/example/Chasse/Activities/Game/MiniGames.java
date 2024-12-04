@@ -61,14 +61,16 @@ public abstract class MiniGames extends Games {
                         isTheGameFinished = false;
                         startActivity(intentMainGame);
                     } else {
-                        Intent mainMenuIntent = new Intent(MiniGames.this, MainActivity.class);
                         game.setFinished(true);
                         if (socket != null) {
                             socket.disconnect();
                             socket.close();
                         }
                         SocketManager.destroyInstance();
-                        startActivity(mainMenuIntent);
+                        Intent endGameIntent = new Intent(MiniGames.this, EndGameActivity.class);
+                        endGameIntent.putExtra(COUNTER_MINI_GAMES_PLAYED, miniGamesPlayed);
+                        endGameIntent.putExtra(COUNTER_MINI_GAMES_WON, counterMiniGamesWon + res);
+                        startActivity(endGameIntent);
                     }
                     finish();
 
