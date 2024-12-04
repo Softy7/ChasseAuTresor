@@ -9,6 +9,7 @@ import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.Chasse.Activities.Game.Chat.ChatService;
 import com.example.Chasse.Activities.Game.CouleursActivity;
 import com.example.Chasse.Activities.Game.EnigmaActivity;
 import com.example.Chasse.Activities.Game.GameActivity;
@@ -170,6 +171,10 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                     runOnUiThread(() -> {
                         int userId = (int) objects[0];
                         loadGame = true;
+
+                        Intent gameService = new Intent(InviteFriendActivity.this, ChatService.class);
+                        startService(gameService);
+                        game.setGameService(gameService);
 
                         Intent intent = new Intent(InviteFriendActivity.this, GameActivity.class);
                         //Intent intent = new Intent(InviteFriendActivity.this, EnigmaActivity.class);

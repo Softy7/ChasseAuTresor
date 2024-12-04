@@ -78,12 +78,16 @@
             android:name=".Activities.Game.EnigmaActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.Game.ChatActivity"
-            android:exported="true"
-            />
+            android:name=".Activities.Game.Chat.ChatActivity"
+            android:exported="true"/>
         <activity
             android:name=".Activities.Parameters.RulesActivity"
             android:exported="true"/>
+        <service android:name=".Activities.Game.Chat.ChatService"
+                 android:enabled="true"
+                 android:exported="true" />
+        <receiver android:name=".Activities.Game.Chat.ChatActivity$MessageReceiver"
+                  android:exported="true" />
     </application>
 
 </manifest>

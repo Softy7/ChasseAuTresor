@@ -2,10 +2,12 @@ package com.example.Chasse.Activities.Game;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.Chasse.Activities.Game.Chat.ChatService;
 import com.example.Chasse.Activities.GlobalTresorActivity;
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
@@ -19,6 +21,7 @@ public abstract class Games extends GlobalTresorActivity {
     protected boolean isTheGameFinished = true;
     protected static final String IS_THE_MAIN_USER = "isTheMainUser";
     protected static final int NUMBER_OF_MINI_GAMES = 3;
+    //protected Intent chatServiceIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,8 @@ public abstract class Games extends GlobalTresorActivity {
 
 
         socket = SocketManager.getInstance().getSocket();
+        //chatServiceIntent= new Intent(this, ChatService.class);
+        //startService(chatServiceIntent);
 
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
