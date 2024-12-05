@@ -38,6 +38,12 @@ public class PuzzleActivity extends MiniGames {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle);
+
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
         Log.d("puzzle", "je suis dans l'activité puzzle !");
         List<View> pieceOfImages = Arrays.asList(
                 findViewById(R.id.choix1), findViewById(R.id.choix2),

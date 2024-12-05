@@ -37,6 +37,11 @@ public class CouleursActivity extends MiniGames {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_couleurs);
 
+                getWindow().getDecorView().setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_FULLSCREEN |
+                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
                 combinaison = new ArrayList<>();
                 reponse = new ArrayList<>();
                 trueColors = new ArrayList<>();
