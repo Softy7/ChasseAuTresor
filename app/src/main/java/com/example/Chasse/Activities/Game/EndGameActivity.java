@@ -2,6 +2,7 @@ package com.example.Chasse.Activities.Game;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.example.Chasse.Activities.GlobalTresorActivity;
@@ -13,6 +14,11 @@ public class EndGameActivity extends GlobalTresorActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
+
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         Intent intent = getIntent();
         int numberGamePlayed = intent.getIntExtra("miniGamesPlayed", 0);
