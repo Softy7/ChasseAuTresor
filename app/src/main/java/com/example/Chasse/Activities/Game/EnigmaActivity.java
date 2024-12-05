@@ -27,7 +27,7 @@ public class EnigmaActivity extends MiniGames{
         private char responsePlayer2 = ' ';
         private List<ImageButton> buttons;
         private List<TextView> texts;
-        private int index = -1, idTheme;
+        private int index = -1;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {

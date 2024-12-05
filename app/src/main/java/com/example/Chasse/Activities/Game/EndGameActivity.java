@@ -20,8 +20,7 @@ public class EndGameActivity extends GlobalTresorActivity {
 
         TextView textResult = findViewById(R.id.score);
         if (numberGamePlayed > 0){
-            String pourcentage = String.valueOf((int) Math.round((numberGameWon / numberGamePlayed) * 100));
-            textResult.setText("Bravo! Vous avez gagné " + pourcentage + "% des mini-jeux joués");
+            textResult.setText("Bravo! Vous avez gagné " + numberGameWon + " / " + numberGamePlayed + " des mini-jeux joués");
         } else{
             textResult.setText("Une erreur s'est produite");
         }
