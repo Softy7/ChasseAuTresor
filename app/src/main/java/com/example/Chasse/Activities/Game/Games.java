@@ -2,10 +2,13 @@ package com.example.Chasse.Activities.Game;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.Chasse.Activities.Game.Chat.ChatActivity;
+import com.example.Chasse.Activities.Game.Chat.ChatService;
 import com.example.Chasse.Activities.GlobalTresorActivity;
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
@@ -25,15 +28,15 @@ public abstract class Games extends GlobalTresorActivity {
         super.onCreate(savedInstanceState);
         game = Game.getInstance();
 
-
+        Intent intentLastGame = getIntent();
+        boolean isTheFirstGame = intentLastGame.getBooleanExtra("isTheFirstGame", false);
         socket = SocketManager.getInstance().getSocket();
+
 
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                socket.disconnect();
-                socket.close();
-                SocketManager.destroyInstance();
+                disconnectSocket();
                 finish();
             }
         };
@@ -47,22 +50,32 @@ public abstract class Games extends GlobalTresorActivity {
                 });
             }
         });
+
+
+    }
+
+    private void disconnectSocket() {
+        if (socket != null && socket.connected()) {
+            socket.disconnect();
+            socket.off();
+            SocketManager.destroyInstance();
+        }
     }
 
     private void alertUserDisconnected() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Alerte");
-        builder.setMessage("L'autre joueur a malheureusement quitter le jeu, le jeu est donc fini.");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                finish();
-            }
-        });
-        builder.setCancelable(false);
-        AlertDialog alert = builder.create();
-        if (!game.isFinished() || game != null){
+        if (!isFinishing() && !isDestroyed()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Alerte");
+            builder.setMessage("L'autre joueur a malheureusement quitter le jeu, le jeu est donc fini.");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    finish();
+                }
+            });
+            builder.setCancelable(false);
+            AlertDialog alert = builder.create();
             alert.show();
         }
     }
@@ -71,13 +84,16 @@ public abstract class Games extends GlobalTresorActivity {
 
     @Override
     protected void onDestroy() {
-        onPreDestroy();
 
-        if (isTheGameFinished) {
-            socket.disconnect();
-            socket.off();
-            SocketManager.destroyInstance();
+        Intent closeChatIntent = new Intent("com.example.Chasse.CLOSE_CHAT");
+        sendBroadcast(closeChatIntent);
+
+        onPreDestroy();
+        if (isTheGameFinished){
+            disconnectSocket();
         }
+
+
         super.onDestroy();
     }
 

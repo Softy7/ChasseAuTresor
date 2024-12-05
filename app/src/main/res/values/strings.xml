@@ -78,4 +78,7 @@ Postgres SQL\n
     <string name="position_x">Position X</string>
     <string name="position_y">Position Y</string>
     <string name="nombre_de_joueurs">Nombre de joueurs</string>
+    <string name="retourner_au_menu_principal">Retourner au menu principal</string>
+    <string name="bouton_retourner_au_menu_principal">Bouton pour retourner au menu principal</string>
+    <string name="score">Score</string>
 </resources>

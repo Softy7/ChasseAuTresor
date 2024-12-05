@@ -1,5 +1,8 @@
 package com.example.Chasse.Model;
 
+import android.content.Intent;
+import com.example.Chasse.Activities.Game.Chat.ChatService;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,6 +17,7 @@ public class Game {
     private String pseudoPlayer2;
     private boolean isFinished = false;
     private int idTheme;
+    private Intent gameService;
 
     public Game(){}
 
@@ -87,5 +91,13 @@ public class Game {
 
     public void setIdTheme(int idTheme) {
         this.idTheme = idTheme;
+    }
+
+    public Intent getGameService() {
+        return gameService;
+    }
+
+    public void setGameService(Intent gameService) {
+        this.gameService = gameService;
     }
 }

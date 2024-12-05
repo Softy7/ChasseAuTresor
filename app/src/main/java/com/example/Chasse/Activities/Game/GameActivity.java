@@ -9,7 +9,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -18,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.Chasse.Activities.Game.Chat.ChatActivity;
 import com.example.Chasse.Model.Point;
 import com.example.Chasse.R;
 import com.example.Chasse.View.MapWithPointsView;
@@ -30,7 +30,6 @@ import android.location.Location;
 import android.os.Looper;
 import io.socket.emitter.Emitter;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class GameActivity extends Games {
@@ -45,7 +44,6 @@ public class GameActivity extends Games {
     private Point player2Position = new Point(-999999, -999999);
     private int counterPart;
     private int counterGameWins = 0;
-    private int idTheme;
     private TextView textState;
     private final ArrayList<Intent> miniGamesList = new ArrayList<>();
     private final Intent[] miniGamesOrder = new Intent[NUMBER_OF_MINI_GAMES];

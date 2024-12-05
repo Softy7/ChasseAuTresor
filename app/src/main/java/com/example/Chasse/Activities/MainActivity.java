@@ -148,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     System.out.println(response.message());
                     Toast.makeText(MainActivity.this, "Erreur de connexion", Toast.LENGTH_SHORT).show();
-                    finish();
                 }
             }
 
@@ -156,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<UserRequest> call, Throwable throwable) {
                 System.out.println(throwable.getMessage());
                 Toast.makeText(MainActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
-                finish();
             }
         });
 
