@@ -2,7 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/backgruond_chat">
 
     <!-- Liste des messages -->
     <androidx.recyclerview.widget.RecyclerView
@@ -17,19 +18,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@drawable/background_gray75_top">
 
         <EditText
             android:id="@+id/message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/message" />
+            android:hint="@string/message"
+            android:fontFamily="@font/madimi_one_regular"/>
 
-        <Button
-            android:id="@+id/sendButton"
+        <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/envoie" />
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/sendButton"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/madimi_one_regular"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:text="@string/envoie"/>
+        </FrameLayout>
+
     </LinearLayout>
 </LinearLayout>
