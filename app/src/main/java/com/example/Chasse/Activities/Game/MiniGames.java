@@ -62,6 +62,7 @@ public abstract class MiniGames extends Games {
                         startActivity(intentMainGame);
                     } else {
                         game.setFinished(true);
+                        game = null;
                         if (socket != null) {
                             socket.disconnect();
                             socket.close();

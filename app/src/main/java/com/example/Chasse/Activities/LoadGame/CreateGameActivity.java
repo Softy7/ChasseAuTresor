@@ -53,6 +53,7 @@ public class CreateGameActivity extends GlobalTresorActivity {
         Intent intent = new Intent(CreateGameActivity.this, InviteFriendActivity.class);
         intent.putExtra("idTheme", theme);
         startActivity(intent);
+        finish();
     }
 
     @Override

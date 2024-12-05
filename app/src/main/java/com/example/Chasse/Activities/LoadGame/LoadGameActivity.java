@@ -67,6 +67,7 @@ public class LoadGameActivity extends AppCompatActivity {
                                 Log.e("code", String.valueOf(codeText));
                                 intent.putExtra(CODE, codeText);
                                 startActivity(intent);
+                                finish();
                             } else if (response.code() == 202){
                                 Toast.makeText(LoadGameActivity.this, "Le groupe que vous avez rentré est complet", Toast.LENGTH_LONG).show();
                             } else {

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,8 @@ import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
+
+import static androidx.fragment.app.FragmentManager.TAG;
 
 public abstract class Games extends GlobalTresorActivity {
 
@@ -27,9 +30,6 @@ public abstract class Games extends GlobalTresorActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         game = Game.getInstance();
-
-        Intent intentLastGame = getIntent();
-        boolean isTheFirstGame = intentLastGame.getBooleanExtra("isTheFirstGame", false);
         socket = SocketManager.getInstance().getSocket();
 
 
@@ -58,8 +58,8 @@ public abstract class Games extends GlobalTresorActivity {
         if (socket != null && socket.connected()) {
             socket.disconnect();
             socket.off();
-            SocketManager.destroyInstance();
         }
+        SocketManager.destroyInstance();
     }
 
     private void alertUserDisconnected() {
@@ -84,7 +84,6 @@ public abstract class Games extends GlobalTresorActivity {
 
     @Override
     protected void onDestroy() {
-
         Intent closeChatIntent = new Intent("com.example.Chasse.CLOSE_CHAT");
         sendBroadcast(closeChatIntent);
 
@@ -92,7 +91,6 @@ public abstract class Games extends GlobalTresorActivity {
         if (isTheGameFinished){
             disconnectSocket();
         }
-
 
         super.onDestroy();
     }

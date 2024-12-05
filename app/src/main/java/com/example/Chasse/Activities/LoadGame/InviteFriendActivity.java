@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public class InviteFriendActivity extends GlobalTresorActivity {
 
     private MainSystem mainSystem = new MainSystem();
-    public Game game = Game.getInstance();
+    public Game game;
     protected TextView code, themeText;
     protected ImageButton back, start, search;
     protected int idTheme;
@@ -43,6 +43,8 @@ public class InviteFriendActivity extends GlobalTresorActivity {
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
+        Game.resetInstance();
+        game = Game.getInstance();
         setContentView(R.layout.add_friend_game);
         this.idTheme = getIntent().getIntExtra("idTheme", 0);
 
@@ -178,6 +180,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                         loadGame = true;
 
                         Intent gameService = new Intent(InviteFriendActivity.this, ChatService.class);
+                        stopService(gameService);
                         startService(gameService);
                         game.setGameService(gameService);
 

@@ -28,6 +28,10 @@ public class Game {
         return instance;
     }
 
+    public static void resetInstance() {
+        instance = null;
+    }
+
     public boolean addUser(User user) {
         if(this.users.contains(user)) {
             return false;
