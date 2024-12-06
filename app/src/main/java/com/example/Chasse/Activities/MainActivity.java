@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, BeforeGameActivity.class);
             startActivity(intent);
         });
+        button.setVisibility(View.GONE);
     }
 
     @Override

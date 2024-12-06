@@ -141,6 +141,9 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                                 game.setPseudoPlayer2(pseudo);
                             });
                         }
+                        if (isVocalActivate){
+                            textToSpeech(pseudo + " vient de rejoindre le groupe");
+                        }
                     }
                     runOnUiThread(() -> start.setEnabled(true));
                 } catch (JSONException e) {
@@ -157,6 +160,9 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                     otherPlayerPseudo.setText("");
                     start.setEnabled(false);
                 });
+                if (isVocalActivate){
+                    textToSpeech("L'autre joueur vient de quitter le groupe");
+                }
             }
         });
 

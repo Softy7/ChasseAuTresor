@@ -5,6 +5,11 @@ import android.graphics.*;
 import android.util.AttributeSet;
 import java.util.ArrayList;
 import java.util.List;
+
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import com.github.chrisbanes.photoview.OnScaleChangedListener;
 import com.github.chrisbanes.photoview.PhotoView;
 
 /**
@@ -12,10 +17,6 @@ import com.github.chrisbanes.photoview.PhotoView;
  */
 public class MapWithPointsView extends PhotoView {
 
-    //private Paint paintRed; // pour le point où aller
-    //private Paint paintBlue; // pour le joueur 1
-    //private Paint paintGreen; // pour le joueur 2
-    //private Paint paintDark; // autres points
     private final Paint[] paints = new Paint[3];
     private final Point[] pointsTab = new Point[3];
     private static final int[] COLORS = new int[]{
@@ -31,11 +32,13 @@ public class MapWithPointsView extends PhotoView {
     public MapWithPointsView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
+        disableZoom();
     }
 
     public MapWithPointsView(Context context) {
         super(context);
         init(context);
+        disableZoom();
     }
 
     /**
@@ -119,9 +122,9 @@ public class MapWithPointsView extends PhotoView {
 
             // Ajout des points sur une image
             float[] mappedPoint = new float[2];
-            displayMatrix.mapPoints(mappedPoint, new float[]{originalX, originalY});
+            displayMatrix.mapPoints(mappedPoint, new float[]{pointsTab[i].x * scaleX, pointsTab[i].y * scaleY});
             // Dessine un cercle sur l'image de dimension 10 en position x, y
-            canvas.drawCircle(mappedPoint[0], mappedPoint[1], 10, paints[i]);
+            canvas.drawCircle(mappedPoint[0], mappedPoint[1], 15, paints[i]);
         }
 
     }
@@ -152,5 +155,28 @@ public class MapWithPointsView extends PhotoView {
             return y;
         }
     }
+
+    @Override
+    public boolean onTouchEvent(@NonNull MotionEvent event) {
+        if (event.getPointerCount() > 1) {
+            return false;
+        }
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            performClick();
+            return true;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
+    }
+
+    private void disableZoom() {
+        setZoomable(false);
+    }
+
+
 
 }
