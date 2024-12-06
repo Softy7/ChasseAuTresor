@@ -848,12 +848,12 @@
   },
   {
     "idTheme": 2,
-    "enigma": "Quel est le pire prof de l'IUT ?",
+    "enigma": "Quand est ce que le barbecue est généralement organisé ?",
     "options": {
-      "A": "Julien Vion",
-      "B": "Léa Rutali",
-      "C": "Sophie Lepreux",
-      "D": "Aucun des trois"
+      "A": "Tous les mois",
+      "B": "Vers le mois d'Août",
+      "C": "Vers le mois d'avril pendant les stages",
+      "D": "En fin d'année"
     },
     "answer": "D"
   },
@@ -892,7 +892,7 @@
   },
   {
     "idTheme": 2,
-    "enigma": "Quel est le module le plus compliqué de la formation ?",
+    "enigma": "Quel est le module le plus compliqué parmi les quatres ?",
     "options": {
       "A": "Programmation Système",
       "B": "Programmation en C++",
