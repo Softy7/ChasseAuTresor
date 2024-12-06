@@ -140,9 +140,9 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                                 game.setUserIdPlayer(idUser);
                                 game.setPseudoPlayer2(pseudo);
                             });
-                        }
-                        if (isVocalActivate){
-                            textToSpeech(pseudo + " vient de rejoindre le groupe");
+                            if (isVocalActivate){
+                                textToSpeech(pseudo + " vient de rejoindre le groupe");
+                            }
                         }
                     }
                     runOnUiThread(() -> start.setEnabled(true));
