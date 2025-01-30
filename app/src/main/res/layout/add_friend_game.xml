@@ -36,12 +36,12 @@
             android:id="@+id/code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="105dp"
+            android:fontFamily="@font/madimi_one_regular"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="25sp"
-            android:fontFamily="@font/madimi_one_regular"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginEnd="50dp"/>
+            android:textSize="25sp" />
     </FrameLayout>
 
     <TextView
@@ -60,6 +60,7 @@
         app:layout_constraintVertical_bias="0.375"/>
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="350dp"
         android:layout_height="75dp"
         android:background="@drawable/background_gray75"
@@ -68,15 +69,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.475">
+
         <TextView
             android:id="@+id/other_player_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/madimi_one_regular"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="30sp"
-            android:fontFamily="@font/madimi_one_regular"
-            android:layout_gravity="center"/>
+            android:textSize="30sp" />
     </FrameLayout>
 
     <FrameLayout
@@ -120,4 +122,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.033"
         app:srcCompat="@drawable/btnback" />
+
+    <ImageView
+        android:id="@+id/QRCODE"
+        android:layout_width="241dp"
+        android:layout_height="238dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.799"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_light_normal_background" />
 </androidx.constraintlayout.widget.ConstraintLayout>

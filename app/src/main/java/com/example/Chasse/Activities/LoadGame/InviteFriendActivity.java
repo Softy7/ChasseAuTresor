@@ -1,12 +1,16 @@
 package com.example.Chasse.Activities.LoadGame;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
-
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Chasse.Activities.Game.CouleursActivity;
@@ -38,6 +42,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
     private static final String IS_THE_MAIN_USER = "isTheMainUser";
     private static final String GAME_ID = "gameId";
     private boolean gameStarting = false;
+    private ImageView QRCODE;
 
     @Override
     protected void onCreate(Bundle savedInstance) {
@@ -57,6 +62,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
 
         this.code = findViewById(R.id.code);
 
+        this.QRCODE = findViewById(R.id.QRCODE);
 
         this.theme = findViewById(R.id.theme);
         this.theme.setText(this.getTheTheme());
@@ -78,6 +84,13 @@ public class InviteFriendActivity extends GlobalTresorActivity {
 
         if (!isJoiningRoom) {
             this.game.setCode();
+            String textToEncode = String.valueOf(this.game.getCode());
+            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+            try {
+                Bitmap bitmap= barcodeEncoder.encodeBitmap(textToEncode, BarcodeFormat.QR_CODE, 500, 500);
+                this.QRCODE.setImageBitmap(bitmap);
+            } catch (WriterException ignored) {}
+
             CharSequence join = "Code: "+this.game.getCode();
             this.code.setText(join);
             start.setEnabled(false);

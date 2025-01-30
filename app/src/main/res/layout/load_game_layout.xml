@@ -70,5 +70,20 @@
         app:layout_constraintVertical_bias="0.001"
         app:srcCompat="@drawable/btnback" />
 
-    <!--Scanner de QR code-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="332dp"
+            android:layout_height="318dp"
+            android:background="#000000" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
