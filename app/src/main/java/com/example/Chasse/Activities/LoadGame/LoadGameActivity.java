@@ -12,7 +12,6 @@ import android.widget.ImageButton;
 
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraSelector;
@@ -50,7 +49,6 @@ public class LoadGameActivity extends AppCompatActivity {
     private MainSystem mainSystem = new MainSystem();
     protected ImageButton back, ok;
     private EditText code;
-    private Socket socket;
     private ProcessCameraProvider cameraProvider;
     private PreviewView previewView;
     private ExecutorService cameraExecutor;
