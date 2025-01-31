@@ -81,4 +81,5 @@ Postgres SQL\n
     <string name="retourner_au_menu_principal">Retourner au menu principal</string>
     <string name="bouton_retourner_au_menu_principal">Bouton pour retourner au menu principal</string>
     <string name="score">Score</string>
+    <string name="autre_joueur">Autre joueur</string>
 </resources>
