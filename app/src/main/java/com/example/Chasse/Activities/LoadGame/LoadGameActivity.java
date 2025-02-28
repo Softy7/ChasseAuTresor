@@ -173,6 +173,7 @@ public class LoadGameActivity extends AppCompatActivity {
                             ToneGenerator toneGen = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
                             toneGen.startTone(ToneGenerator.TONE_PROP_BEEP, 150); // 150ms de bip
                             runOnUiThread(() -> code.setText(qrCodeText));
+                            Toast.makeText(LoadGameActivity.this, "Code saisi.", Toast.LENGTH_LONG).show();
                             imageProxy.close();
                             return;
                         }
