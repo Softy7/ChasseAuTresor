@@ -1,17 +1,23 @@
 package com.example.Chasse.Activities.LoadGame;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.Chasse.Activities.Game.Chat.ChatService;
+import com.example.Chasse.Activities.Game.CouleursActivity;
+import com.example.Chasse.Activities.Game.EnigmaActivity;
 import com.example.Chasse.Activities.Game.GameActivity;
 import com.example.Chasse.Activities.GlobalTresorActivity;
+import com.example.Chasse.Activities.Game.PuzzleActivity;
 import com.example.Chasse.Model.Game;
 import com.example.Chasse.Model.SocketManager;
 import com.example.Chasse.Model.System.MainSystem;
@@ -25,8 +31,8 @@ import org.json.JSONObject;
 public class InviteFriendActivity extends GlobalTresorActivity {
 
     private MainSystem mainSystem = new MainSystem();
-    public Game game;
-    protected TextView code, themeText;
+    public Game game = Game.getInstance();
+    protected TextView code, theme;
     protected ImageButton back, start, search;
     protected int idTheme;
     private Socket socket;
@@ -36,21 +42,13 @@ public class InviteFriendActivity extends GlobalTresorActivity {
     private static final String IS_THE_MAIN_USER = "isTheMainUser";
     private static final String GAME_ID = "gameId";
     private boolean gameStarting = false;
-    private static final String IS_THE_FIRST_GAME = "isTheFirstGame";
-
-
+    private ImageView QRCODE;
 
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        Game.resetInstance();
-        game = Game.getInstance();
         setContentView(R.layout.add_friend_game);
         this.idTheme = getIntent().getIntExtra("idTheme", 0);
-
-        Intent gameService = new Intent(InviteFriendActivity.this, ChatService.class);
-        stopService(gameService);
-
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_FULLSCREEN |
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
@@ -59,14 +57,15 @@ public class InviteFriendActivity extends GlobalTresorActivity {
         Intent intent = getIntent();
         isJoiningRoom = intent.getBooleanExtra(LoadGameActivity.IS_JOINING_ROOM, false);
 
-        this.game.setIdTheme(idTheme);
+
         this.game.addUser(mainSystem.readUser(this));
 
         this.code = findViewById(R.id.code);
 
+        this.QRCODE = findViewById(R.id.QRCODE);
 
-        this.themeText = findViewById(R.id.theme);
-        this.themeText.setText(this.getTheTheme());
+        this.theme = findViewById(R.id.theme);
+        this.theme.setText(this.getTheTheme());
 
         this.otherPlayerPseudo = findViewById(R.id.other_player_name);
 
@@ -85,6 +84,13 @@ public class InviteFriendActivity extends GlobalTresorActivity {
 
         if (!isJoiningRoom) {
             this.game.setCode();
+            String textToEncode = String.valueOf(this.game.getCode());
+            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+            try {
+                Bitmap bitmap= barcodeEncoder.encodeBitmap(textToEncode, BarcodeFormat.QR_CODE, 500, 500);
+                this.QRCODE.setImageBitmap(bitmap);
+            } catch (WriterException ignored) {}
+
             CharSequence join = "Code: "+this.game.getCode();
             this.code.setText(join);
             start.setEnabled(false);
@@ -121,35 +127,29 @@ public class InviteFriendActivity extends GlobalTresorActivity {
         socket.on("group update", new Emitter.Listener() {
             @Override
             public void call(Object... objects) {
-                String json = objects[0].toString();
-                final int theme = (int) objects[1];
-                game.setIdTheme(theme);
-                Log.d("Theme", String.valueOf(theme));
-                runOnUiThread(() -> themeText.setText(getTheTheme(theme)));
-                try {
-                    JSONArray jsonArray = new JSONArray(json);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        long idUser = jsonObject.getLong("id_user");
-                        String pseudo = jsonObject.getString("pseudo");
-                        System.out.println("User ID: " + idUser + ", Pseudo: " + pseudo + " , Id_theme: " + game.getIdTheme());
-                        if (idUser != mainSystem.readUser(InviteFriendActivity.this).getId()){
-                            // Met à jour sur le thread principal
-                            runOnUiThread(() -> {
-                                otherPlayerPseudo.setText(pseudo);
-                                game.setUserIdPlayer(idUser);
-                                game.setPseudoPlayer2(pseudo);
-                            });
+                if (objects.length > 0){
+                    String json = objects[0].toString();
+                    try {
+                        JSONArray jsonArray = new JSONArray(json);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            long idUser = jsonObject.getLong("id_user");
+                            String pseudo = jsonObject.getString("pseudo");
+                            System.out.println("User ID: " + idUser + ", Pseudo: " + pseudo);
+                            if (idUser != mainSystem.readUser(InviteFriendActivity.this).getId()){
+                                // Met à jour sur le thread principal
+                                runOnUiThread(() -> {
+                                    otherPlayerPseudo.setText(pseudo);
+                                    game.setUserIdPlayer(idUser);
+                                    game.setPseudoPlayer2(pseudo);
+                                });
+                            }
                         }
-                        if (isVocalActivate){
-                            textToSpeech(pseudo + " vient de rejoindre le groupe");
-                        }
+                        runOnUiThread(() -> start.setEnabled(true));
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
                     }
-                    runOnUiThread(() -> start.setEnabled(true));
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
                 }
-
             }
         });
 
@@ -160,9 +160,6 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                     otherPlayerPseudo.setText("");
                     start.setEnabled(false);
                 });
-                if (isVocalActivate){
-                    textToSpeech("L'autre joueur vient de quitter le groupe");
-                }
             }
         });
 
@@ -185,18 +182,12 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                         int userId = (int) objects[0];
                         loadGame = true;
 
-                        Intent gameService = new Intent(InviteFriendActivity.this, ChatService.class);
-                        stopService(gameService);
-                        startService(gameService);
-                        game.setGameService(gameService);
-
                         Intent intent = new Intent(InviteFriendActivity.this, GameActivity.class);
                         //Intent intent = new Intent(InviteFriendActivity.this, EnigmaActivity.class);
                         //Intent intent = new Intent(InviteFriendActivity.this, PuzzleActivity.class);
                         game.setUserId(mainSystem.readUser(InviteFriendActivity.this).getId());
                         intent.putExtra(IS_THE_MAIN_USER, userId == game.getUserId());
                         intent.putExtra("idTheme", idTheme);
-                        intent.putExtra(IS_THE_FIRST_GAME, true);
                         startActivity(intent);
                         finish();
                     });
@@ -216,7 +207,7 @@ public class InviteFriendActivity extends GlobalTresorActivity {
                 mainSystem.readUser(this).getId(),
                 mainSystem.readUser(this).getPseudo(),
                 this.game.getCode(),
-                this.game.getIdTheme()
+                getTheTheme()
         );
     }
 
@@ -228,23 +219,15 @@ public class InviteFriendActivity extends GlobalTresorActivity {
         );
     }
 
-    private String getThemeName(int numero){
-        return switch (numero) {
+    private String getTheTheme() {
+        return switch (this.idTheme) {
+            default -> "Les Pirates";
             case 1 -> "Les Alcools";
             case 2 -> "L'IUT";
             case 3 -> "La Nature";
             case 4 -> "Les voitures";
             case 5 -> "L'informatique";
-            default -> "Les Pirates";
         };
-    }
-
-    private String getTheTheme() {
-        return getThemeName(idTheme);
-    }
-
-    private String getTheTheme(int themeId) {
-        return getThemeName(themeId);
     }
 
     @Override
