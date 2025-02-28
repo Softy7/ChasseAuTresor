@@ -2,7 +2,7 @@
 
 ###
 
-<p align="left">Cette application permet de faire un jeu de chasse au Trésor. Le but du jeu est qu'il soit collaboratif avec 2 joueurs où ils doivent aller sur des points placés aléatoirement sur une carte. Soit les 2 joueurs doivent aller en même temps sur ce point, soit ils doivent être séparés. Lorsque les joueurs arrivent sur un point un mini-jeu est lancé. Les joueurs peuvent communiquer à tout moment avec un chat. Au total, il y a 3 mini-jeux et à la fin, il y a un décompte du nombre de victoires.</p>
+<p align="left">Cette application permet de faire un jeu de chasse au Trésor. Le but du jeu est qu'il soit collaboratif entre 2 joueurs. Ils doivent aller sur des points placés aléatoirement sur une carte. Soit les 2 joueurs doivent aller en même temps sur ce point, soit ils doivent être séparés. Lorsque les joueurs arrivent sur un point un mini-jeu est lancé. Les joueurs peuvent communiquer à tout moment avec un chat. Au total, il y a 3 mini-jeux et à la fin, il y a un décompte du nombre de victoires.</p>
 
 ###
 
