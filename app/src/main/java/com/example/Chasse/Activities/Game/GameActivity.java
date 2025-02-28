@@ -137,7 +137,7 @@ public class GameActivity extends Games {
         points.add(new Point(829, 133, 0, "Au bureau des étudiants, ou à proximité si fermé"));
         points.add(new Point(307, 174, 1, "Au bout du couloir, à côté de la salle S1.10"));
         points.add(new Point(595, 166, 1, "A la salle de pause au 1er étage"));
-        points.add(new Point(690, 81, 1, "A la salle S1.05, ou à proximité si fermé ou occupé"));
+        //points.add(new Point(690, 81, 1, "A la salle S1.05, ou à proximité si fermé ou occupé"));
         points.add(new Point(918, 78, 1, "Au fond du couloir, à proximité de la salle S1.09"));
         points.add(new Point(702, 359, 1,"Au dessus de la porte d'entrée principale, à côté de la salle S1.15"));
         points.add(new Point(576, 281, 2, "A côté de l'amphithéatre"));
@@ -145,8 +145,28 @@ public class GameActivity extends Games {
 
         if (numberOfPlayersNeedNearToPoint == 1){
             textState.setText("Il faut qu'il n'y ait qu'un seul joueur proche du point");
+            Thread t1 = new Thread(() -> {
+               try{
+                   Thread.sleep(1500);
+               } catch (InterruptedException ignored) {
+
+               }
+               if (isVocalActivate)
+                   textToSpeech("Il faut qu'il n'y ait qu'un seul joueur proche du point");
+            });
+            t1.start();
         } else {
             textState.setText("Il faut qu'il y ait 2 joueurs proches du point");
+            Thread t1 = new Thread(() -> {
+                try{
+                    Thread.sleep(1500);
+                } catch (InterruptedException ignored) {
+
+                }
+                if (isVocalActivate)
+                    textToSpeech("Il faut qu'il y ait 2 joueurs proches du point");
+            });
+            t1.start();
         }
 
         Log.d("tableau", Arrays.toString(miniGamesOrder));
@@ -233,6 +253,7 @@ public class GameActivity extends Games {
                     socket.emit("point position to go", pointWhereToGo.getX(), pointWhereToGo.getY());
                 }
             });
+            speakLocation();
         }
         socket.on("point position to go", new Emitter.Listener() {
             @Override
@@ -242,6 +263,7 @@ public class GameActivity extends Games {
                 Log.d("Positions", posX + " " + posY);
                 pointWhereToGo = new Point(posX, posY);
                 runOnUiThread(() -> mapView.modifyPointPosition(pointWhereToGo.getX(), pointWhereToGo.getY(), 1));
+                //speakLocation();
             }
         });
 
@@ -420,7 +442,7 @@ public class GameActivity extends Games {
         Log.d("distance", String.valueOf(Math.sqrt(Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
                 Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2))));
         return Math.sqrt(Math.pow(pointWhereToGo.getX() - pointToPlayer.getX(), 2) +
-                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2)) <= 125;
+                Math.pow(pointWhereToGo.getY() - pointToPlayer.getY(), 2)) <= 108;
     }
 
     /**
@@ -490,6 +512,18 @@ public class GameActivity extends Games {
         socket.off("send point");
         socket.off("point position to go");
         stopThread();
+    }
+
+    private void speakLocation(){
+        Thread t2 = new Thread(() -> {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException ignored) {}
+            Log.d("vocal", "llllllllllllllllllllllllll");
+            if (isVocalActivate)
+                textToSpeech("Vous devez aller à : " + pointWhereToGo.getDescription());
+        });
+        t2.start();
     }
 
 
