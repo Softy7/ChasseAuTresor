@@ -10,7 +10,8 @@
 
 ###
 
-<p align="left">🚧 Tout d'abord, il vous faut JAVA et Android Studio.<br><br>📄 Ensuite, pour l'installation de l'application, il vous faut ouvrir sur Android Studio le code trouvé et téléchargé sur ce GitHub.<br><br>🔔 Enfin, vous pouvez lancer l'application via la petite flèche de lancement qui sera en haut à droite du logiciel.</p>
+<p align="left">🚧 Tout d'abord, il vous faut JAVA et Android Studio.<br><br>📄 Ensuite, pour l'installation de l'application, il vous faut ouvrir sur Android Studio le code trouvé et téléchargé sur ce GitHub.<br><br>🔔 Enfin, vous pouvez lancer l'application via la petite flèche de lancement qui sera en haut à droite du logiciel.
+<br><br>Il ne faut pas de serveur car tout est déjà déployer et actif</p>
 
 ###
 
